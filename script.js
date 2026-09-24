@@ -1,19 +1,29 @@
 /* ================================================================
-   PRAGUE — JAVASCRIPT
+   PRAGUE — JAVASCRIPT (V3)
    Organisation rapide :
    1. Menu mobile
    2. Thème clair/sombre
    3. Taille du texte
-   4. Langues
+   4. Langues (FR / EN uniquement)
    5. Timeline / navigation
-   6. Carte Leaflet + itinéraire
-   7. Galeries plein écran + clavier/tactile
+   6. Carte Leaflet + itinéraire (7 étapes)
+   7. Galeries plein écran + clavier/tactile (une galerie par étape)
+   8. FAQ rétractable
    ================================================================ */
-/* Prague — même comportement général que Mexico : menu, thème, taille du texte,
-   carte interactive et visionneuse photo. */
 
 (() => {
   const body = document.body;
+
+  // ===== EN-TÊTE FIXE : calcule sa hauteur réelle pour éviter tout chevauchement =====
+  const headerEl = document.querySelector('.header');
+  function syncHeaderHeight() {
+    if (headerEl) {
+      document.documentElement.style.setProperty('--header-h', headerEl.offsetHeight + 'px');
+    }
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+  window.addEventListener('load', syncHeaderHeight);
 
   // ===== MENU MOBILE =====
   const burger = document.getElementById('burger');
@@ -32,8 +42,8 @@
   });
 
   // ===== THÈME =====
-  // 2. THÈME : mémorise le mode clair/sombre dans localStorage
-const themeToggle = document.getElementById('theme-toggle');
+  // Mémorise le mode clair/sombre dans localStorage
+  const themeToggle = document.getElementById('theme-toggle');
   const themeIcon = document.querySelector('.theme-icon');
   const savedTheme = localStorage.getItem('prague-theme') || 'dark';
   body.classList.toggle('theme-light', savedTheme === 'light');
@@ -61,7 +71,7 @@ const themeToggle = document.getElementById('theme-toggle');
   document.getElementById('font-minus')?.addEventListener('click', () => { fontSize--; applyFont(); });
   document.getElementById('font-plus')?.addEventListener('click', () => { fontSize++; applyFont(); });
 
-  // ===== LANGUES : interface prête pour extension =====
+  // ===== LANGUES (FR / EN) : interface prête pour extension =====
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
@@ -77,9 +87,9 @@ const themeToggle = document.getElementById('theme-toggle');
     });
   });
 
-  // ===== CARTE INTERACTIVE V2 =====
+  // ===== CARTE INTERACTIVE — 7 ÉTAPES =====
   const map = L.map('map', {
-    center: [50.087, 14.420],
+    center: [50.0885, 14.4160],
     zoom: 14,
     scrollWheelZoom: true,
     zoomControl: true
@@ -90,12 +100,13 @@ const themeToggle = document.getElementById('theme-toggle');
   }).addTo(map);
 
   const places = [
-    { lat:50.0875, lng:14.4280, title:'01 · Vieille Ville', anchor:'#vieille-ville' },
-    { lat:50.0870, lng:14.4208, title:'02 · Horloge astronomique', anchor:'#horloge' },
+    { lat:50.0865, lng:14.4278, title:'01 · Vieille Ville', anchor:'#vieille-ville' },
+    { lat:50.0870, lng:14.4207, title:'02 · Horloge astronomique', anchor:'#horloge' },
     { lat:50.0865, lng:14.4114, title:'03 · Pont Charles', anchor:'#pont' },
-    { lat:50.0900, lng:14.4185, title:'04 · Golem / Josefov', anchor:'#golem' },
-    { lat:50.0910, lng:14.4005, title:'05 · Château de Prague', anchor:'#chateau' },
-    { lat:50.0902, lng:14.4170, title:'06 · Cimetière juif', anchor:'#cimetiere' }
+    { lat:50.0904, lng:14.4174, title:'04 · Golem / Josefov', anchor:'#golem' },
+    { lat:50.0909, lng:14.4006, title:'05 · Château de Prague', anchor:'#chateau' },
+    { lat:50.0902, lng:14.4170, title:'06 · Cimetière juif', anchor:'#cimetiere' },
+    { lat:50.0885, lng:14.4173, title:'07 · Prague en mouvement', anchor:'#mouvement' }
   ];
 
   const route = places.map(p => [p.lat,p.lng]);
@@ -140,32 +151,44 @@ const themeToggle = document.getElementById('theme-toggle');
     });
   });
 
-  // ===== GALERIES =====
+  // ===== GALERIES — UNE GALERIE PAR ÉTAPE (pas de galerie par sous-étape) =====
   const galleries = {
     'vieille-ville': [
-      'prague-images/frame_01.jpg',
-      'prague-images/frame_02.jpg',
-      'prague-images/frame_03.jpg',
-      'prague-images/frame_05.jpg',
-      'prague-images/frame_14.jpg',
-      'prague-images/frame_06.jpg'
+      'prague-images/vieille-ville-01-maison-municipale.jpg',
+      'prague-images/vieille-ville-02-tour-poudriere.jpg',
+      'prague-images/vieille-ville-03-rue-celetna.jpg',
+      'prague-images/vieille-ville-04-facades.jpg',
+      'prague-images/vieille-ville-05-place-jan-hus.jpg',
+      'prague-images/vieille-ville-06-maison-sgraffites.jpg'
     ],
     'horloge': [
-      'prague-images/frame_04.jpg',
-      'prague-images/frame_03.jpg',
-      'prague-images/frame_05.jpg'
+      'prague-images/horloge-04-cadran-orloj.jpg',
+      'prague-images/horloge-01-tour-hotel-ville.jpg',
+      'prague-images/horloge-02-devant-horloge.jpg',
+      'prague-images/horloge-03-tour-rapprochee.jpg'
     ],
     'pont': [
-      'prague-images/frame_07.jpg',
-      'prague-images/frame_08.jpg',
-      'prague-images/frame_09.jpg'
+      'prague-images/pont-03-calvaire-crucifix.jpg',
+      'prague-images/pont-01-tour-vieille-ville.jpg',
+      'prague-images/pont-02-statue-charles-iv.jpg',
+      'prague-images/pont-04-vue-vltava.jpg',
+      'prague-images/pont-05-musiciens.jpg'
     ],
-    'golem': ['prague-images/golem.jpg'],
+    'golem': [
+      'prague-images/golem-02-statue-golem.jpg',
+      'prague-images/golem-04-figurine.jpg',
+      'prague-images/golem-01-synagogue-vieille-nouvelle.jpg',
+      'prague-images/golem-03-rue-josefov.jpg'
+    ],
     'chateau': [
-      'prague-images/frame_10.jpg',
-      'prague-images/frame_11.jpg',
-      'prague-images/frame_12.jpg',
-      'prague-images/frame_13.jpg'
+      'prague-images/chateau-02-cathedrale-facade.jpg',
+      'prague-images/chateau-01-porte-matthias.jpg',
+      'prague-images/chateau-03-cathedrale-interieur.jpg',
+      'prague-images/chateau-04-vitrail.jpg',
+      'prague-images/chateau-05-vue-panoramique.jpg'
+    ],
+    'mouvement': [
+      'prague-images/mouvement-01-metro-staromestska.jpg'
     ]
   };
 
@@ -244,4 +267,19 @@ const themeToggle = document.getElementById('theme-toggle');
     index = dx < 0 ? (index + 1) % current.length : (index - 1 + current.length) % current.length;
     render();
   }, {passive:true});
+
+  // ===== FAQ RÉTRACTABLE =====
+  const faqToggle = document.getElementById('faq-toggle');
+  const faqGrid = document.getElementById('faq-grid');
+
+  faqToggle?.addEventListener('click', () => {
+    const isOpen = faqToggle.getAttribute('aria-expanded') === 'true';
+    faqToggle.setAttribute('aria-expanded', String(!isOpen));
+    if (isOpen) {
+      faqGrid.setAttribute('hidden', '');
+    } else {
+      faqGrid.removeAttribute('hidden');
+    }
+    faqToggle.classList.toggle('open', !isOpen);
+  });
 })();

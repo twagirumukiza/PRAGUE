@@ -1,5 +1,5 @@
 /* ================================================================
-   PRAGUE — STYLES CSS
+   PRAGUE — STYLES CSS (V3)
    Organisation rapide :
    1. Variables / base
    2. Hero
@@ -7,20 +7,27 @@
    4. Galeries / photos
    5. Animations
    6. Responsive mobile
+   7. En-tête fixe (nouveau)
+   8. FAQ rétractable (nouveau)
+   9. Prague en mouvement (nouveau)
    ================================================================ */
 /* Prague : surcharge minimale pour conserver la charte EXACTE de Mexico.
    La base graphique est la feuille styles.css du site Mexico. */
 
+:root {
+  --header-h: 78px; /* valeur par défaut, recalculée en JS selon la hauteur réelle */
+}
+
 .prague-hero {
   background:
     linear-gradient(rgba(13,13,13,.72), rgba(13,13,13,.88)),
-    url("prague-images/frame_01.jpg") center/cover no-repeat !important;
+    url("prague-images/horloge-03-tour-rapprochee.jpg") center/cover no-repeat !important;
 }
 
 body.theme-light .prague-hero {
   background:
     linear-gradient(rgba(245,245,240,.68), rgba(224,217,184,.86)),
-    url("prague-images/frame_01.jpg") center/cover no-repeat !important;
+    url("prague-images/horloge-03-tour-rapprochee.jpg") center/cover no-repeat !important;
 }
 
 .prague-map-wrapper {
@@ -77,6 +84,12 @@ body.theme-light .prague-hero {
   font-size: .78rem;
   font-style: italic;
   margin-bottom: 1.2rem !important;
+  line-height: 1.5;
+}
+
+.image-caption strong,
+.image-caption br + * {
+  font-style: normal;
 }
 
 .golem-image {
@@ -117,7 +130,7 @@ body.theme-light .prague-hero {
 
 .faq-grid {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 1.6rem auto 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0,1fr));
   gap: 1rem;
@@ -173,7 +186,7 @@ body.theme-light .prague-hero {
   50% { box-shadow:0 0 0 8px rgba(247,201,72,.12); }
 }
 
-/* ===== V2 — couche cartographique éditoriale façon Mexico ===== */
+/* ===== Couche cartographique éditoriale façon Mexico ===== */
 .map-meta {
   display:flex;
   gap:1.5rem;
@@ -292,4 +305,87 @@ body.theme-light .prague-hero {
 /* Légendes vérifiées visuellement — signalement explicite lorsque la localisation ne peut pas être établie */
 .image-caption-uncertain {
   opacity: .72;
+}
+
+/* ================================================================
+   7. EN-TÊTE FIXE
+   Le header (et son menu mobile) reste visible en permanence au
+   défilement, même sur mobile. --header-h est recalculée en JS
+   pour correspondre à la hauteur réelle du header (police, etc.),
+   avec une valeur de repli définie plus haut dans :root.
+   ================================================================ */
+.header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Compense la hauteur du header devenu fixe, pour que le contenu
+   ne soit pas masqué sous la barre de navigation. */
+body {
+  padding-top: var(--header-h);
+}
+
+/* Le menu mobile se positionne juste sous le header fixe */
+.mobile-menu {
+  top: var(--header-h) !important;
+}
+
+/* Décale les ancrages (liens de menu, timeline, carte) pour que les
+   titres de section n'arrivent pas cachés sous le header fixe */
+#home, #map, #itinerary, #stories, #faq, #about,
+#vieille-ville, #horloge, #pont, #golem, #chateau, #cimetiere, #mouvement {
+  scroll-margin-top: var(--header-h);
+}
+
+/* ================================================================
+   8. FAQ RÉTRACTABLE
+   Un bouton unique replie/déplie l'ensemble de la grille de FAQ.
+   Chaque question garde par ailleurs son propre <details> individuel.
+   ================================================================ */
+.faq-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.faq-toggle-title {
+  margin: 0;
+}
+.faq-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(247,201,72,.4);
+  color: var(--yellow);
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform .25s ease;
+  flex-shrink: 0;
+}
+.faq-toggle.open .faq-toggle-icon {
+  transform: rotate(45deg);
+}
+.faq-toggle:hover .faq-toggle-icon {
+  background: rgba(247,201,72,.1);
+}
+
+/* ================================================================
+   9. PRAGUE EN MOUVEMENT (étape 07)
+   Réutilise le style story-card ; pas de règle spécifique requise
+   au-delà de l'image standard .story-image.
+   ================================================================ */
+#mouvement .story-image {
+  max-height: 700px;
 }
