@@ -1,6 +1,11 @@
 <!DOCTYPE html>
+<!-- ================================================================
+     PRAGUE — UN WEEK-END À PRAGUE
+     Structure HTML : navigation, hero, récits, carte, galeries, FAQ.
+     Les commentaires signalent rapidement le rôle de chaque bloc.
+     ================================================================ -->
 <html lang="fr">
-<head>
+<!-- HEAD : métadonnées, polices, Leaflet et feuille de styles -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Un week-end à Prague — carnet photo, carte interactive et itinéraire de twagirumukiza.">
@@ -23,7 +28,7 @@
 
 <body class="theme-dark">
 
-<header class="header">
+<!-- HEADER : barre de navigation + menu mobile --> class="header">
   <div class="header-inner">
     <a href="#home" class="logo">
       <span class="logo-icon">◆</span>
@@ -175,7 +180,8 @@
   <div class="container">
     <h2 class="section-title">Récits du voyage</h2>
 
-    <article id="vieille-ville" class="story-card">
+    <article <!-- SECTION 1 : VIEILLE VILLE — photos et récit -->
+    id="vieille-ville" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 01</span>
         <h3>Les rues de la Vieille Ville</h3>
@@ -183,7 +189,8 @@
       <div class="story-body">
         <p>Dès les premiers pas, Prague vous avale. Pavés irréguliers, façades pastel, enseignes en fer forgé… On se croirait dans un décor de film.</p>
 
-        <img class="story-image" src="prague-images/frame_01.jpg" alt="Maison municipale Obecní dům à Prague" loading="lazy">
+        <img class="story-image" src="<!-- MAPPING PHOTOS : chaque src ci-dessous doit correspondre à la légende affichée. -->
+            prague-images/frame_01.jpg" alt="Maison municipale Obecní dům à Prague" loading="lazy">
         <p class="image-caption">Maison municipale (Obecní dům) — Náměstí Republiky</p>
 
         <img class="story-image" src="prague-images/frame_02.jpg" alt="Rue Karlova dans la Vieille Ville de Prague" loading="lazy">
@@ -211,7 +218,8 @@
         </div>
       </div>
     </article>
-    <article id="horloge" class="story-card">
+    <article <!-- SECTION 2 : HORLOGE ASTRONOMIQUE -->
+    id="horloge" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 02</span>
         <h3>L’Horloge astronomique & la Place</h3>
@@ -267,7 +275,8 @@
         </div>
       </div>
     </article>
-    <article id="golem" class="story-card">
+    <article <!-- SECTION 4 : GOLEM / JOSEFOV -->
+    id="golem" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 04</span>
         <h3>Le Golem de Prague</h3>
@@ -287,7 +296,8 @@
       </div>
     </article>
 
-    <article id="chateau" class="story-card">
+    <article <!-- SECTION 5 : CHÂTEAU DE PRAGUE -->
+    id="chateau" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 05</span>
         <h3>Le Château & la montée vers Hradčany</h3>
@@ -317,7 +327,8 @@
         </div>
       </div>
     </article>
-    <article id="cimetiere" class="story-card">
+    <article <!-- SECTION 6 : CIMETIÈRE JUIF — aucune photo locale ajoutée sans preuve -->
+    id="cimetiere" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 06</span>
         <h3>Le cimetière juif — Josefov</h3>
@@ -330,7 +341,8 @@
   </div>
 </section>
 
-<section id="faq" class="faq-prague">
+<section <!-- FAQ : réponses courtes aux questions pratiques -->
+    id="faq" class="faq-prague">
   <div class="container">
     <h2 class="section-title">FAQ — Voyager à Prague</h2>
     <div class="faq-grid">
@@ -356,6 +368,7 @@
   </div>
 </section>
 
+<!-- FOOTER : crédits et liens finaux -->
 <footer class="footer">
   <div class="container">
     <p><strong>by twagirumukiza</strong> · FR · EN · CS</p>

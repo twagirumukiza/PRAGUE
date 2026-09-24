@@ -1,3 +1,14 @@
+/* ================================================================
+   PRAGUE — JAVASCRIPT
+   Organisation rapide :
+   1. Menu mobile
+   2. Thème clair/sombre
+   3. Taille du texte
+   4. Langues
+   5. Timeline / navigation
+   6. Carte Leaflet + itinéraire
+   7. Galeries plein écran + clavier/tactile
+   ================================================================ */
 /* Prague — même comportement général que Mexico : menu, thème, taille du texte,
    carte interactive et visionneuse photo. */
 
@@ -21,7 +32,8 @@
   });
 
   // ===== THÈME =====
-  const themeToggle = document.getElementById('theme-toggle');
+  // 2. THÈME : mémorise le mode clair/sombre dans localStorage
+const themeToggle = document.getElementById('theme-toggle');
   const themeIcon = document.querySelector('.theme-icon');
   const savedTheme = localStorage.getItem('prague-theme') || 'dark';
   body.classList.toggle('theme-light', savedTheme === 'light');
