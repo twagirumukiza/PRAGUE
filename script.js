@@ -133,24 +133,27 @@
     'vieille-ville': [
       'prague-images/frame_01.jpg',
       'prague-images/frame_02.jpg',
-      'prague-images/frame_03.jpg'
+      'prague-images/frame_03.jpg',
+      'prague-images/frame_05.jpg',
+      'prague-images/frame_14.jpg',
+      'prague-images/frame_06.jpg'
     ],
     'horloge': [
-      'prague-images/frame_02.jpg',
-      'prague-images/frame_03.jpg',
       'prague-images/frame_04.jpg',
-      'prague-images/frame_14.jpg'
+      'prague-images/frame_03.jpg',
+      'prague-images/frame_05.jpg'
     ],
     'pont': [
-      'prague-images/frame_06.jpg',
+      'prague-images/frame_07.jpg',
       'prague-images/frame_08.jpg',
-      'prague-images/frame_07.jpg'
+      'prague-images/frame_09.jpg'
     ],
     'golem': ['prague-images/golem.jpg'],
     'chateau': [
       'prague-images/frame_10.jpg',
       'prague-images/frame_11.jpg',
-      'prague-images/frame_12.jpg'
+      'prague-images/frame_12.jpg',
+      'prague-images/frame_13.jpg'
     ]
   };
 

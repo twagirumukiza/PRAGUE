@@ -278,3 +278,8 @@ body.theme-light .prague-hero {
   from { opacity:0; transform:translateY(18px); }
   to { opacity:1; transform:none; }
 }
+
+/* Légendes vérifiées visuellement — signalement explicite lorsque la localisation ne peut pas être établie */
+.image-caption-uncertain {
+  opacity: .72;
+}
