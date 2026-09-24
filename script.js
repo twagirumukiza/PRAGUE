@@ -197,9 +197,15 @@
   const img = document.getElementById('gv-img');
   const indexEl = document.getElementById('gv-index');
   const totalEl = document.getElementById('gv-total');
+  const thumbsEl = document.getElementById('gv-thumbs');
   let current = [];
   let index = 0;
   let zoom = 1;
+
+  // Chemin de la vignette correspondant à une image pleine résolution
+  function toThumb(src) {
+    return src.replace('prague-images/', 'prague-images/thumbs/');
+  }
 
   function fitImage() {
     zoom = 1;
@@ -210,12 +216,34 @@
     img.style.height = 'auto';
   }
 
+  function renderThumbs() {
+    if (!thumbsEl) return;
+    thumbsEl.innerHTML = '';
+    if (current.length < 2) { thumbsEl.hidden = true; return; }
+    thumbsEl.hidden = false;
+    current.forEach((src, i) => {
+      const b = document.createElement('button');
+      b.className = 'gv-thumb' + (i === index ? ' active' : '');
+      b.setAttribute('aria-label', `Photo ${i+1}`);
+      const t = document.createElement('img');
+      t.src = toThumb(src);
+      t.alt = '';
+      t.loading = 'lazy';
+      b.appendChild(t);
+      b.addEventListener('click', () => { index = i; render(); });
+      thumbsEl.appendChild(b);
+    });
+  }
+
   function render() {
     if (!current.length) return;
     img.src = current[index];
     indexEl.textContent = index + 1;
     totalEl.textContent = current.length;
     fitImage();
+    renderThumbs();
+    const activeThumb = thumbsEl?.querySelector('.gv-thumb.active');
+    activeThumb?.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
   }
 
   function openGallery(key) {
