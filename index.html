@@ -222,16 +222,46 @@
       padding: 0.65rem 1.5rem; border-radius: 40px; font-weight: 600;
     }
 
-    @media (min-width: 768px) {
-      .burger { display: none; }
+    @media (min-width: 900px) {
+      .burger { display: none !important; }
       .nav {
-        position: static; width: auto; height: auto;
-        background: transparent; padding: 0; box-shadow: none; display: flex; gap: 1.4rem;
+        position: static !important;
+        width: auto !important;
+        max-width: none !important;
+        height: auto !important;
+        background: transparent !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        right: auto !important;
       }
-      .nav a { border: none; padding: 0; font-size: 0.92rem; }
+      .nav a {
+        border: none !important;
+        padding: 0.2rem 0 !important;
+        font-size: 0.88rem;
+        white-space: nowrap;
+      }
       main { padding: 2.5rem 2rem 4rem; }
       header { top: 46px; }
       #map { height: 420px; }
+    }
+    /* Force burger on smaller screens */
+    @media (max-width: 899px) {
+      .burger { display: flex !important; }
+      .nav {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 78% !important;
+        max-width: 300px !important;
+        height: 100vh !important;
+        background: var(--white) !important;
+        padding: 5.5rem 1.8rem 2rem !important;
+        box-shadow: -8px 0 30px rgba(0,0,0,0.1) !important;
+      }
+      .nav.open { right: 0 !important; }
     }
   </style>
 </head>
