@@ -289,61 +289,13 @@
         <p class="image-caption">Musiciens sur le Pont Charles<br>Un petit groupe de jazz installé face à la Vltava — la bande-son improvisée de toutes les traversées.</p>
 
         
-         <!-- Polaroid Postcard (autonome) – by twagirumukiza -->
-<!-- Va chercher vos photos par leur URL/chemin et les met en scène en
-     polaroids empilés, directement dans la page (aucune image pré-générée
-     n'est nécessaire). Remplacez les CHEMIN-PHOTO-N.jpg par vos liens.
-     Cliquez sur une photo pour l'ouvrir en grand (popup) ; Échap, clic à
+       <!-- Polaroid Postcard – by twagirumukiza -->
+<!-- Responsive : occupe le plus de place possible sans jamais dépasser la résolution naturelle de l'image (évite le flou d'agrandissement). -->
+<!-- Cliquez sur la photo pour l'ouvrir en grand (popup) ; Échap, clic à
      l'extérieur ou le bouton de fermeture referment le popup et vous
      ramènent exactement où vous étiez sur la page. -->
 <style>
-  .polaroid-stack {
-    --bg: #f5f0e8;
-    box-sizing: border-box;
-    width: 100%;
-    max-width: min(92vw, 900px);
-    margin: 2rem auto;
-    padding: 2rem 1.25rem;
-    background: var(--bg);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
-  .polaroid-stack .polaroid-item {
-    position: relative;
-    flex: 0 0 auto;
-    width: 42%;
-    margin-right: -9%;
-  }
-  .polaroid-stack .polaroid-item:last-child {
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-  .polaroid-stack .polaroid-frame {
-    background: #fff;
-    padding: 6% 6% 18% 6%;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    border-radius: 2px;
-    cursor: zoom-in;
-    transform: rotate(var(--rot, 0deg));
-    transition: transform 0.2s ease;
-  }
-  .polaroid-stack .polaroid-frame:hover {
-    transform: rotate(var(--rot, 0deg)) scale(1.04);
-    z-index: 50;
-  }
-  .polaroid-stack .polaroid-frame img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 1px;
-    pointer-events: none;
-  }
-  .pp-lightbox[data-pp-lightbox="stack"] {
+  .pp-lightbox[data-pp-lightbox="single"] {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.85);
@@ -353,14 +305,14 @@
     z-index: 9999;
     padding: 2rem;
   }
-  .pp-lightbox[data-pp-lightbox="stack"].is-open { display: flex; }
-  .pp-lightbox[data-pp-lightbox="stack"] img {
+  .pp-lightbox[data-pp-lightbox="single"].is-open { display: flex; }
+  .pp-lightbox[data-pp-lightbox="single"] img {
     max-width: 92vw;
     max-height: 88vh;
     border-radius: 4px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   }
-  .pp-lightbox[data-pp-lightbox="stack"] .pp-lightbox-close {
+  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close {
     position: absolute;
     top: 1rem;
     right: 1.25rem;
@@ -374,38 +326,51 @@
     line-height: 1;
     cursor: pointer;
   }
-  .pp-lightbox[data-pp-lightbox="stack"] .pp-lightbox-close:hover { background: rgba(255, 255, 255, 0.3); }
-  body.pp-lightbox-open-stack { overflow: hidden; }
+  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close:hover { background: rgba(255, 255, 255, 0.3); }
+  body.pp-lightbox-open-single { overflow: hidden; }
 </style>
 
-<div class="polaroid-stack horizontal" data-polaroid-embed>
-    <div class="polaroid-item">
-      <div class="polaroid-frame" data-rotate="-5" style="--rot: -5deg;" data-pp-open="stack">
-        <img src="prague-images/IMG_7274.png" alt="Photo 1" loading="lazy" />
-      </div>
-    </div>
-    <div class="polaroid-item">
-      <div class="polaroid-frame" data-rotate="4" style="--rot: 4deg;" data-pp-open="stack">
-        <img src="prague-images/IMG_7275.png" alt="Photo 2" loading="lazy" />
-      </div>
-    </div>
-    <div class="polaroid-item">
-      <div class="polaroid-frame" data-rotate="-6" style="--rot: -6deg;" data-pp-open="stack">
-        <img src="prague-images/IMG_7276.png" alt="Photo 3" loading="lazy" />
-      </div>
-    </div>
-</div>
+<figure class="polaroid-postcard" style="
+  width: 100%;
+  max-width: min(92vw, 968px);
+  aspect-ratio: 2.0596;
+  margin: 2rem auto;
+  text-align: center;
+  font-family: system-ui, sans-serif;
+">
+  <img
+    src="prague-images/polaroid-postcard-1790290582764.png"
+    alt="Collage polaroid"
+    width="968"
+    height="470"
+    data-pp-open="single"
+    style="
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      cursor: zoom-in;
+    "
+  />
+  <figcaption style="
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: #666;
+  ">
+    <!-- Optionnel : légende -->
+  </figcaption>
+</figure>
 
-<div class="pp-lightbox" data-pp-lightbox="stack" aria-hidden="true">
+<div class="pp-lightbox" data-pp-lightbox="single" aria-hidden="true">
   <button type="button" class="pp-lightbox-close" aria-label="Fermer">&times;</button>
   <img src="" alt="" />
 </div>
 
 <script>
   (function () {
-    var frames = document.querySelectorAll('[data-polaroid-embed] .polaroid-frame');
-
-    var lightbox = document.querySelector('[data-pp-lightbox="stack"]');
+    var lightbox = document.querySelector('[data-pp-lightbox="single"]');
     // On rattache le popup directement à <body> : ça l'immunise contre un
     // parent avec "transform" ou "overflow:hidden" ailleurs sur la page,
     // qui casserait sinon son positionnement plein écran ("fixed").
@@ -423,13 +388,13 @@
       lightboxImg.alt = alt || "";
       lightbox.classList.add("is-open");
       lightbox.setAttribute("aria-hidden", "false");
-      document.body.classList.add("pp-lightbox-open-stack");
+      document.body.classList.add("pp-lightbox-open-single");
     }
     function closeLightbox() {
       if (!lightbox) return;
       lightbox.classList.remove("is-open");
       lightbox.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("pp-lightbox-open-stack");
+      document.body.classList.remove("pp-lightbox-open-single");
       window.scrollTo(0, savedScrollY);
     }
     if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
@@ -442,20 +407,15 @@
       if (e.key === "Escape") closeLightbox();
     });
 
-    frames.forEach(function (frame) {
-      // Légère variation aléatoire à chaque chargement, pour un effet "pile de vraies photos"
-      var base = parseFloat(frame.dataset.rotate || "0");
-      var jitter = (Math.random() - 0.5) * 4;
-      frame.style.setProperty("--rot", (base + jitter).toFixed(1) + "deg");
-
-      // Clic sur une photo : l'ouvre en grand (popup)
-      frame.addEventListener("click", function () {
-        var img = frame.querySelector("img");
-        if (img) openLightbox(img.src, img.alt);
+    var trigger = document.querySelector('[data-pp-open="single"]');
+    if (trigger) {
+      trigger.addEventListener("click", function () {
+        openLightbox(trigger.src, trigger.alt);
       });
-    });
+    }
   })();
 </script>
+
            
       <div class="story-note"><strong>Histoire des statues :</strong> Les 30 statues et groupes sculptés du pont, pour la plupart baroques, forment une véritable galerie en plein air.</div>
         <div class="story-tip">Venez au lever du soleil : le pont est presque vide, et la lumière sur les tours est incomparable.</div>
