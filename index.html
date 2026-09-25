@@ -293,6 +293,140 @@
         <img class="story-image" src="prague-images/pont-05-musiciens.jpg" alt="Musiciens de rue sur le Pont Charles" loading="lazy">
         <p class="image-caption" data-i18n="story.03.img5">Musiciens sur le Pont Charles<br>Un petit groupe de jazz installé face à la Vltava — la bande-son improvisée de toutes les traversées.</p>
 
+
+      <!-- Polaroid Postcard – by twagirumukiza -->
+<!-- Responsive : occupe le plus de place possible sans jamais dépasser la résolution naturelle de l'image (évite le flou d'agrandissement). -->
+<!-- Cliquez sur la photo pour l'ouvrir en grand (popup) ; Échap, clic à
+     l'extérieur ou le bouton de fermeture referment le popup et vous
+     ramènent exactement où vous étiez sur la page. -->
+<style>
+  .pp-lightbox[data-pp-lightbox="single"] {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 2rem;
+  }
+  .pp-lightbox[data-pp-lightbox="single"].is-open { display: flex; }
+  .pp-lightbox[data-pp-lightbox="single"] img {
+    max-width: 92vw;
+    max-height: 88vh;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: none;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close:hover { background: rgba(255, 255, 255, 0.3); }
+  body.pp-lightbox-open-single { overflow: hidden; }
+</style>
+
+<figure class="polaroid-postcard" style="
+  width: 100%;
+  max-width: min(92vw, 968px);
+  aspect-ratio: 2.0596;
+  margin: 2rem auto;
+  text-align: center;
+  font-family: system-ui, sans-serif;
+">
+  <img
+    src="prague-images/polaroid-postcard-1790290582764.png"
+    alt="Collage polaroid"
+    width="968"
+    height="470"
+    data-pp-open="single"
+    style="
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      cursor: zoom-in;
+    "
+  />
+  <figcaption style="
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: #666;
+  ">
+    <!-- Optionnel : légende -->
+  </figcaption>
+</figure>
+
+<div class="pp-lightbox" data-pp-lightbox="single" aria-hidden="true">
+  <button type="button" class="pp-lightbox-close" aria-label="Fermer">&times;</button>
+  <img src="" alt="" />
+</div>
+
+<script>
+  (function () {
+    var lightbox = document.querySelector('[data-pp-lightbox="single"]');
+    // On rattache le popup directement à <body> : ça l'immunise contre un
+    // parent avec "transform" ou "overflow:hidden" ailleurs sur la page,
+    // qui casserait sinon son positionnement plein écran ("fixed").
+    if (lightbox && lightbox.parentNode !== document.body) {
+      document.body.appendChild(lightbox);
+    }
+    var lightboxImg = lightbox ? lightbox.querySelector("img") : null;
+    var lightboxClose = lightbox ? lightbox.querySelector(".pp-lightbox-close") : null;
+    var savedScrollY = 0;
+
+    function openLightbox(src, alt) {
+      if (!lightbox) return;
+      savedScrollY = window.scrollY;
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "";
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("pp-lightbox-open-single");
+    }
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("pp-lightbox-open-single");
+      window.scrollTo(0, savedScrollY);
+    }
+    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+    if (lightbox) {
+      lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+    }
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeLightbox();
+    });
+
+    var trigger = document.querySelector('[data-pp-open="single"]');
+    if (trigger) {
+      trigger.addEventListener("click", function () {
+        openLightbox(trigger.src, trigger.alt);
+      });
+    }
+  })();
+</script>
+
+
+
+
+
+
+           
         <div class="story-note"><strong data-i18n="story.03.note.label">Histoire des statues :</strong> <span data-i18n="story.03.note.text">Les 30 statues et groupes sculptés du pont, pour la plupart baroques, forment une véritable galerie en plein air.</span></div>
         <div class="story-tip" data-i18n="story.03.tip">Venez au lever du soleil : le pont est presque vide, et la lumière sur les tours est incomparable.</div>
         <div class="gallery-cta">
