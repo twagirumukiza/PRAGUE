@@ -136,7 +136,7 @@
 
     <div class="itinerary-stats">
       <div class="stat"><span class="stat-num">7</span><span class="stat-label" data-i18n="itinerary.stat.etapes">étapes</span></div>
-      <div class="stat"><span class="stat-num">25</span><span class="stat-label" data-i18n="itinerary.stat.photos">photos</span></div>
+      <div class="stat"><span class="stat-num">53</span><span class="stat-label" data-i18n="itinerary.stat.photos">photos</span></div>
       <div class="stat"><span class="stat-num">1</span><span class="stat-label" data-i18n="itinerary.stat.ville">ville</span></div>
     </div>
 
@@ -293,146 +293,45 @@
         <img class="story-image" src="prague-images/pont-05-musiciens.jpg" alt="Musiciens de rue sur le Pont Charles" loading="lazy">
         <p class="image-caption" data-i18n="story.03.img5">Musiciens sur le Pont Charles<br>Un petit groupe de jazz installé face à la Vltava — la bande-son improvisée de toutes les traversées.</p>
 
+        <img class="story-image" src="prague-images/pont-06-statue-chevalier-bruncvik.jpg" alt="Statue du chevalier Bruncvík près du Pont Charles" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img6">Le chevalier Bruncvík<br>Cette statue veille sur la rive, épée levée : elle représente le héros légendaire tchèque Bruncvík et son épée magique, cachée dit-on sous le pont.</p>
 
-      <!-- Polaroid Postcard – by twagirumukiza -->
-<!-- Responsive : occupe le plus de place possible sans jamais dépasser la résolution naturelle de l'image (évite le flou d'agrandissement). -->
-<!-- Cliquez sur la photo pour l'ouvrir en grand (popup) ; Échap, clic à
-     l'extérieur ou le bouton de fermeture referment le popup et vous
-     ramènent exactement où vous étiez sur la page. -->
-<style>
-  .pp-lightbox[data-pp-lightbox="single"] {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 2rem;
-  }
-  .pp-lightbox[data-pp-lightbox="single"].is-open { display: flex; }
-  .pp-lightbox[data-pp-lightbox="single"] img {
-    max-width: 92vw;
-    max-height: 88vh;
-    border-radius: 4px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  }
-  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close {
-    position: absolute;
-    top: 1rem;
-    right: 1.25rem;
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border: none;
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 50%;
-    font-size: 1.4rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close:hover { background: rgba(255, 255, 255, 0.3); }
-  body.pp-lightbox-open-single { overflow: hidden; }
-</style>
+        <img class="story-image" src="prague-images/pont-07-statues-saintes-ciel-bleu.jpg" alt="Statues de saints sur le Pont Charles, ciel bleu" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img7">Deux des statues du pont<br>Parmi les trente statues baroques qui bordent le parcours, chacune raconte sa propre légende ou son propre saint patron.</p>
 
-<figure class="polaroid-postcard" style="
-  width: 100%;
-  max-width: min(92vw, 968px);
-  aspect-ratio: 2.0596;
-  margin: 2rem auto;
-  text-align: center;
-  font-family: system-ui, sans-serif;
-">
-  <img
-    src="prague-images/polaroid-postcard-1790290582764.png"
-    alt="Collage polaroid"
-    width="968"
-    height="470"
-    data-pp-open="single"
-    style="
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-      border-radius: 4px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-      cursor: zoom-in;
-    "
-  />
-  <figcaption style="
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-    color: #666;
-  ">
-    <!-- Optionnel : légende -->
-  </figcaption>
-</figure>
+        <img class="story-image" src="prague-images/pont-08-groupe-statues-vert.jpg" alt="Groupe de statues sculptées sur le Pont Charles, verdure en fond" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img8">Un groupe sculpté du pont<br>La Vltava et les collines de Prague en toile de fond, derrière l’une des nombreuses compositions baroques du parcours.</p>
 
-<div class="pp-lightbox" data-pp-lightbox="single" aria-hidden="true">
-  <button type="button" class="pp-lightbox-close" aria-label="Fermer">&times;</button>
-  <img src="" alt="" />
-</div>
+        <img class="story-image" src="prague-images/pont-09-vue-aerienne-pont.jpg" alt="Vue aérienne du Pont Charles et de ses tours" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img9">Le pont vu d’en haut<br>Une perspective plongeante qui révèle toute la longueur du pont et le flot ininterrompu de visiteurs qui le traversent.</p>
 
-<script>
-  (function () {
-    var lightbox = document.querySelector('[data-pp-lightbox="single"]');
-    // On rattache le popup directement à <body> : ça l'immunise contre un
-    // parent avec "transform" ou "overflow:hidden" ailleurs sur la page,
-    // qui casserait sinon son positionnement plein écran ("fixed").
-    if (lightbox && lightbox.parentNode !== document.body) {
-      document.body.appendChild(lightbox);
-    }
-    var lightboxImg = lightbox ? lightbox.querySelector("img") : null;
-    var lightboxClose = lightbox ? lightbox.querySelector(".pp-lightbox-close") : null;
-    var savedScrollY = 0;
+        <img class="story-image" src="prague-images/pont-10-panorama-vltava-ponts.jpg" alt="Panorama de Prague et de ses ponts sur la Vltava" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img10">Prague et ses ponts<br>Le Pont Charles n’est que l’un des nombreux ponts qui enjambent la Vltava au fil de la ville.</p>
 
-    function openLightbox(src, alt) {
-      if (!lightbox) return;
-      savedScrollY = window.scrollY;
-      lightboxImg.src = src;
-      lightboxImg.alt = alt || "";
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.classList.add("pp-lightbox-open-single");
-    }
-    function closeLightbox() {
-      if (!lightbox) return;
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("pp-lightbox-open-single");
-      window.scrollTo(0, savedScrollY);
-    }
-    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
-    if (lightbox) {
-      lightbox.addEventListener("click", function (e) {
-        if (e.target === lightbox) closeLightbox();
-      });
-    }
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeLightbox();
-    });
+        <img class="story-image" src="prague-images/pont-11-tour-mala-strana-nuit.jpg" alt="Tours du Pont Charles côté Malá Strana, de nuit" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img11">Les tours du pont, de nuit<br>Côté Malá Strana, les deux tours gothiques prennent une allure différente une fois la nuit tombée et le pont déserté.</p>
 
-    var trigger = document.querySelector('[data-pp-open="single"]');
-    if (trigger) {
-      trigger.addEventListener("click", function () {
-        openLightbox(trigger.src, trigger.alt);
-      });
-    }
-  })();
-</script>
+        <img class="story-image" src="prague-images/pont-12-statues-ciel-nuageux.jpg" alt="Statues du Pont Charles sous un ciel nuageux" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img12">Silhouettes sous le ciel changeant<br>Le temps de Prague varie vite, et les statues du pont prennent une allure différente à chaque éclaircie.</p>
 
+        <img class="story-image" src="prague-images/pont-13-statues-dome-mala-strana.jpg" alt="Statues du Pont Charles avec le dôme de Malá Strana en fond" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img13">En arrière-plan, le dôme de Malá Strana<br>Les statues du pont se détachent devant les coupoles et les toits du quartier de Malá Strana.</p>
 
+        <img class="story-image" src="prague-images/pont-14-groupe-statues-anges.jpg" alt="Groupe de statues d'anges sur le Pont Charles" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img14">Un groupe d’anges sculptés<br>Encore une des nombreuses compositions religieuses qui font du pont une véritable galerie de sculpture baroque à ciel ouvert.</p>
 
+        <img class="story-image" src="prague-images/pont-15-vue-large-vltava.jpg" alt="Vue large du Pont Charles depuis la Vltava" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img15">Le pont dans son ensemble<br>Vu depuis la rive, le Pont Charles déploie toute son architecture de pierre au-dessus de la Vltava.</p>
 
+        <img class="story-image" src="prague-images/pont-16-arches-pont-vltava.jpg" alt="Arches du Pont Charles au-dessus de la Vltava" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img16">Les arches du pont<br>Seize arches de pierre soutiennent le tablier du pont depuis plus de six siècles.</p>
 
-
-           
         <div class="story-note"><strong data-i18n="story.03.note.label">Histoire des statues :</strong> <span data-i18n="story.03.note.text">Les 30 statues et groupes sculptés du pont, pour la plupart baroques, forment une véritable galerie en plein air.</span></div>
         <div class="story-tip" data-i18n="story.03.tip">Venez au lever du soleil : le pont est presque vide, et la lumière sur les tours est incomparable.</div>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="pont">
-            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/pont-03-calvaire-crucifix.jpg" alt=""><img src="prague-images/thumbs/pont-01-tour-vieille-ville.jpg" alt=""><img src="prague-images/thumbs/pont-05-musiciens.jpg" alt=""></span>
-            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.03.gallery.title">Voir les photos du Pont Charles</span><small data-i18n="story.03.gallery.count">5 photos</small></span>
+            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/pont-03-calvaire-crucifix.jpg" alt=""><img src="prague-images/thumbs/pont-09-vue-aerienne-pont.jpg" alt=""><img src="prague-images/thumbs/pont-11-tour-mala-strana-nuit.jpg" alt=""></span>
+            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.03.gallery.title">Voir les photos du Pont Charles</span><small data-i18n="story.03.gallery.count">16 photos</small></span>
             <span class="gallery-btn-arrow">→</span>
           </button>
         </div>
@@ -495,161 +394,64 @@
         <img class="story-image" src="prague-images/chateau-05-vue-panoramique.jpg" alt="Vue panoramique sur Prague depuis le Château" loading="lazy">
         <p class="image-caption" data-i18n="story.05.img5">Vue depuis les hauteurs du Château<br>Les toits rouges de Prague à perte de vue, avec la Vltava qui serpente en contrebas.</p>
 
+        <img class="story-image" src="prague-images/chateau-06-arche-cour.jpg" alt="Vue en arche sur la cathédrale Saint-Guy depuis une cour du Château" loading="lazy">
+        <p class="image-caption" data-i18n="story.05.img6">Première apparition de la cathédrale<br>Depuis l’une des cours du complexe, une arche cadre soudain les flèches de Saint-Guy — l’un des passages les plus photographiés du Château.</p>
 
-<!-- Polaroid Postcard – by twagirumukiza -->
-<!-- Responsive : occupe le plus de place possible sans jamais dépasser la résolution naturelle de l'image (évite le flou d'agrandissement). -->
-<!-- Cliquez sur la photo pour l'ouvrir en grand (popup) ; Échap, clic à
-     l'extérieur ou le bouton de fermeture referment le popup et vous
-     ramènent exactement où vous étiez sur la page. -->
-<style>
-  .pp-lightbox[data-pp-lightbox="single"] {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 2rem;
-  }
-  .pp-lightbox[data-pp-lightbox="single"].is-open { display: flex; }
-  .pp-lightbox[data-pp-lightbox="single"] img {
-    max-width: 92vw;
-    max-height: 88vh;
-    border-radius: 4px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  }
-  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close {
-    position: absolute;
-    top: 1rem;
-    right: 1.25rem;
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border: none;
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 50%;
-    font-size: 1.4rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close:hover { background: rgba(255, 255, 255, 0.3); }
-  body.pp-lightbox-open-single { overflow: hidden; }
-</style>
+        <img class="story-image" src="prague-images/chateau-07-fleche-detail.jpg" alt="Détail des flèches gothiques de la cathédrale Saint-Guy" loading="lazy">
+        <p class="image-caption" data-i18n="story.05.img7">Dentelle de pierre<br>Un gros plan sur les flèches et pinacles gothiques, sculptés avec une précision presque obsessionnelle.</p>
 
-<figure class="polaroid-postcard" style="
-  width: 100%;
-  max-width: min(92vw, 968px);
-  aspect-ratio: 2.0596;
-  margin: 2rem auto;
-  text-align: center;
-  font-family: system-ui, sans-serif;
-">
-  <img
-    src="prague-images/polaroid-postcard-1790292783444.png"
-    alt="Collage polaroid"
-    width="968"
-    height="470"
-    data-pp-open="single"
-    style="
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-      border-radius: 4px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-      cursor: zoom-in;
-    "
-  />
-  <figcaption style="
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-    color: #666;
-  ">
-    <!-- Optionnel : légende -->
-  </figcaption>
-</figure>
+        <img class="story-image" src="prague-images/chateau-08-facade-ciel.jpg" alt="Façade de la cathédrale Saint-Guy sous un ciel spectaculaire" loading="lazy">
+        <p class="image-caption" data-i18n="story.05.img8">La cathédrale sous un ciel changeant<br>À Prague, la météo peut basculer en quelques minutes — de quoi transformer complètement l’ambiance d’une même façade.</p>
 
-<div class="pp-lightbox" data-pp-lightbox="single" aria-hidden="true">
-  <button type="button" class="pp-lightbox-close" aria-label="Fermer">&times;</button>
-  <img src="" alt="" />
-</div>
+        <img class="story-image" src="prague-images/chateau-09-obelisque-cour.jpg" alt="Obélisque et cathédrale Saint-Guy dans la troisième cour du Château" loading="lazy">
+        <p class="image-caption" data-i18n="story.05.img9">La troisième cour<br>Un obélisque de granit, érigé en 1928 en mémoire des soldats tchécoslovaques de la Première Guerre mondiale, se dresse face à la cathédrale.</p>
 
-<script>
-  (function () {
-    var lightbox = document.querySelector('[data-pp-lightbox="single"]');
-    // On rattache le popup directement à <body> : ça l'immunise contre un
-    // parent avec "transform" ou "overflow:hidden" ailleurs sur la page,
-    // qui casserait sinon son positionnement plein écran ("fixed").
-    if (lightbox && lightbox.parentNode !== document.body) {
-      document.body.appendChild(lightbox);
-    }
-    var lightboxImg = lightbox ? lightbox.querySelector("img") : null;
-    var lightboxClose = lightbox ? lightbox.querySelector(".pp-lightbox-close") : null;
-    var savedScrollY = 0;
+        <img class="story-image" src="prague-images/chateau-10-toits-mala-strana.jpg" alt="Toits de Malá Strana vus depuis les hauteurs du Château" loading="lazy">
+        <p class="image-caption" data-i18n="story.05.img10">Malá Strana vue d’en haut<br>Les toits rouges du « Petit Côté » et le dôme vert de l’église Saint-Nicolas, avec Prague qui s’étend à l’horizon.</p>
 
-    function openLightbox(src, alt) {
-      if (!lightbox) return;
-      savedScrollY = window.scrollY;
-      lightboxImg.src = src;
-      lightboxImg.alt = alt || "";
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.classList.add("pp-lightbox-open-single");
-    }
-    function closeLightbox() {
-      if (!lightbox) return;
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("pp-lightbox-open-single");
-      window.scrollTo(0, savedScrollY);
-    }
-    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
-    if (lightbox) {
-      lightbox.addEventListener("click", function (e) {
-        if (e.target === lightbox) closeLightbox();
-      });
-    }
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeLightbox();
-    });
+        <img class="story-image" src="prague-images/chateau-11-colonne-mariale.jpg" alt="Colonne mariale avec les tours du Château en arrière-plan" loading="lazy">
+        <p class="image-caption" data-i18n="story.05.img11">Une colonne mariale, tours du Château en fond<br>Ce type de monument commémoratif, fréquent en Europe centrale, se retrouve un peu partout dans le paysage urbain de Prague.</p>
 
-    var trigger = document.querySelector('[data-pp-open="single"]');
-    if (trigger) {
-      trigger.addEventListener("click", function () {
-        openLightbox(trigger.src, trigger.alt);
-      });
-    }
-  })();
-</script>
+        <img class="story-image" src="prague-images/chateau-12-palais-archeveque.jpg" alt="Palais archiépiscopal sur la place du Château de Prague" loading="lazy">
+        <p class="image-caption" data-i18n="story.05.img12">Le Palais archiépiscopal<br>Sur la place du Château, cette façade rococo blanche tranche avec la pierre sombre de la cathédrale qui se dresse juste derrière.</p>
 
+        <img class="story-image" src="prague-images/chateau-13-silhouette-vltava.jpg" alt="Silhouette du Château de Prague vue depuis la Vltava" loading="lazy">
+        <p class="image-caption" data-i18n="story.05.img13">Le Château, vu depuis la Vltava<br>Depuis les quais, la silhouette du Château domine toute la rive, avec ses flèches qui percent la ligne des toits.</p>
 
-
-
-
-
-
-           
         <div class="story-note"><strong data-i18n="story.05.note.label">Jardins et points de vue :</strong> <span data-i18n="story.05.note.text">les hauteurs du Château et Hradčany offrent plusieurs perspectives sur les toits de Prague et la Vltava.</span></div>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="chateau">
-            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/chateau-02-cathedrale-facade.jpg" alt=""><img src="prague-images/thumbs/chateau-03-cathedrale-interieur.jpg" alt=""><img src="prague-images/thumbs/chateau-05-vue-panoramique.jpg" alt=""></span>
-            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.05.gallery.title">Voir les photos du Château</span><small data-i18n="story.05.gallery.count">5 photos</small></span>
+            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/chateau-02-cathedrale-facade.jpg" alt=""><img src="prague-images/thumbs/chateau-13-silhouette-vltava.jpg" alt=""><img src="prague-images/thumbs/chateau-10-toits-mala-strana.jpg" alt=""></span>
+            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.05.gallery.title">Voir les photos du Château</span><small data-i18n="story.05.gallery.count">13 photos</small></span>
             <span class="gallery-btn-arrow">→</span>
           </button>
         </div>
       </div>
     </article>
 
-    <!-- SECTION 6 : CIMETIÈRE JUIF — aucune photo locale disponible -->
+    <!-- SECTION 6 : CIMETIÈRE JUIF -->
     <article id="cimetiere" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 06</span>
         <h3 data-i18n="story.06.title">Le cimetière juif — Josefov</h3>
       </div>
       <div class="story-body">
-        <p data-i18n="story.06.p1">J’y suis allé. Les photos ont disparu, mais le souvenir reste. Plus de 12 000 pierres tombales, certaines du XVe siècle, empilées les unes sur les autres faute de place. Tombe du Rabbi Loew, figure centrale de la légende du Golem.</p>
+        <p data-i18n="story.06.p1">J’y suis allé. La plupart des photos de ce lieu ont disparu ; il n’en reste heureusement que deux, mais elles suffisent à retrouver l’atmosphère. Plus de 12 000 pierres tombales, certaines du XVe siècle, empilées les unes sur les autres faute de place. Tombe du Rabbi Loew, figure centrale de la légende du Golem.</p>
+
+        <img class="story-image" src="prague-images/cimetiere-01-pierres-ete.jpg" alt="Pierres tombales du vieux cimetière juif de Prague, en été" loading="lazy">
+        <p class="image-caption" data-i18n="story.06.img1">Les pierres serrées les unes contre les autres<br>Faute de place, les tombes ont été empilées sur plusieurs niveaux au fil des siècles — jusqu’à douze couches par endroits.</p>
+
+        <img class="story-image" src="prague-images/cimetiere-02-colline-automne.jpg" alt="Cimetière juif en automne, pierres tombales sur une colline" loading="lazy">
+        <p class="image-caption" data-i18n="story.06.img2">Une autre partie du cimetière, en automne<br>Les feuilles mortes et la pente du terrain donnent à ce coin du cimetière une atmosphère plus sauvage encore.</p>
+
         <div class="story-tip" data-i18n="story.06.tip">Couverture pour les épaules demandée. Respectez le silence du lieu.</div>
+        <div class="gallery-cta">
+          <button class="gallery-btn" data-gallery="cimetiere">
+            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/cimetiere-01-pierres-ete.jpg" alt=""><img src="prague-images/thumbs/cimetiere-02-colline-automne.jpg" alt=""></span>
+            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.06.gallery.title">Voir les photos du cimetière</span><small data-i18n="story.06.gallery.count">2 photos</small></span>
+            <span class="gallery-btn-arrow">→</span>
+          </button>
+        </div>
       </div>
     </article>
 
@@ -665,11 +467,32 @@
         <img class="story-image" src="prague-images/mouvement-01-metro-staromestska.jpg" alt="Escalator du métro à la station Staroměstská à Prague" loading="lazy">
         <p class="image-caption" data-i18n="story.07.img1">Sous les rues de Prague<br>Descente dans le métro pragois, à la station Staroměstská : un long escalator incurvé, très profond, à l’architecture caractéristique.</p>
 
+        <img class="story-image" src="prague-images/mouvement-02-rame-depo-hostivar.jpg" alt="Rame de métro 81-71M à destination de Depo Hostivař" loading="lazy">
+        <p class="image-caption" data-i18n="story.07.img2">Une rame vers Depo Hostivař<br>Ce terminus de la ligne A, ouvert en 2006, a été installé dans un ancien dépôt : les derniers mètres de la ligne y sont aériens. La rame elle-même, un modèle 81-71M, est une version modernisée d’un matériel soviétique retiré du service en 2009.</p>
+
+        <img class="story-image" src="prague-images/mouvement-03-muzeum-rame-motol.jpg" alt="Station Muzeum sur la ligne A du métro de Prague" loading="lazy">
+        <p class="image-caption" data-i18n="story.07.img3">Station Muzeum, ligne A<br>Point de jonction des lignes A et C sous la place Venceslas, reconnaissable à son revêtement d’aluminium ocre et rouille. Le terminus « Nemocnice Motol » affiché ici marque l’extrémité ouest de la ligne A, ouverte en 2015.</p>
+
+        <img class="story-image" src="prague-images/mouvement-04-couloir-ligne-b.jpg" alt="Couloir de la ligne B du métro de Prague avec plan du réseau" loading="lazy">
+        <p class="image-caption" data-i18n="story.07.img4">Couloir de la ligne B<br>Le plan affiché ici montre le trajet complet de la ligne B, de Zličín à Černý Most — la plus longue des trois lignes, ouverte en 1985 puis étendue à son tracé actuel en 1998.</p>
+
+        <img class="story-image" src="prague-images/mouvement-05-passage-plan-dpp.jpg" alt="Passage souterrain du métro de Prague, revêtement d'aluminium vert" loading="lazy">
+        <p class="image-caption" data-i18n="story.07.img5">Un couloir aux tons verts<br>Ce revêtement d’aluminium à alvéoles vertes évoque la station Malostranská, sur la ligne A — un vert que certains associent aux jardins royaux voisins, sans certitude absolue.</p>
+
+        <img class="story-image" src="prague-images/mouvement-06-signaletique-muzeum.jpg" alt="Signalétique de la station Muzeum du métro de Prague" loading="lazy">
+        <p class="image-caption" data-i18n="story.07.img6">La signalétique de Muzeum<br>Ici, la station est identifiable avec certitude : le rouge de la ligne C et le vert de la ligne A se croisent sous la place Venceslas.</p>
+
+        <img class="story-image" src="prague-images/mouvement-07-mur-alu-hemispheres.jpg" alt="Mur d'aluminium à hémisphères d'une station du métro de Prague" loading="lazy">
+        <p class="image-caption" data-i18n="story.07.img7">Aluminium à hémisphères<br>Signature esthétique des stations de la ligne A construites entre 1973 et 1978 : chaque station affiche sa propre couleur, reconnaissable d’un simple coup d’œil depuis la rame.</p>
+
+        <img class="story-image" src="prague-images/mouvement-08-escalator-argentique.jpg" alt="Escalator du métro de Prague, photo argentique" loading="lazy">
+        <p class="image-caption" data-i18n="story.07.img8">Un escalator sans fin<br>Station non identifiée avec certitude, mais bien pragoise : les affiches en tchèque le confirment. Les stations profondes du réseau sont réputées pour leurs escalators interminables, certains dépassant 80 mètres.</p>
+
         <p data-i18n="story.07.p2">Ce détour par le métro rappelle que le charme de Prague ne se limite pas à ses monuments : il se niche aussi dans ces instants plus ordinaires du voyage.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="mouvement">
-            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/mouvement-01-metro-staromestska.jpg" alt=""></span>
-            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.07.gallery.title">Voir la photo</span><small data-i18n="story.07.gallery.count">1 photo</small></span>
+            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/mouvement-01-metro-staromestska.jpg" alt=""><img src="prague-images/thumbs/mouvement-08-escalator-argentique.jpg" alt=""><img src="prague-images/thumbs/mouvement-07-mur-alu-hemispheres.jpg" alt=""></span>
+            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.07.gallery.title">Voir les photos</span><small data-i18n="story.07.gallery.count">8 photos</small></span>
             <span class="gallery-btn-arrow">→</span>
           </button>
         </div>
