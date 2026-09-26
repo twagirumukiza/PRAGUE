@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="theme-dark">
+<body class="theme-light">
 
 <!-- HEADER : barre de navigation fixe + menu mobile -->
 <header class="header">
@@ -109,7 +109,7 @@
     </div>
 
     <div class="map-wrapper prague-map-wrapper">
-      <div id="map"></div>
+      <div id="leaflet-map"></div>
       <div class="map-hint" data-i18n="map.hint">Cliquez sur un point • zoom + / − • glissez pour vous déplacer</div>
       <div class="route-panel" id="route-panel">
         <div class="route-panel-head">
@@ -213,19 +213,14 @@
         <img class="story-image" src="prague-images/vieille-ville-02-tour-poudriere.jpg" alt="Tour poudrière à Prague" loading="lazy">
         <p class="image-caption" data-i18n="story.01.img2">La Tour poudrière (Prašná brána)<br>L’une des treize anciennes portes de la ville, ancien dépôt de poudre à canon, qui ouvre le passage vers la Vieille Ville.</p>
 
-        <img class="story-image" src="prague-images/vieille-ville-03-rue-celetna.jpg" alt="Rue typique de la Vieille Ville de Prague" loading="lazy">
-        <p class="image-caption" data-i18n="story.01.img3">Rue Celetná<br>L’une des plus anciennes rues de Prague, sur l’axe royal qui relie la Tour poudrière à la Place de la Vieille Ville.</p>
-
-        <img class="story-image" src="prague-images/vieille-ville-04-facades.jpg" alt="Façades colorées de la Vieille Ville de Prague" loading="lazy">
-        <p class="image-caption" data-i18n="story.01.img4">Façades de la Place de la Vieille Ville<br>Chaque maison a son style et sa couleur : un patchwork architectural accumulé sur plusieurs siècles.</p>
-
         <img class="story-image" src="prague-images/vieille-ville-05-place-jan-hus.jpg" alt="Place de la Vieille Ville avec le monument à Jan Hus" loading="lazy">
         <p class="image-caption" data-i18n="story.01.img5">Place de la Vieille Ville (Staroměstské náměstí)<br>Au centre, le monument à Jan Hus, réformateur religieux tchèque brûlé en 1415, veille sur la place depuis 1915.</p>
 
-        <img class="story-image" src="prague-images/vieille-ville-06-maison-sgraffites.jpg" alt="Maison ornée de sgraffites près de l'Hôtel de Ville de Prague" loading="lazy">
-        <p class="image-caption image-caption-uncertain" data-i18n="story.01.img6">Maison à sgraffites, à deux pas de l’Hôtel de Ville<br>Ce type de façade grattée en motifs géométriques est une signature du centre historique ; l’identification précise de cette maison reste à confirmer.</p>
-
         <p data-i18n="story.01.p2">C’est ici que le voyage commence vraiment. Le bruit des valises sur les pavés, les conversations en dix langues, l’odeur du trdelník…</p>
+
+        <div class="story-note"><strong data-i18n="story.01.note.label">Anecdote :</strong> <span data-i18n="story.01.note.text">le monument à Jan Hus fut inauguré le 6 juillet 1915, jour exact du 500ᵉ anniversaire de son exécution sur le bûcher — un symbole fort en pleine Première Guerre mondiale, quand le nationalisme tchèque cherchait ses figures.</span></div>
+        <div class="story-tip" data-i18n="story.01.tip">Conseil : venez tôt le matin pour photographier la Maison municipale et la Tour poudrière sans la foule — la lumière rasante sublime les détails Art nouveau.</div>
+        <p class="gallery-invite" data-i18n="story.01.gallery.invite">La Vieille Ville ne s’arrête pas à ces trois arrêts : ruelles cachées, façades peintes et détails oubliés attendent dans l’album complet.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="vieille-ville">
             <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/vieille-ville-01-maison-municipale.jpg" alt=""><img src="prague-images/thumbs/vieille-ville-04-facades.jpg" alt=""><img src="prague-images/thumbs/vieille-ville-05-place-jan-hus.jpg" alt=""></span>
@@ -251,14 +246,12 @@
         <img class="story-image" src="prague-images/horloge-02-devant-horloge.jpg" alt="Visiteurs devant l'horloge astronomique de Prague" loading="lazy">
         <p class="image-caption" data-i18n="story.02.img2">Au pied de l’Orloj<br>Chaque heure pile, la foule s’arrête pour voir défiler les apôtres aux fenêtres de l’horloge.</p>
 
-        <img class="story-image" src="prague-images/horloge-03-tour-rapprochee.jpg" alt="Tour de l'horloge astronomique de Prague en gros plan" loading="lazy">
-        <p class="image-caption" data-i18n="story.02.img3">La tour, en contre-plongée<br>171 marches mènent à la galerie panoramique, tout en haut.</p>
-
         <img class="story-image" src="prague-images/horloge-04-cadran-orloj.jpg" alt="Cadran de l'horloge astronomique de Prague" loading="lazy">
         <p class="image-caption" data-i18n="story.02.img4">Le cadran astronomique<br>Installé en 1410, c’est la plus ancienne horloge astronomique encore en fonctionnement au monde.</p>
 
         <div class="story-note"><strong data-i18n="story.02.note.label">Anecdote :</strong> <span data-i18n="story.02.note.text">La légende raconte que le maître horloger Hanuš fut aveuglé pour qu’il ne puisse jamais reproduire une horloge aussi parfaite ailleurs.</span></div>
         <div class="story-tip" data-i18n="story.02.tip">Arrivez 10 minutes avant l’heure pile pour voir les apôtres défiler, et prenez du recul : de près, on ne voit que la foule.</div>
+        <p class="gallery-invite" data-i18n="story.02.gallery.invite">Envie de voir le mécanisme sous tous les angles, jusqu’en haut de la tour ? L’album complet de l’Horloge astronomique vous attend.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="horloge">
             <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/horloge-04-cadran-orloj.jpg" alt=""><img src="prague-images/thumbs/horloge-01-tour-hotel-ville.jpg" alt=""><img src="prague-images/thumbs/horloge-02-devant-horloge.jpg" alt=""></span>
@@ -281,53 +274,15 @@
         <img class="story-image" src="prague-images/pont-01-tour-vieille-ville.jpg" alt="Tour du Pont Charles côté Vieille Ville" loading="lazy">
         <p class="image-caption" data-i18n="story.03.img1">La tour du Pont Charles côté Vieille Ville<br>Considérée comme l’une des plus belles tours-portes gothiques civiles d’Europe, elle marque l’entrée du pont.</p>
 
-        <img class="story-image" src="prague-images/pont-02-statue-charles-iv.jpg" alt="Statue de Charles IV à Křižovnické náměstí, devant le Pont Charles" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img2">Charles IV devant le Pont Charles<br>La statue néogothique de Charles IV, sur Křižovnické náměstí, à quelques mètres seulement de l’entrée du pont qui porte son nom.</p>
-
         <img class="story-image" src="prague-images/pont-03-calvaire-crucifix.jpg" alt="Crucifix du Calvaire du Pont Charles avec inscription hébraïque" loading="lazy">
         <p class="image-caption" data-i18n="story.03.img3">Le Calvaire du Pont Charles<br>Le célèbre crucifix du Pont Charles, entouré de son inscription hébraïque ajoutée en 1696, encadré par les statues de la Vierge et de saint Jean.</p>
 
-        <img class="story-image" src="prague-images/pont-04-vue-vltava.jpg" alt="Vue sur la Vltava depuis le Pont Charles" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img4">Sur le pont, au-dessus de la Vltava<br>Trente statues et groupes sculptés jalonnent le parcours, entre ciel et rivière.</p>
-
-        <img class="story-image" src="prague-images/pont-05-musiciens.jpg" alt="Musiciens de rue sur le Pont Charles" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img5">Musiciens sur le Pont Charles<br>Un petit groupe de jazz installé face à la Vltava — la bande-son improvisée de toutes les traversées.</p>
-
-        <img class="story-image" src="prague-images/pont-06-statue-chevalier-bruncvik.jpg" alt="Statue du chevalier Bruncvík près du Pont Charles" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img6">Le chevalier Bruncvík<br>Cette statue veille sur la rive, épée levée : elle représente le héros légendaire tchèque Bruncvík et son épée magique, cachée dit-on sous le pont.</p>
-
-        <img class="story-image" src="prague-images/pont-07-statues-saintes-ciel-bleu.jpg" alt="Statues de saints sur le Pont Charles, ciel bleu" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img7">Deux des statues du pont<br>Parmi les trente statues baroques qui bordent le parcours, chacune raconte sa propre légende ou son propre saint patron.</p>
-
-        <img class="story-image" src="prague-images/pont-08-groupe-statues-vert.jpg" alt="Groupe de statues sculptées sur le Pont Charles, verdure en fond" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img8">Un groupe sculpté du pont<br>La Vltava et les collines de Prague en toile de fond, derrière l’une des nombreuses compositions baroques du parcours.</p>
-
-        <img class="story-image" src="prague-images/pont-09-vue-aerienne-pont.jpg" alt="Vue aérienne du Pont Charles et de ses tours" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img9">Le pont vu d’en haut<br>Une perspective plongeante qui révèle toute la longueur du pont et le flot ininterrompu de visiteurs qui le traversent.</p>
-
-        <img class="story-image" src="prague-images/pont-10-panorama-vltava-ponts.jpg" alt="Panorama de Prague et de ses ponts sur la Vltava" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img10">Prague et ses ponts<br>Le Pont Charles n’est que l’un des nombreux ponts qui enjambent la Vltava au fil de la ville.</p>
-
-        <img class="story-image" src="prague-images/pont-11-tour-mala-strana-nuit.jpg" alt="Tours du Pont Charles côté Malá Strana, de nuit" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img11">Les tours du pont, de nuit<br>Côté Malá Strana, les deux tours gothiques prennent une allure différente une fois la nuit tombée et le pont déserté.</p>
-
-        <img class="story-image" src="prague-images/pont-12-statues-ciel-nuageux.jpg" alt="Statues du Pont Charles sous un ciel nuageux" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img12">Silhouettes sous le ciel changeant<br>Le temps de Prague varie vite, et les statues du pont prennent une allure différente à chaque éclaircie.</p>
-
-        <img class="story-image" src="prague-images/pont-13-statues-dome-mala-strana.jpg" alt="Statues du Pont Charles avec le dôme de Malá Strana en fond" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img13">En arrière-plan, le dôme de Malá Strana<br>Les statues du pont se détachent devant les coupoles et les toits du quartier de Malá Strana.</p>
-
-        <img class="story-image" src="prague-images/pont-14-groupe-statues-anges.jpg" alt="Groupe de statues d'anges sur le Pont Charles" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img14">Un groupe d’anges sculptés<br>Encore une des nombreuses compositions religieuses qui font du pont une véritable galerie de sculpture baroque à ciel ouvert.</p>
-
-        <img class="story-image" src="prague-images/pont-15-vue-large-vltava.jpg" alt="Vue large du Pont Charles depuis la Vltava" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img15">Le pont dans son ensemble<br>Vu depuis la rive, le Pont Charles déploie toute son architecture de pierre au-dessus de la Vltava.</p>
-
-        <img class="story-image" src="prague-images/pont-16-arches-pont-vltava.jpg" alt="Arches du Pont Charles au-dessus de la Vltava" loading="lazy">
-        <p class="image-caption" data-i18n="story.03.img16">Les arches du pont<br>Seize arches de pierre soutiennent le tablier du pont depuis plus de six siècles.</p>
+        <img class="story-image" src="prague-images/pont-02-statue-charles-iv.jpg" alt="Statue de Charles IV à Křižovnické náměstí, devant le Pont Charles" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img2">Charles IV devant le Pont Charles<br>La statue néogothique de Charles IV, sur Křižovnické náměstí, à quelques mètres seulement de l’entrée du pont qui porte son nom.</p>
 
         <div class="story-note"><strong data-i18n="story.03.note.label">Histoire des statues :</strong> <span data-i18n="story.03.note.text">Les 30 statues et groupes sculptés du pont, pour la plupart baroques, forment une véritable galerie en plein air.</span></div>
         <div class="story-tip" data-i18n="story.03.tip">Venez au lever du soleil : le pont est presque vide, et la lumière sur les tours est incomparable.</div>
+        <p class="gallery-invite" data-i18n="story.03.gallery.invite">Trente statues, autant d’histoires : le reste de la galerie du Pont Charles vous emmène statue par statue, jusqu’aux rives de la Vltava.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="pont">
             <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/pont-03-calvaire-crucifix.jpg" alt=""><img src="prague-images/thumbs/pont-09-vue-aerienne-pont.jpg" alt=""><img src="prague-images/thumbs/pont-11-tour-mala-strana-nuit.jpg" alt=""></span>
@@ -353,13 +308,14 @@
         <img class="story-image" src="prague-images/golem-02-statue-golem.jpg" alt="Statue du Golem dans le quartier juif de Prague" loading="lazy">
         <p class="image-caption" data-i18n="story.04.img2">La statue du Golem<br>Silhouette encapuchonnée et sans visage, dressée dans les rues de Josefov en hommage à la légende.</p>
 
-        <img class="story-image" src="prague-images/golem-03-rue-josefov.jpg" alt="Rue du quartier juif de Josefov à Prague" loading="lazy">
-        <p class="image-caption" data-i18n="story.04.img3">Dans les rues de Josefov<br>Le quartier juif historique, entre synagogues, maisons bourgeoises et souvenirs de la légende.</p>
-
         <img class="story-image golem-image" src="prague-images/golem-04-figurine.jpg" alt="Figurine en terre cuite du Golem, souvenir de Prague" loading="lazy">
         <p class="image-caption" data-i18n="story.04.img4">Souvenir du Golem<br>Une petite figurine en terre cuite, glaise trapue et visage à peine esquissé — la version de poche de la légende, telle qu’on la trouve dans les échoppes de Josefov.</p>
 
         <p data-i18n="story.04.p2">Le Rabbi plaçait un shem — un parchemin sacré — dans la bouche du Golem pour lui donner vie, puis le retirait pour l’endormir. Certains disent qu’il repose encore là-haut, sous le toit de la Vieille-Nouvelle Synagogue.</p>
+
+        <div class="story-note"><strong data-i18n="story.04.note.label">Anecdote :</strong> <span data-i18n="story.04.note.text">la légende a connu un regain de popularité après la parution du roman « Le Golem » de Gustav Meyrink en 1915, qui l’a durablement ancrée dans l’imaginaire pragois.</span></div>
+        <div class="story-tip" data-i18n="story.04.tip">Conseil : la Synagogue Vieille-Nouvelle ne se visite qu’avec un billet combiné du quartier juif — réservez tôt le matin pour éviter les groupes.</div>
+        <p class="gallery-invite" data-i18n="story.04.gallery.invite">La légende continue dans les ruelles de Josefov : direction l’album complet du Golem et du quartier juif.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="golem">
             <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/golem-02-statue-golem.jpg" alt=""><img src="prague-images/thumbs/golem-04-figurine.jpg" alt=""><img src="prague-images/thumbs/golem-01-synagogue-vieille-nouvelle.jpg" alt=""></span>
@@ -385,40 +341,12 @@
         <img class="story-image" src="prague-images/chateau-02-cathedrale-facade.jpg" alt="Façade de la cathédrale Saint-Guy à Prague" loading="lazy">
         <p class="image-caption" data-i18n="story.05.img2">Cathédrale Saint-Guy — la façade<br>Commencée en 1344, achevée seulement en 1929 : près de six siècles de chantier gothique.</p>
 
-        <img class="story-image" src="prague-images/chateau-03-cathedrale-interieur.jpg" alt="Intérieur de la cathédrale Saint-Guy à Prague" loading="lazy">
-        <p class="image-caption" data-i18n="story.05.img3">La nef de la cathédrale Saint-Guy<br>Une immense nef gothique, tombeau des rois et reines de Bohême.</p>
-
-        <img class="story-image" src="prague-images/chateau-04-vitrail.jpg" alt="Vitrail à l'intérieur de la cathédrale Saint-Guy" loading="lazy">
-        <p class="image-caption" data-i18n="story.05.img4">Un vitrail de la cathédrale<br>La lumière traverse les vitraux colorés et projette ses couleurs sur les pierres claires.</p>
-
         <img class="story-image" src="prague-images/chateau-05-vue-panoramique.jpg" alt="Vue panoramique sur Prague depuis le Château" loading="lazy">
         <p class="image-caption" data-i18n="story.05.img5">Vue depuis les hauteurs du Château<br>Les toits rouges de Prague à perte de vue, avec la Vltava qui serpente en contrebas.</p>
 
-        <img class="story-image" src="prague-images/chateau-06-arche-cour.jpg" alt="Vue en arche sur la cathédrale Saint-Guy depuis une cour du Château" loading="lazy">
-        <p class="image-caption" data-i18n="story.05.img6">Première apparition de la cathédrale<br>Depuis l’une des cours du complexe, une arche cadre soudain les flèches de Saint-Guy — l’un des passages les plus photographiés du Château.</p>
-
-        <img class="story-image" src="prague-images/chateau-07-fleche-detail.jpg" alt="Détail des flèches gothiques de la cathédrale Saint-Guy" loading="lazy">
-        <p class="image-caption" data-i18n="story.05.img7">Dentelle de pierre<br>Un gros plan sur les flèches et pinacles gothiques, sculptés avec une précision presque obsessionnelle.</p>
-
-        <img class="story-image" src="prague-images/chateau-08-facade-ciel.jpg" alt="Façade de la cathédrale Saint-Guy sous un ciel spectaculaire" loading="lazy">
-        <p class="image-caption" data-i18n="story.05.img8">La cathédrale sous un ciel changeant<br>À Prague, la météo peut basculer en quelques minutes — de quoi transformer complètement l’ambiance d’une même façade.</p>
-
-        <img class="story-image" src="prague-images/chateau-09-obelisque-cour.jpg" alt="Obélisque et cathédrale Saint-Guy dans la troisième cour du Château" loading="lazy">
-        <p class="image-caption" data-i18n="story.05.img9">La troisième cour<br>Un obélisque de granit, érigé en 1928 en mémoire des soldats tchécoslovaques de la Première Guerre mondiale, se dresse face à la cathédrale.</p>
-
-        <img class="story-image" src="prague-images/chateau-10-toits-mala-strana.jpg" alt="Toits de Malá Strana vus depuis les hauteurs du Château" loading="lazy">
-        <p class="image-caption" data-i18n="story.05.img10">Malá Strana vue d’en haut<br>Les toits rouges du « Petit Côté » et le dôme vert de l’église Saint-Nicolas, avec Prague qui s’étend à l’horizon.</p>
-
-        <img class="story-image" src="prague-images/chateau-11-colonne-mariale.jpg" alt="Colonne mariale avec les tours du Château en arrière-plan" loading="lazy">
-        <p class="image-caption" data-i18n="story.05.img11">Une colonne mariale, tours du Château en fond<br>Ce type de monument commémoratif, fréquent en Europe centrale, se retrouve un peu partout dans le paysage urbain de Prague.</p>
-
-        <img class="story-image" src="prague-images/chateau-12-palais-archeveque.jpg" alt="Palais archiépiscopal sur la place du Château de Prague" loading="lazy">
-        <p class="image-caption" data-i18n="story.05.img12">Le Palais archiépiscopal<br>Sur la place du Château, cette façade rococo blanche tranche avec la pierre sombre de la cathédrale qui se dresse juste derrière.</p>
-
-        <img class="story-image" src="prague-images/chateau-13-silhouette-vltava.jpg" alt="Silhouette du Château de Prague vue depuis la Vltava" loading="lazy">
-        <p class="image-caption" data-i18n="story.05.img13">Le Château, vu depuis la Vltava<br>Depuis les quais, la silhouette du Château domine toute la rive, avec ses flèches qui percent la ligne des toits.</p>
-
         <div class="story-note"><strong data-i18n="story.05.note.label">Jardins et points de vue :</strong> <span data-i18n="story.05.note.text">les hauteurs du Château et Hradčany offrent plusieurs perspectives sur les toits de Prague et la Vltava.</span></div>
+        <div class="story-tip" data-i18n="story.05.tip">Conseil : la cathédrale est accessible gratuitement depuis le narthex, mais il faut un billet du complexe du Château pour accéder à la nef et grimper à la tour sud.</div>
+        <p class="gallery-invite" data-i18n="story.05.gallery.invite">Cours intérieures, flèches gothiques, intérieur et panoramas : la suite de la visite du Château tient dans l’album complet.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="chateau">
             <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/chateau-02-cathedrale-facade.jpg" alt=""><img src="prague-images/thumbs/chateau-13-silhouette-vltava.jpg" alt=""><img src="prague-images/thumbs/chateau-10-toits-mala-strana.jpg" alt=""></span>
@@ -444,7 +372,9 @@
         <img class="story-image" src="prague-images/cimetiere-02-colline-automne.jpg" alt="Cimetière juif en automne, pierres tombales sur une colline" loading="lazy">
         <p class="image-caption" data-i18n="story.06.img2">Une autre partie du cimetière, en automne<br>Les feuilles mortes et la pente du terrain donnent à ce coin du cimetière une atmosphère plus sauvage encore.</p>
 
+        <div class="story-note"><strong data-i18n="story.06.note.label">Anecdote :</strong> <span data-i18n="story.06.note.text">certaines tombes portent des symboles gravés indiquant le nom ou le métier du défunt — mains jointes pour un Cohen, cruche pour un Lévite, ciseaux pour un tailleur.</span></div>
         <div class="story-tip" data-i18n="story.06.tip">Couverture pour les épaules demandée. Respectez le silence du lieu.</div>
+        <p class="gallery-invite" data-i18n="story.06.gallery.invite">Ces deux photos n’en disent qu’une partie : le reste se découvre dans l’album du cimetière.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="cimetiere">
             <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/cimetiere-01-pierres-ete.jpg" alt=""><img src="prague-images/thumbs/cimetiere-02-colline-automne.jpg" alt=""></span>
@@ -470,25 +400,14 @@
         <img class="story-image" src="prague-images/mouvement-02-rame-depo-hostivar.jpg" alt="Rame de métro 81-71M à destination de Depo Hostivař" loading="lazy">
         <p class="image-caption" data-i18n="story.07.img2">Une rame vers Depo Hostivař<br>Ce terminus de la ligne A, ouvert en 2006, a été installé dans un ancien dépôt : les derniers mètres de la ligne y sont aériens. La rame elle-même, un modèle 81-71M, est une version modernisée d’un matériel soviétique retiré du service en 2009.</p>
 
-        <img class="story-image" src="prague-images/mouvement-03-muzeum-rame-motol.jpg" alt="Station Muzeum sur la ligne A du métro de Prague" loading="lazy">
-        <p class="image-caption" data-i18n="story.07.img3">Station Muzeum, ligne A<br>Point de jonction des lignes A et C sous la place Venceslas, reconnaissable à son revêtement d’aluminium ocre et rouille. Le terminus « Nemocnice Motol » affiché ici marque l’extrémité ouest de la ligne A, ouverte en 2015.</p>
-
-        <img class="story-image" src="prague-images/mouvement-04-couloir-ligne-b.jpg" alt="Couloir de la ligne B du métro de Prague avec plan du réseau" loading="lazy">
-        <p class="image-caption" data-i18n="story.07.img4">Couloir de la ligne B<br>Le plan affiché ici montre le trajet complet de la ligne B, de Zličín à Černý Most — la plus longue des trois lignes, ouverte en 1985 puis étendue à son tracé actuel en 1998.</p>
-
-        <img class="story-image" src="prague-images/mouvement-05-passage-plan-dpp.jpg" alt="Passage souterrain du métro de Prague, revêtement d'aluminium vert" loading="lazy">
-        <p class="image-caption" data-i18n="story.07.img5">Un couloir aux tons verts<br>Ce revêtement d’aluminium à alvéoles vertes évoque la station Malostranská, sur la ligne A — un vert que certains associent aux jardins royaux voisins, sans certitude absolue.</p>
-
-        <img class="story-image" src="prague-images/mouvement-06-signaletique-muzeum.jpg" alt="Signalétique de la station Muzeum du métro de Prague" loading="lazy">
-        <p class="image-caption" data-i18n="story.07.img6">La signalétique de Muzeum<br>Ici, la station est identifiable avec certitude : le rouge de la ligne C et le vert de la ligne A se croisent sous la place Venceslas.</p>
-
-        <img class="story-image" src="prague-images/mouvement-07-mur-alu-hemispheres.jpg" alt="Mur d'aluminium à hémisphères d'une station du métro de Prague" loading="lazy">
-        <p class="image-caption" data-i18n="story.07.img7">Aluminium à hémisphères<br>Signature esthétique des stations de la ligne A construites entre 1973 et 1978 : chaque station affiche sa propre couleur, reconnaissable d’un simple coup d’œil depuis la rame.</p>
-
         <img class="story-image" src="prague-images/mouvement-08-escalator-argentique.jpg" alt="Escalator du métro de Prague, photo argentique" loading="lazy">
         <p class="image-caption" data-i18n="story.07.img8">Un escalator sans fin<br>Station non identifiée avec certitude, mais bien pragoise : les affiches en tchèque le confirment. Les stations profondes du réseau sont réputées pour leurs escalators interminables, certains dépassant 80 mètres.</p>
 
         <p data-i18n="story.07.p2">Ce détour par le métro rappelle que le charme de Prague ne se limite pas à ses monuments : il se niche aussi dans ces instants plus ordinaires du voyage.</p>
+
+        <div class="story-note"><strong data-i18n="story.07.note.label">Anecdote :</strong> <span data-i18n="story.07.note.text">avec ses 53 mètres de profondeur, la station Náměstí Míru détient le record du métro pragois — construite assez profond pour servir, si besoin, d’abri antiatomique.</span></div>
+        <div class="story-tip" data-i18n="story.07.tip">Conseil : un simple ticket de 30 ou 90 minutes suffit à combiner métro, tram et bus dans toute la ville — inutile d’acheter un billet par trajet.</div>
+        <p class="gallery-invite" data-i18n="story.07.gallery.invite">Rames, stations et escalators sans fin : le reste de l’histoire se trouve dans l’album Prague en mouvement.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="mouvement">
             <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/mouvement-01-metro-staromestska.jpg" alt=""><img src="prague-images/thumbs/mouvement-08-escalator-argentique.jpg" alt=""><img src="prague-images/thumbs/mouvement-07-mur-alu-hemispheres.jpg" alt=""></span>

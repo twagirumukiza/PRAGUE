@@ -40,7 +40,7 @@ body.theme-light .prague-hero {
   box-shadow: 0 20px 60px rgba(0,0,0,.4);
 }
 
-#map {
+#leaflet-map {
   width: 100%;
   height: 520px;
   filter: saturate(.75) contrast(1.05);
@@ -123,6 +123,16 @@ body.theme-light .prague-hero {
   background: rgba(247,201,72,.04);
 }
 
+.gallery-invite {
+  margin: 1.4rem 0 0;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--text);
+  text-align: center;
+  line-height: 1.5;
+}
+
 .faq-prague {
   padding: 5rem 0;
   background: var(--black);
@@ -157,7 +167,7 @@ body.theme-light .prague-hero {
 
 @media (max-width: 700px) {
   .faq-grid { grid-template-columns: 1fr; }
-  #map { height: 430px; }
+  #leaflet-map { height: 430px; }
   .prague-map-wrapper { min-height: 430px; }
 }
 

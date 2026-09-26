@@ -45,7 +45,7 @@
   // ===== 3. THÈME =====
   const themeToggle = document.getElementById('theme-toggle');
   const themeIcon = document.querySelector('.theme-icon');
-  const savedTheme = localStorage.getItem('prague-theme') || 'dark';
+  const savedTheme = localStorage.getItem('prague-theme') || 'light';
   body.classList.toggle('theme-light', savedTheme === 'light');
 
   function refreshThemeIcon() {
@@ -110,6 +110,10 @@
       "story.01.img5": "Place de la Vieille Ville (Staroměstské náměstí)<br>Au centre, le monument à Jan Hus, réformateur religieux tchèque brûlé en 1415, veille sur la place depuis 1915.",
       "story.01.img6": "Maison à sgraffites, à deux pas de l’Hôtel de Ville<br>Ce type de façade grattée en motifs géométriques est une signature du centre historique ; l’identification précise de cette maison reste à confirmer.",
       "story.01.p2": "C’est ici que le voyage commence vraiment. Le bruit des valises sur les pavés, les conversations en dix langues, l’odeur du trdelník…",
+      "story.01.note.label": "Anecdote :",
+      "story.01.note.text": "le monument à Jan Hus fut inauguré le 6 juillet 1915, jour exact du 500ᵉ anniversaire de son exécution sur le bûcher — un symbole fort en pleine Première Guerre mondiale, quand le nationalisme tchèque cherchait ses figures.",
+      "story.01.tip": "Conseil : venez tôt le matin pour photographier la Maison municipale et la Tour poudrière sans la foule — la lumière rasante sublime les détails Art nouveau.",
+      "story.01.gallery.invite": "La Vieille Ville ne s’arrête pas à ces trois arrêts : ruelles cachées, façades peintes et détails oubliés attendent dans l’album complet.",
       "story.01.gallery.title": "Voir les photos de la Vieille Ville", "story.01.gallery.count": "6 photos",
       "story.02.title": "L’Horloge astronomique",
       "story.02.p1": "La Place de la Vieille Ville est le théâtre permanent de Prague. Au pied de la tour de l’ancien Hôtel de Ville, l’Orloj continue de fasciner les foules chaque heure.",
@@ -120,6 +124,7 @@
       "story.02.note.label": "Anecdote :",
       "story.02.note.text": "La légende raconte que le maître horloger Hanuš fut aveuglé pour qu’il ne puisse jamais reproduire une horloge aussi parfaite ailleurs.",
       "story.02.tip": "Arrivez 10 minutes avant l’heure pile pour voir les apôtres défiler, et prenez du recul : de près, on ne voit que la foule.",
+      "story.02.gallery.invite": "Envie de voir le mécanisme sous tous les angles, jusqu’en haut de la tour ? L’album complet de l’Horloge astronomique vous attend.",
       "story.02.gallery.title": "Voir les photos de l’Horloge", "story.02.gallery.count": "4 photos",
       "story.03.title": "Le Pont Charles et ses alentours",
       "story.03.p1": "Traverser le Pont Charles, c’est marcher sur 650 ans d’histoire. Construit sous Charles IV à partir de 1357, il relie la Vieille Ville à Malá Strana au-dessus de la Vltava.",
@@ -142,6 +147,7 @@
       "story.03.note.label": "Histoire des statues :",
       "story.03.note.text": "Les 30 statues et groupes sculptés du pont, pour la plupart baroques, forment une véritable galerie en plein air.",
       "story.03.tip": "Venez au lever du soleil : le pont est presque vide, et la lumière sur les tours est incomparable.",
+      "story.03.gallery.invite": "Trente statues, autant d’histoires : le reste de la galerie du Pont Charles vous emmène statue par statue, jusqu’aux rives de la Vltava.",
       "story.03.gallery.title": "Voir les photos du Pont Charles", "story.03.gallery.count": "16 photos",
       "story.04.title": "Le Golem &amp; le quartier de Josefov",
       "story.04.p1": "Créé au XVIe siècle par le Rabbi Loew pour protéger la communauté juive, le Golem — cette créature d’argile — reste la légende la plus célèbre de Prague.",
@@ -150,6 +156,10 @@
       "story.04.img3": "Dans les rues de Josefov<br>Le quartier juif historique, entre synagogues, maisons bourgeoises et souvenirs de la légende.",
       "story.04.img4": "Souvenir du Golem<br>Une petite figurine en terre cuite, glaise trapue et visage à peine esquissé — la version de poche de la légende, telle qu’on la trouve dans les échoppes de Josefov.",
       "story.04.p2": "Le Rabbi plaçait un shem — un parchemin sacré — dans la bouche du Golem pour lui donner vie, puis le retirait pour l’endormir. Certains disent qu’il repose encore là-haut, sous le toit de la Vieille-Nouvelle Synagogue.",
+      "story.04.note.label": "Anecdote :",
+      "story.04.note.text": "la légende a connu un regain de popularité après la parution du roman « Le Golem » de Gustav Meyrink en 1915, qui l’a durablement ancrée dans l’imaginaire pragois.",
+      "story.04.tip": "Conseil : la Synagogue Vieille-Nouvelle ne se visite qu’avec un billet combiné du quartier juif — réservez tôt le matin pour éviter les groupes.",
+      "story.04.gallery.invite": "La légende continue dans les ruelles de Josefov : direction l’album complet du Golem et du quartier juif.",
       "story.04.gallery.title": "Voir les photos du Golem &amp; Josefov", "story.04.gallery.count": "4 photos",
       "story.05.title": "Le Château &amp; la cathédrale Saint-Guy",
       "story.05.p1": "Monter vers le Château est un rite de passage. La Voie Royale traverse Malá Strana avant d’atteindre le plus grand complexe de château ancien au monde.",
@@ -168,12 +178,17 @@
       "story.05.img13": "Le Château, vu depuis la Vltava<br>Depuis les quais, la silhouette du Château domine toute la rive, avec ses flèches qui percent la ligne des toits.",
       "story.05.note.label": "Jardins et points de vue :",
       "story.05.note.text": "les hauteurs du Château et Hradčany offrent plusieurs perspectives sur les toits de Prague et la Vltava.",
+      "story.05.tip": "Conseil : la cathédrale est accessible gratuitement depuis le narthex, mais il faut un billet du complexe du Château pour accéder à la nef et grimper à la tour sud.",
+      "story.05.gallery.invite": "Cours intérieures, flèches gothiques, intérieur et panoramas : la suite de la visite du Château tient dans l’album complet.",
       "story.05.gallery.title": "Voir les photos du Château", "story.05.gallery.count": "13 photos",
       "story.06.title": "Le cimetière juif — Josefov",
       "story.06.p1": "J’y suis allé. La plupart des photos de ce lieu ont disparu ; il n’en reste heureusement que deux, mais elles suffisent à retrouver l’atmosphère. Plus de 12 000 pierres tombales, certaines du XVe siècle, empilées les unes sur les autres faute de place. Tombe du Rabbi Loew, figure centrale de la légende du Golem.",
       "story.06.img1": "Les pierres serrées les unes contre les autres<br>Faute de place, les tombes ont été empilées sur plusieurs niveaux au fil des siècles — jusqu’à douze couches par endroits.",
       "story.06.img2": "Une autre partie du cimetière, en automne<br>Les feuilles mortes et la pente du terrain donnent à ce coin du cimetière une atmosphère plus sauvage encore.",
+      "story.06.note.label": "Anecdote :",
+      "story.06.note.text": "certaines tombes portent des symboles gravés indiquant le nom ou le métier du défunt — mains jointes pour un Cohen, cruche pour un Lévite, ciseaux pour un tailleur.",
       "story.06.tip": "Couverture pour les épaules demandée. Respectez le silence du lieu.",
+      "story.06.gallery.invite": "Ces deux photos n’en disent qu’une partie : le reste se découvre dans l’album du cimetière.",
       "story.06.gallery.title": "Voir les photos du cimetière", "story.06.gallery.count": "2 photos",
       "story.07.p1": "Prague, ce n’est pas seulement des monuments : c’est aussi l’expérience du voyage elle-même. Sous les pavés de la Vieille Ville, le métro pragois offre une autre façon de découvrir la ville.",
       "story.07.img1": "Sous les rues de Prague<br>Descente dans le métro pragois, à la station Staroměstská : un long escalator incurvé, très profond, à l’architecture caractéristique.",
@@ -185,6 +200,10 @@
       "story.07.img7": "Aluminium à hémisphères<br>Signature esthétique des stations de la ligne A construites entre 1973 et 1978 : chaque station affiche sa propre couleur, reconnaissable d’un simple coup d’œil depuis la rame.",
       "story.07.img8": "Un escalator sans fin<br>Station non identifiée avec certitude, mais bien pragoise : les affiches en tchèque le confirment. Les stations profondes du réseau sont réputées pour leurs escalators interminables, certains dépassant 80 mètres.",
       "story.07.p2": "Ce détour par le métro rappelle que le charme de Prague ne se limite pas à ses monuments : il se niche aussi dans ces instants plus ordinaires du voyage.",
+      "story.07.note.label": "Anecdote :",
+      "story.07.note.text": "avec ses 53 mètres de profondeur, la station Náměstí Míru détient le record du métro pragois — construite assez profond pour servir, si besoin, d’abri antiatomique.",
+      "story.07.tip": "Conseil : un simple ticket de 30 ou 90 minutes suffit à combiner métro, tram et bus dans toute la ville — inutile d’acheter un billet par trajet.",
+      "story.07.gallery.invite": "Rames, stations et escalators sans fin : le reste de l’histoire se trouve dans l’album Prague en mouvement.",
       "story.07.gallery.title": "Voir les photos", "story.07.gallery.count": "8 photos",
       "faq.title": "FAQ — Voyager à Prague",
       "faq.q1": "Quelle monnaie utiliser ?", "faq.a1": "La couronne tchèque (CZK). Les euros sont rarement acceptés ou proposés à un mauvais taux. Une carte Visa/Mastercard sans frais et un peu de cash sont pratiques.",
@@ -242,6 +261,10 @@
       "story.01.img5": "Old Town Square (Staroměstské náměstí)<br>At its centre, the monument to Jan Hus, the Czech religious reformer burned at the stake in 1415, has watched over the square since 1915.",
       "story.01.img6": "Sgraffito house, steps from the Town Hall<br>This scratched geometric-pattern façade is a signature of the historic centre; the exact identity of this house is still to be confirmed.",
       "story.01.p2": "This is where the trip truly begins. The rattle of suitcases on cobblestones, conversations in ten languages, the smell of trdelník…",
+      "story.01.note.label": "Fun fact:",
+      "story.01.note.text": "the Jan Hus monument was unveiled on 6 July 1915, the exact 500th anniversary of his execution at the stake — a powerful symbol in the midst of the First World War, as Czech nationalism sought out its figures.",
+      "story.01.tip": "Tip: come early in the morning to photograph the Municipal House and the Powder Tower without the crowds — the low light brings out the Art Nouveau detail beautifully.",
+      "story.01.gallery.invite": "The Old Town doesn’t stop at these three stops: hidden alleys, painted façades and overlooked details are waiting in the full album.",
       "story.01.gallery.title": "See the Old Town photos", "story.01.gallery.count": "6 photos",
       "story.02.title": "The Astronomical Clock",
       "story.02.p1": "The Old Town Square is Prague’s permanent stage. At the foot of the old Town Hall tower, the Orloj still draws crowds every hour.",
@@ -252,6 +275,7 @@
       "story.02.note.label": "Fun fact:",
       "story.02.note.text": "Legend has it that master clockmaker Hanuš was blinded so he could never build such a perfect clock anywhere else.",
       "story.02.tip": "Arrive 10 minutes before the hour to watch the apostles parade, and stand well back — up close, all you see is the crowd.",
+      "story.02.gallery.invite": "Want to see the mechanism from every angle, all the way up the tower? The full Astronomical Clock album is waiting.",
       "story.02.gallery.title": "See the Clock photos", "story.02.gallery.count": "4 photos",
       "story.03.title": "Charles Bridge and its surroundings",
       "story.03.p1": "Crossing Charles Bridge means walking over 650 years of history. Built under Charles IV from 1357, it links the Old Town to Malá Strana above the Vltava.",
@@ -274,6 +298,7 @@
       "story.03.note.label": "About the statues:",
       "story.03.note.text": "The bridge’s 30 statues and sculpted groups, mostly baroque, form a genuine open-air gallery.",
       "story.03.tip": "Come at sunrise: the bridge is almost empty, and the light on the towers is incomparable.",
+      "story.03.gallery.invite": "Thirty statues, thirty stories: the rest of the Charles Bridge gallery takes you statue by statue, all the way to the banks of the Vltava.",
       "story.03.gallery.title": "See the Charles Bridge photos", "story.03.gallery.count": "16 photos",
       "story.04.title": "The Golem &amp; the Josefov quarter",
       "story.04.p1": "Created in the 16th century by Rabbi Loew to protect the Jewish community, the Golem — this creature of clay — remains Prague’s most famous legend.",
@@ -282,6 +307,10 @@
       "story.04.img3": "In the streets of Josefov<br>The historic Jewish quarter, amid synagogues, bourgeois houses and reminders of the legend.",
       "story.04.img4": "A Golem souvenir<br>A small terracotta figurine, stout clay with a barely sketched face — the pocket-sized version of the legend, as found in the shops of Josefov.",
       "story.04.p2": "The Rabbi would place a shem — a sacred parchment — in the Golem’s mouth to bring it to life, then remove it to put it to sleep. Some say it still rests up there, beneath the roof of the Old-New Synagogue.",
+      "story.04.note.label": "Fun fact:",
+      "story.04.note.text": "the legend saw a surge in popularity after the publication of Gustav Meyrink’s novel ‘The Golem’ in 1915, which cemented it firmly in Prague’s imagination.",
+      "story.04.tip": "Tip: the Old-New Synagogue can only be visited with a combined Jewish Quarter ticket — book for early morning to avoid the tour groups.",
+      "story.04.gallery.invite": "The legend continues through the alleys of Josefov: head to the full Golem & Josefov album.",
       "story.04.gallery.title": "See the Golem &amp; Josefov photos", "story.04.gallery.count": "4 photos",
       "story.05.title": "The Castle &amp; St Vitus Cathedral",
       "story.05.p1": "Climbing up to the Castle is a rite of passage. The Royal Route crosses Malá Strana before reaching the largest ancient castle complex in the world.",
@@ -300,12 +329,17 @@
       "story.05.img13": "The Castle, seen from the Vltava<br>From the embankments, the Castle’s silhouette dominates the riverbank, its spires piercing the skyline.",
       "story.05.note.label": "Gardens and viewpoints:",
       "story.05.note.text": "the Castle heights and Hradčany offer several viewpoints over Prague’s rooftops and the Vltava.",
+      "story.05.tip": "Tip: the cathedral is free to enter from the narthex, but you need a Castle complex ticket to reach the nave and climb the south tower.",
+      "story.05.gallery.invite": "Courtyards, Gothic spires, the interior and the panoramas: the rest of the Castle visit is in the full album.",
       "story.05.gallery.title": "See the Castle photos", "story.05.gallery.count": "13 photos",
       "story.06.title": "The Jewish Cemetery — Josefov",
       "story.06.p1": "I went there. Most of the photos from this place are gone; luckily two remain, but they’re enough to capture the atmosphere. Over 12,000 gravestones, some dating from the 15th century, stacked on top of one another for lack of space. The grave of Rabbi Loew, the central figure of the Golem legend.",
       "story.06.img1": "Stones packed tightly together<br>For lack of space, graves were stacked in several layers over the centuries — up to twelve layers in places.",
       "story.06.img2": "Another part of the cemetery, in autumn<br>The fallen leaves and sloping ground give this corner of the cemetery an even wilder atmosphere.",
+      "story.06.note.label": "Fun fact:",
+      "story.06.note.text": "some gravestones bear carved symbols indicating the deceased’s name or trade — joined hands for a Cohen, a jug for a Levite, scissors for a tailor.",
       "story.06.tip": "Shoulder covering required. Please respect the silence of the place.",
+      "story.06.gallery.invite": "These two photos only tell part of it: the rest is in the cemetery album.",
       "story.06.gallery.title": "See the cemetery photos", "story.06.gallery.count": "2 photos",
       "story.07.p1": "Prague isn’t just monuments: it’s also the travel experience itself. Beneath the cobblestones of the Old Town, the Prague metro offers another way to discover the city.",
       "story.07.img1": "Beneath the streets of Prague<br>Descending into the Prague metro at Staroměstská station: a long, deep, curved escalator with distinctive architecture.",
@@ -317,6 +351,10 @@
       "story.07.img7": "Hemisphere aluminium panels<br>The signature look of Line A stations built between 1973 and 1978: each station has its own colour, recognisable at a glance from the train window.",
       "story.07.img8": "An endless escalator<br>The station can’t be identified with certainty, but it’s unmistakably Prague — the Czech-language posters confirm it. The network’s deep stations are known for their endless escalators, some over 80 metres long.",
       "story.07.p2": "This detour through the metro is a reminder that Prague’s charm isn’t limited to its monuments: it also lives in these more ordinary travel moments.",
+      "story.07.note.label": "Fun fact:",
+      "story.07.note.text": "at 53 metres deep, Náměstí Míru station holds the record for Prague’s metro — built deep enough to double as a nuclear shelter if needed.",
+      "story.07.tip": "Tip: a single 30- or 90-minute ticket covers metro, tram and bus across the whole city — no need to buy one per ride.",
+      "story.07.gallery.invite": "Trains, stations and endless escalators: the rest of the story is in the Prague on the move album.",
       "story.07.gallery.title": "See the photos", "story.07.gallery.count": "8 photos",
       "faq.title": "FAQ — Travelling to Prague",
       "faq.q1": "What currency should I use?", "faq.a1": "The Czech koruna (CZK). Euros are rarely accepted, or only at a poor rate. A fee-free Visa/Mastercard plus a little cash works well.",
@@ -374,6 +412,10 @@
       "story.01.img5": "Plaza de la Ciudad Vieja (Staroměstské náměstí)<br>En el centro, el monumento a Jan Hus, reformador religioso checo quemado en la hoguera en 1415, vigila la plaza desde 1915.",
       "story.01.img6": "Casa de esgrafiados, a pasos del Ayuntamiento<br>Este tipo de fachada rayada con motivos geométricos es una seña de identidad del centro histórico; la identificación exacta de esta casa aún está por confirmar.",
       "story.01.p2": "Aquí es donde el viaje realmente comienza. El ruido de las maletas sobre los adoquines, conversaciones en diez idiomas, el olor a trdelník…",
+      "story.01.note.label": "Anécdota:",
+      "story.01.note.text": "el monumento a Jan Hus se inauguró el 6 de julio de 1915, justo en el 500.º aniversario de su ejecución en la hoguera — un símbolo potente en plena Primera Guerra Mundial, cuando el nacionalismo checo buscaba sus figuras.",
+      "story.01.tip": "Consejo: ven temprano por la mañana para fotografiar la Casa Municipal y la Torre de la Pólvora sin multitudes — la luz rasante realza el detalle Art Nouveau.",
+      "story.01.gallery.invite": "La Ciudad Vieja no termina en estas tres paradas: callejones ocultos, fachadas pintadas y detalles olvidados esperan en el álbum completo.",
       "story.01.gallery.title": "Ver las fotos de la Ciudad Vieja", "story.01.gallery.count": "6 fotos",
       "story.02.title": "El Reloj Astronómico",
       "story.02.p1": "La Plaza de la Ciudad Vieja es el escenario permanente de Praga. Al pie de la torre del antiguo Ayuntamiento, el Orloj sigue fascinando a las multitudes cada hora.",
@@ -384,6 +426,7 @@
       "story.02.note.label": "Anécdota:",
       "story.02.note.text": "Cuenta la leyenda que el maestro relojero Hanuš fue cegado para que nunca pudiera construir un reloj tan perfecto en ningún otro lugar.",
       "story.02.tip": "Llega 10 minutos antes de la hora en punto para ver desfilar a los apóstoles, y retrocede: de cerca solo se ve a la multitud.",
+      "story.02.gallery.invite": "¿Quieres ver el mecanismo desde todos los ángulos, hasta lo alto de la torre? El álbum completo del Reloj Astronómico te espera.",
       "story.02.gallery.title": "Ver las fotos del Reloj", "story.02.gallery.count": "4 fotos",
       "story.03.title": "El Puente de Carlos y sus alrededores",
       "story.03.p1": "Cruzar el Puente de Carlos es caminar sobre 650 años de historia. Construido bajo Carlos IV a partir de 1357, une la Ciudad Vieja con Malá Strana sobre el Vltava.",
@@ -406,6 +449,7 @@
       "story.03.note.label": "Sobre las estatuas:",
       "story.03.note.text": "Las 30 estatuas y grupos escultóricos del puente, en su mayoría barrocos, forman una auténtica galería al aire libre.",
       "story.03.tip": "Ven al amanecer: el puente está casi vacío y la luz sobre las torres es incomparable.",
+      "story.03.gallery.invite": "Treinta estatuas, treinta historias: el resto de la galería del Puente de Carlos te lleva estatua por estatua, hasta las orillas del Vltava.",
       "story.03.gallery.title": "Ver las fotos del Puente de Carlos", "story.03.gallery.count": "16 fotos",
       "story.04.title": "El Golem y el barrio de Josefov",
       "story.04.p1": "Creado en el siglo XVI por el rabino Loew para proteger a la comunidad judía, el Golem —esa criatura de arcilla— sigue siendo la leyenda más famosa de Praga.",
@@ -414,6 +458,10 @@
       "story.04.img3": "Por las calles de Josefov<br>El barrio judío histórico, entre sinagogas, casas burguesas y recuerdos de la leyenda.",
       "story.04.img4": "Recuerdo del Golem<br>Una pequeña figurita de terracota, arcilla rechoncha y rostro apenas esbozado — la versión de bolsillo de la leyenda, tal como se encuentra en las tiendas de Josefov.",
       "story.04.p2": "El rabino colocaba un shem —un pergamino sagrado— en la boca del Golem para darle vida, y luego lo retiraba para dormirlo. Algunos dicen que todavía descansa allá arriba, bajo el tejado de la Sinagoga Vieja-Nueva.",
+      "story.04.note.label": "Anécdota:",
+      "story.04.note.text": "la leyenda vivió un renovado auge tras la publicación de la novela «El Golem» de Gustav Meyrink en 1915, que la arraigó firmemente en el imaginario praguense.",
+      "story.04.tip": "Consejo: la Sinagoga Vieja-Nueva solo se visita con una entrada combinada del barrio judío — resérvala a primera hora para evitar los grupos.",
+      "story.04.gallery.invite": "La leyenda continúa por las callejuelas de Josefov: dirígete al álbum completo del Golem y el barrio judío.",
       "story.04.gallery.title": "Ver las fotos del Golem y Josefov", "story.04.gallery.count": "4 fotos",
       "story.05.title": "El Castillo y la catedral de San Vito",
       "story.05.p1": "Subir hacia el Castillo es un rito de paso. La Vía Real atraviesa Malá Strana antes de llegar al complejo de castillo antiguo más grande del mundo.",
@@ -432,12 +480,17 @@
       "story.05.img13": "El Castillo, visto desde el Vltava<br>Desde los muelles, la silueta del Castillo domina toda la orilla, con sus agujas perforando el perfil de los tejados.",
       "story.05.note.label": "Jardines y miradores:",
       "story.05.note.text": "las alturas del Castillo y Hradčany ofrecen varias perspectivas sobre los tejados de Praga y el Vltava.",
+      "story.05.tip": "Consejo: la catedral se puede visitar gratis desde el nártex, pero se necesita una entrada del complejo del Castillo para acceder a la nave y subir a la torre sur.",
+      "story.05.gallery.invite": "Patios interiores, agujas góticas, el interior y los panoramas: el resto de la visita al Castillo está en el álbum completo.",
       "story.05.gallery.title": "Ver las fotos del Castillo", "story.05.gallery.count": "13 fotos",
       "story.06.title": "El cementerio judío — Josefov",
       "story.06.p1": "Estuve allí. La mayoría de las fotos de este lugar se han perdido; afortunadamente quedan dos, pero bastan para recuperar el ambiente. Más de 12.000 lápidas, algunas del siglo XV, apiladas unas sobre otras por falta de espacio. La tumba del rabino Loew, figura central de la leyenda del Golem.",
       "story.06.img1": "Las piedras apretadas unas contra otras<br>Por falta de espacio, las tumbas se apilaron en varios niveles a lo largo de los siglos — hasta doce capas en algunos puntos.",
       "story.06.img2": "Otra parte del cementerio, en otoño<br>Las hojas caídas y la pendiente del terreno dan a este rincón del cementerio una atmósfera aún más salvaje.",
+      "story.06.note.label": "Anécdota:",
+      "story.06.note.text": "algunas lápidas llevan símbolos grabados que indican el nombre o el oficio del difunto — manos juntas para un Cohen, una jarra para un Levita, tijeras para un sastre.",
       "story.06.tip": "Se requiere cubrirse los hombros. Respeta el silencio del lugar.",
+      "story.06.gallery.invite": "Estas dos fotos solo cuentan una parte: el resto se descubre en el álbum del cementerio.",
       "story.06.gallery.title": "Ver las fotos del cementerio", "story.06.gallery.count": "2 fotos",
       "story.07.p1": "Praga no son solo monumentos: también es la experiencia misma del viaje. Bajo los adoquines de la Ciudad Vieja, el metro praguense ofrece otra forma de descubrir la ciudad.",
       "story.07.img1": "Bajo las calles de Praga<br>Descenso al metro praguense, en la estación Staroměstská: una larga escalera mecánica curva, muy profunda, de arquitectura característica.",
@@ -449,6 +502,10 @@
       "story.07.img7": "Aluminio con paneles semiesféricos<br>El sello estético de las estaciones de la línea A construidas entre 1973 y 1978: cada estación luce su propio color, reconocible de un vistazo desde el tren.",
       "story.07.img8": "Una escalera mecánica interminable<br>La estación no se puede identificar con certeza, pero es inconfundiblemente praguense: los carteles en checo lo confirman. Las estaciones profundas de la red son conocidas por sus interminables escaleras mecánicas, algunas de más de 80 metros.",
       "story.07.p2": "Este desvío por el metro recuerda que el encanto de Praga no se limita a sus monumentos: también se esconde en esos instantes más ordinarios del viaje.",
+      "story.07.note.label": "Anécdota:",
+      "story.07.note.text": "con 53 metros de profundidad, la estación Náměstí Míru ostenta el récord del metro praguense — construida lo bastante profunda como para servir, si hiciera falta, de refugio antiatómico.",
+      "story.07.tip": "Consejo: un simple billete de 30 o 90 minutos permite combinar metro, tranvía y autobús por toda la ciudad — no hace falta comprar uno por trayecto.",
+      "story.07.gallery.invite": "Trenes, estaciones y escaleras mecánicas interminables: el resto de la historia está en el álbum Praga en movimiento.",
       "story.07.gallery.title": "Ver las fotos", "story.07.gallery.count": "8 fotos",
       "faq.title": "FAQ — Viajar a Praga",
       "faq.q1": "¿Qué moneda usar?", "faq.a1": "La corona checa (CZK). Los euros rara vez se aceptan, o se ofrecen a un tipo de cambio desfavorable. Una tarjeta Visa/Mastercard sin comisiones y algo de efectivo son prácticos.",
@@ -509,68 +566,74 @@
   });
 
   // ===== 7. CARTE INTERACTIVE — 7 ÉTAPES =====
-  const map = L.map('map', {
-    center: [50.0885, 14.4160],
-    zoom: 14,
-    scrollWheelZoom: true,
-    zoomControl: true
-  });
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
-
-  const places = [
-    { lat:50.0865, lng:14.4278, title:'01 · Vieille Ville', anchor:'#vieille-ville' },
-    { lat:50.0870, lng:14.4207, title:'02 · Horloge astronomique', anchor:'#horloge' },
-    { lat:50.0865, lng:14.4114, title:'03 · Pont Charles', anchor:'#pont' },
-    { lat:50.0904, lng:14.4174, title:'04 · Golem / Josefov', anchor:'#golem' },
-    { lat:50.0909, lng:14.4006, title:'05 · Château de Prague', anchor:'#chateau' },
-    { lat:50.0902, lng:14.4170, title:'06 · Cimetière juif', anchor:'#cimetiere' },
-    { lat:50.0885, lng:14.4173, title:'07 · Prague en mouvement', anchor:'#mouvement' }
-  ];
-
-  const route = places.map(p => [p.lat,p.lng]);
-  L.polyline(route, {className:'prague-route-line'}).addTo(map);
-
-  let activePlace = -1;
-  const markers = [];
-
-  function activatePlace(i, scroll = true) {
-    activePlace = i;
-    document.querySelectorAll('.route-list button').forEach((b,n) => b.classList.toggle('active', n === i));
-    markers.forEach((m,n) => {
-      const el = m.getElement();
-      if (el) el.classList.toggle('active', n === i);
+  // Isolée dans un try/catch : si Leaflet ou la tuile OSM échoue à charger,
+  // le reste du script (galeries, FAQ...) continue de fonctionner normalement.
+  try {
+    const map = L.map('leaflet-map', {
+      center: [50.0885, 14.4160],
+      zoom: 14,
+      scrollWheelZoom: true,
+      zoomControl: true
     });
-    if (scroll) {
-      document.querySelector(places[i].anchor)?.scrollIntoView({behavior:'smooth', block:'start'});
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    const places = [
+      { lat:50.0865, lng:14.4278, title:'01 · Vieille Ville', anchor:'#vieille-ville' },
+      { lat:50.0870, lng:14.4207, title:'02 · Horloge astronomique', anchor:'#horloge' },
+      { lat:50.0865, lng:14.4114, title:'03 · Pont Charles', anchor:'#pont' },
+      { lat:50.0904, lng:14.4174, title:'04 · Golem / Josefov', anchor:'#golem' },
+      { lat:50.0909, lng:14.4006, title:'05 · Château de Prague', anchor:'#chateau' },
+      { lat:50.0902, lng:14.4170, title:'06 · Cimetière juif', anchor:'#cimetiere' },
+      { lat:50.0885, lng:14.4173, title:'07 · Prague en mouvement', anchor:'#mouvement' }
+    ];
+
+    const route = places.map(p => [p.lat,p.lng]);
+    L.polyline(route, {className:'prague-route-line'}).addTo(map);
+
+    let activePlace = -1;
+    const markers = [];
+
+    function activatePlace(i, scroll = true) {
+      activePlace = i;
+      document.querySelectorAll('.route-list button').forEach((b,n) => b.classList.toggle('active', n === i));
+      markers.forEach((m,n) => {
+        const el = m.getElement();
+        if (el) el.classList.toggle('active', n === i);
+      });
+      if (scroll) {
+        document.querySelector(places[i].anchor)?.scrollIntoView({behavior:'smooth', block:'start'});
+      }
     }
+
+    places.forEach((p, i) => {
+      const icon = L.divIcon({
+        className:'prague-marker',
+        html:`<span><b>${String(i+1).padStart(2,'0')}</b></span>`,
+        iconSize:[34,34],
+        iconAnchor:[17,17]
+      });
+
+      const marker = L.marker([p.lat,p.lng], {icon})
+        .addTo(map)
+        .bindPopup(`<strong>${p.title}</strong><br><a href="${p.anchor}">→</a>`)
+        .on('click', () => activatePlace(i));
+
+      markers.push(marker);
+    });
+
+    document.querySelectorAll('.route-list button').forEach((btn,i) => {
+      btn.addEventListener('click', () => {
+        activatePlace(i);
+        map.flyTo([places[i].lat,places[i].lng], 16, {duration:.8});
+        markers[i].openPopup();
+      });
+    });
+  } catch (err) {
+    console.error('Carte interactive : erreur d’initialisation', err);
   }
-
-  places.forEach((p, i) => {
-    const icon = L.divIcon({
-      className:'prague-marker',
-      html:`<span><b>${String(i+1).padStart(2,'0')}</b></span>`,
-      iconSize:[34,34],
-      iconAnchor:[17,17]
-    });
-
-    const marker = L.marker([p.lat,p.lng], {icon})
-      .addTo(map)
-      .bindPopup(`<strong>${p.title}</strong><br><a href="${p.anchor}">→</a>`)
-      .on('click', () => activatePlace(i));
-
-    markers.push(marker);
-  });
-
-  document.querySelectorAll('.route-list button').forEach((btn,i) => {
-    btn.addEventListener('click', () => {
-      activatePlace(i);
-      map.flyTo([places[i].lat,places[i].lng], 16, {duration:.8});
-      markers[i].openPopup();
-    });
-  });
 
   // ===== 8. GALERIES PLEIN ÉCRAN =====
   const galleries = {
