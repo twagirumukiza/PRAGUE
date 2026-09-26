@@ -200,6 +200,7 @@
       "story.07.img7": "Aluminium à hémisphères<br>Signature esthétique des stations de la ligne A construites entre 1973 et 1978 : chaque station affiche sa propre couleur, reconnaissable d’un simple coup d’œil depuis la rame.",
       "story.07.img8": "Un escalator sans fin<br>Station non identifiée avec certitude, mais bien pragoise : les affiches en tchèque le confirment. Les stations profondes du réseau sont réputées pour leurs escalators interminables, certains dépassant 80 mètres.",
       "story.07.p2": "Ce détour par le métro rappelle que le charme de Prague ne se limite pas à ses monuments : il se niche aussi dans ces instants plus ordinaires du voyage.",
+      "story.07.p3": "J’ai vraiment été frappé par la propreté du métro, le calme qui y règne et, surtout, la beauté des lieux. Mais ce qui m’a le plus marqué, c’est l’absence totale de tourniquets pour entrer dans le métro de Prague. Et pourtant, personne ne semble avoir l’idée de tricher. Une belle illustration de la confiance et du respect qui peuvent aussi faire fonctionner une ville. 🇨🇿❤️",
       "story.07.note.label": "Anecdote :",
       "story.07.note.text": "avec ses 53 mètres de profondeur, la station Náměstí Míru détient le record du métro pragois — construite assez profond pour servir, si besoin, d’abri antiatomique.",
       "story.07.tip": "Conseil : un simple ticket de 30 ou 90 minutes suffit à combiner métro, tram et bus dans toute la ville — inutile d’acheter un billet par trajet.",
@@ -351,6 +352,7 @@
       "story.07.img7": "Hemisphere aluminium panels<br>The signature look of Line A stations built between 1973 and 1978: each station has its own colour, recognisable at a glance from the train window.",
       "story.07.img8": "An endless escalator<br>The station can’t be identified with certainty, but it’s unmistakably Prague — the Czech-language posters confirm it. The network’s deep stations are known for their endless escalators, some over 80 metres long.",
       "story.07.p2": "This detour through the metro is a reminder that Prague’s charm isn’t limited to its monuments: it also lives in these more ordinary travel moments.",
+      "story.07.p3": "I was really struck by how clean the metro is, how calm it feels, and above all by the beauty of the places. But what marked me most was the complete absence of turnstiles to enter the Prague metro. And yet nobody seems to think of cheating. A fine illustration of the trust and respect that can also make a city work. 🇨🇿❤️",
       "story.07.note.label": "Fun fact:",
       "story.07.note.text": "at 53 metres deep, Náměstí Míru station holds the record for Prague’s metro — built deep enough to double as a nuclear shelter if needed.",
       "story.07.tip": "Tip: a single 30- or 90-minute ticket covers metro, tram and bus across the whole city — no need to buy one per ride.",
@@ -502,6 +504,7 @@
       "story.07.img7": "Aluminio con paneles semiesféricos<br>El sello estético de las estaciones de la línea A construidas entre 1973 y 1978: cada estación luce su propio color, reconocible de un vistazo desde el tren.",
       "story.07.img8": "Una escalera mecánica interminable<br>La estación no se puede identificar con certeza, pero es inconfundiblemente praguense: los carteles en checo lo confirman. Las estaciones profundas de la red son conocidas por sus interminables escaleras mecánicas, algunas de más de 80 metros.",
       "story.07.p2": "Este desvío por el metro recuerda que el encanto de Praga no se limita a sus monumentos: también se esconde en esos instantes más ordinarios del viaje.",
+      "story.07.p3": "Me impresionó de verdad la limpieza del metro, la calma que reina en él y, sobre todo, la belleza de los lugares. Pero lo que más me marcó fue la ausencia total de torniquetes para entrar en el metro de Praga. Y sin embargo, nadie parece tener la idea de hacer trampa. Una bella ilustración de la confianza y el respeto que también pueden hacer funcionar una ciudad. 🇨🇿❤️",
       "story.07.note.label": "Anécdota:",
       "story.07.note.text": "con 53 metros de profundidad, la estación Náměstí Míru ostenta el récord del metro praguense — construida lo bastante profunda como para servir, si hiciera falta, de refugio antiatómico.",
       "story.07.tip": "Consejo: un simple billete de 30 o 90 minutos permite combinar metro, tranvía y autobús por toda la ciudad — no hace falta comprar uno por trayecto.",
@@ -652,7 +655,7 @@
       'prague-images/mouvement-05-passage-plan-dpp.jpg',
       'prague-images/mouvement-06-signaletique-muzeum.jpg',
       'prague-images/mouvement-07-mur-alu-hemispheres.jpg',
-   
+      'prague-images/mouvement-08-escalator-argentique.jpg'
     ]
   };
 
