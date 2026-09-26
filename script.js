@@ -652,7 +652,7 @@
       'prague-images/mouvement-05-passage-plan-dpp.jpg',
       'prague-images/mouvement-06-signaletique-muzeum.jpg',
       'prague-images/mouvement-07-mur-alu-hemispheres.jpg',
-      'prague-images/mouvement-08-escalator-argentique.jpg'
+   
     ]
   };
 
