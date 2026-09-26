@@ -693,3 +693,13 @@ body:not(.theme-light) .mexico-btn:focus-visible {
 body:not(.theme-light) .mexico-cta-text {
   color: rgba(238,238,238,.7);
 }
+
+
+/* Menu mobile — section Ailleurs */
+.menu-elsewhere {
+  margin-top: .5rem;
+}
+.menu-elsewhere a[href*="Mexico"] {
+  font-weight: 600;
+  color: var(--yellow, #f7c948);
+}
