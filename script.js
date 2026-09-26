@@ -1,5 +1,5 @@
 /* ================================================================
-   PRAGUE — JAVASCRIPT (V4)
+   PRAGUE — JAVASCRIPT (V5)
    Organisation rapide :
    1. En-tête fixe (hauteur dynamique)
    2. Menu mobile
@@ -7,7 +7,7 @@
    4. Taille du texte
    5. Langues (FR / EN / ES) — traduction complète du site
    6. Timeline / navigation
-   7. Carte Leaflet + itinéraire (7 étapes)
+   7. Carte statique (hotspots + panneau des 7 étapes)
    8. Galeries plein écran (vignettes, carrousel, zoom, pincer, double-clic)
    9. FAQ rétractable
    ================================================================ */
@@ -86,10 +86,10 @@
       "hero.title": "Un week-end<br>à Prague",
       "hero.desc": "Des pavés de la Vieille Ville au Château, en passant par le Pont Charles, Josefov et la légende du Golem — sans oublier ce qui se passe sous les pavés.",
       "hero.cta": "Explorer la carte",
-      "map.title": "Carte interactive",
+      "map.title": "Carte de Prague",
       "map.desc": "Cliquez sur un lieu pour accéder directement au récit correspondant.",
-      "map.meta.count": "● 7 lieux", "map.meta.itinerary": "→ itinéraire photo", "map.meta.interactive": "⌁ carte interactive",
-      "map.hint": "Cliquez sur un point • zoom + / − • glissez pour vous déplacer",
+      "map.meta.count": "● 7 lieux", "map.meta.itinerary": "→ itinéraire photo", "map.meta.interactive": "⌁ carte illustrée",
+      "map.hint": "Cliquez sur un numéro pour aller au récit",
       "map.panel.kicker": "PRAGUE · WEEK-END", "map.panel.title": "Les 7 étapes",
       "itinerary.title": "Le week-end en un coup d’œil",
       "itinerary.stat.etapes": "étapes", "itinerary.stat.photos": "photos", "itinerary.stat.ville": "ville",
@@ -237,10 +237,10 @@
       "hero.title": "A weekend<br>in Prague",
       "hero.desc": "From the cobblestones of the Old Town to the Castle, by way of Charles Bridge, Josefov and the legend of the Golem — without forgetting what happens beneath the cobblestones.",
       "hero.cta": "Explore the map",
-      "map.title": "Interactive map",
+      "map.title": "Prague map",
       "map.desc": "Click a place to jump straight to its story.",
-      "map.meta.count": "● 7 places", "map.meta.itinerary": "→ photo itinerary", "map.meta.interactive": "⌁ interactive map",
-      "map.hint": "Click a point • zoom +/− • drag to move around",
+      "map.meta.count": "● 7 places", "map.meta.itinerary": "→ photo itinerary", "map.meta.interactive": "⌁ illustrated map",
+      "map.hint": "Click a number to go to the story",
       "map.panel.kicker": "PRAGUE · WEEKEND", "map.panel.title": "The 7 stages",
       "itinerary.title": "The weekend at a glance",
       "itinerary.stat.etapes": "stages", "itinerary.stat.photos": "photos", "itinerary.stat.ville": "city",
@@ -388,10 +388,10 @@
       "hero.title": "Un fin de semana<br>en Praga",
       "hero.desc": "De los adoquines de la Ciudad Vieja al Castillo, pasando por el Puente de Carlos, Josefov y la leyenda del Golem — sin olvidar lo que ocurre bajo los adoquines.",
       "hero.cta": "Explorar el mapa",
-      "map.title": "Mapa interactivo",
+      "map.title": "Mapa de Praga",
       "map.desc": "Haz clic en un lugar para ir directamente al relato correspondiente.",
-      "map.meta.count": "● 7 lugares", "map.meta.itinerary": "→ itinerario fotográfico", "map.meta.interactive": "⌁ mapa interactivo",
-      "map.hint": "Haz clic en un punto • zoom +/− • arrastra para desplazarte",
+      "map.meta.count": "● 7 lugares", "map.meta.itinerary": "→ itinerario fotográfico", "map.meta.interactive": "⌁ mapa ilustrado",
+      "map.hint": "Haz clic en un número para ir al relato",
       "map.panel.kicker": "PRAGA · FIN DE SEMANA", "map.panel.title": "Las 7 etapas",
       "itinerary.title": "El fin de semana de un vistazo",
       "itinerary.stat.etapes": "etapas", "itinerary.stat.photos": "fotos", "itinerary.stat.ville": "ciudad",
@@ -565,75 +565,25 @@
     });
   });
 
-  // ===== 7. CARTE INTERACTIVE — 7 ÉTAPES =====
-  // Isolée dans un try/catch : si Leaflet ou la tuile OSM échoue à charger,
-  // le reste du script (galeries, FAQ...) continue de fonctionner normalement.
-  try {
-    const map = L.map('leaflet-map', {
-      center: [50.0885, 14.4160],
-      zoom: 14,
-      scrollWheelZoom: true,
-      zoomControl: true
+  // ===== 7. CARTE STATIQUE — hotspots + panneau des 7 étapes =====
+  function goToStage(target) {
+    if (!target) return;
+    document.querySelector(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.route-list button').forEach(b => {
+      b.classList.toggle('active', b.dataset.target === target);
     });
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
-    const places = [
-      { lat:50.0865, lng:14.4278, title:'01 · Vieille Ville', anchor:'#vieille-ville' },
-      { lat:50.0870, lng:14.4207, title:'02 · Horloge astronomique', anchor:'#horloge' },
-      { lat:50.0865, lng:14.4114, title:'03 · Pont Charles', anchor:'#pont' },
-      { lat:50.0904, lng:14.4174, title:'04 · Golem / Josefov', anchor:'#golem' },
-      { lat:50.0909, lng:14.4006, title:'05 · Château de Prague', anchor:'#chateau' },
-      { lat:50.0902, lng:14.4170, title:'06 · Cimetière juif', anchor:'#cimetiere' },
-      { lat:50.0885, lng:14.4173, title:'07 · Prague en mouvement', anchor:'#mouvement' }
-    ];
-
-    const route = places.map(p => [p.lat,p.lng]);
-    L.polyline(route, {className:'prague-route-line'}).addTo(map);
-
-    let activePlace = -1;
-    const markers = [];
-
-    function activatePlace(i, scroll = true) {
-      activePlace = i;
-      document.querySelectorAll('.route-list button').forEach((b,n) => b.classList.toggle('active', n === i));
-      markers.forEach((m,n) => {
-        const el = m.getElement();
-        if (el) el.classList.toggle('active', n === i);
-      });
-      if (scroll) {
-        document.querySelector(places[i].anchor)?.scrollIntoView({behavior:'smooth', block:'start'});
-      }
-    }
-
-    places.forEach((p, i) => {
-      const icon = L.divIcon({
-        className:'prague-marker',
-        html:`<span><b>${String(i+1).padStart(2,'0')}</b></span>`,
-        iconSize:[34,34],
-        iconAnchor:[17,17]
-      });
-
-      const marker = L.marker([p.lat,p.lng], {icon})
-        .addTo(map)
-        .bindPopup(`<strong>${p.title}</strong><br><a href="${p.anchor}">→</a>`)
-        .on('click', () => activatePlace(i));
-
-      markers.push(marker);
+    document.querySelectorAll('.map-hotspot').forEach(h => {
+      h.classList.toggle('active', h.dataset.target === target);
     });
-
-    document.querySelectorAll('.route-list button').forEach((btn,i) => {
-      btn.addEventListener('click', () => {
-        activatePlace(i);
-        map.flyTo([places[i].lat,places[i].lng], 16, {duration:.8});
-        markers[i].openPopup();
-      });
-    });
-  } catch (err) {
-    console.error('Carte interactive : erreur d’initialisation', err);
   }
+
+  document.querySelectorAll('.route-list button[data-target]').forEach(btn => {
+    btn.addEventListener('click', () => goToStage(btn.dataset.target));
+  });
+
+  document.querySelectorAll('.map-hotspot[data-target]').forEach(btn => {
+    btn.addEventListener('click', () => goToStage(btn.dataset.target));
+  });
 
   // ===== 8. GALERIES PLEIN ÉCRAN =====
   const galleries = {

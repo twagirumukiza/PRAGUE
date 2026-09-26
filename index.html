@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <!-- ================================================================
-     PRAGUE — UN WEEK-END À PRAGUE (V3)
+     PRAGUE — UN WEEK-END À PRAGUE (V5)
      Structure HTML : navigation fixe, hero, carte, itinéraire, récits
-     par étape (une galerie par étape, pas de galerie par sous-étape),
-     FAQ rétractable, à propos, footer.
+     par étape (une galerie par étape), FAQ rétractable, à propos,
+     footer. Site multilingue FR / EN / ES : tout texte traduisible
+     porte un attribut data-i18n="clé" (et data-i18n-aria="clé" pour
+     les aria-label) résolu par script.js au chargement et au clic
+     sur les boutons de langue. Le français du balisage sert de repli
+     si une clé est absente d'une langue.
      Charte graphique identique à Mexico (Montserrat + Playfair Display,
      thème jaune/noir), feuille de style commune + surcouche Prague.
      ================================================================ -->
@@ -22,14 +26,12 @@
   <!-- Même feuille de style que Mexico -->
   <link rel="stylesheet" href="https://twagirumukiza.github.io/Mexico/styles.css">
 
-  <!-- Leaflet uniquement pour la carte de Prague -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
   <!-- Surcharges spécifiques à Prague -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="theme-dark">
+<body class="theme-light">
 
 <!-- HEADER : barre de navigation fixe + menu mobile -->
 <header class="header">
@@ -40,46 +42,47 @@
     </a>
 
     <nav class="nav-desktop">
-      <a href="#home">Accueil</a>
-      <a href="#map">Carte</a>
-      <a href="#itinerary">Itinéraire</a>
-      <a href="#stories">Récits</a>
-      <a href="#faq">FAQ</a>
-      <a href="#about">À propos</a>
+      <a href="#home" data-i18n="nav.home">Accueil</a>
+      <a href="#map" data-i18n="nav.map">Carte</a>
+      <a href="#itinerary" data-i18n="nav.itinerary">Itinéraire</a>
+      <a href="#stories" data-i18n="nav.stories">Récits</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="#about" data-i18n="nav.about">À propos</a>
     </nav>
 
     <div class="header-controls">
       <div class="lang-switcher">
         <button class="lang-btn active" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
       </div>
       <div class="font-controls">
-        <button id="font-minus" title="Diminuer">A−</button>
-        <button id="font-plus" title="Augmenter">A+</button>
+        <button id="font-minus" data-i18n-aria="a11y.fontMinus" title="Diminuer">A−</button>
+        <button id="font-plus" data-i18n-aria="a11y.fontPlus" title="Augmenter">A+</button>
       </div>
-      <button id="theme-toggle" class="theme-btn" title="Thème"><span class="theme-icon">☾</span></button>
-      <button id="burger" class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button id="theme-toggle" class="theme-btn" data-i18n-aria="a11y.theme" title="Thème"><span class="theme-icon">☾</span></button>
+      <button id="burger" class="burger" data-i18n-aria="a11y.menu" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <div id="mobile-menu" class="mobile-menu">
   <div class="mobile-menu-inner">
-    <a href="#home">Accueil</a>
-    <a href="#map">Carte interactive</a>
-    <a href="#itinerary">Itinéraire</a>
+    <a href="#home" data-i18n="nav.home">Accueil</a>
+    <a href="#map" data-i18n="mobile.map">Carte interactive</a>
+    <a href="#itinerary" data-i18n="mobile.itinerary">Itinéraire</a>
     <div class="menu-stages">
-      <p>Étapes du voyage</p>
-      <a href="#vieille-ville">Vieille Ville</a>
-      <a href="#horloge">Horloge astronomique</a>
-      <a href="#pont">Pont Charles</a>
-      <a href="#golem">Golem &amp; Josefov</a>
-      <a href="#chateau">Château</a>
-      <a href="#cimetiere">Cimetière juif</a>
-      <a href="#mouvement">Prague en mouvement</a>
+      <p data-i18n="mobile.stagesTitle">Étapes du voyage</p>
+      <a href="#vieille-ville" data-i18n="label.01">Vieille Ville</a>
+      <a href="#horloge" data-i18n="label.02">Horloge astronomique</a>
+      <a href="#pont" data-i18n="label.03">Pont Charles</a>
+      <a href="#golem" data-i18n="label.04">Golem &amp; Josefov</a>
+      <a href="#chateau" data-i18n="label.05">Château de Prague</a>
+      <a href="#cimetiere" data-i18n="label.06">Cimetière juif</a>
+      <a href="#mouvement" data-i18n="label.07">Prague en mouvement</a>
     </div>
-    <a href="#faq">FAQ</a>
-    <a href="#about">À propos</a>
+    <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    <a href="#about" data-i18n="nav.about">À propos</a>
   </div>
 </div>
 
@@ -87,38 +90,47 @@
 <section id="home" class="hero prague-hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-subtitle">CARNET DE VOYAGE · PRAGUE</p>
-    <h1>Un week-end<br>à Prague</h1>
-    <p class="hero-desc">Des pavés de la Vieille Ville au Château, en passant par le Pont Charles, Josefov et la légende du Golem — sans oublier ce qui se passe sous les pavés.</p>
-    <a href="#map" class="btn-primary">Explorer la carte</a>
+    <p class="hero-subtitle" data-i18n="hero.subtitle">CARNET DE VOYAGE · PRAGUE</p>
+    <h1 data-i18n="hero.title">Un week-end<br>à Prague</h1>
+    <p class="hero-desc" data-i18n="hero.desc">Des pavés de la Vieille Ville au Château, en passant par le Pont Charles, Josefov et la légende du Golem — sans oublier ce qui se passe sous les pavés.</p>
+    <a href="#map" class="btn-primary" data-i18n="hero.cta">Explorer la carte</a>
   </div>
   <div class="scroll-indicator">↓</div>
 </section>
 
 <section id="map" class="map-section prague-map-section">
   <div class="container">
-    <h2 class="section-title">Carte interactive</h2>
-    <p class="section-desc">Cliquez sur un lieu pour accéder directement au récit correspondant.</p>
+    <h2 class="section-title" data-i18n="map.title">Carte de Prague</h2>
+    <p class="section-desc" data-i18n="map.desc">Cliquez sur un lieu pour accéder directement au récit correspondant.</p>
     <div class="map-meta">
-      <span>● 7 lieux</span><span>→ itinéraire photo</span><span>⌁ carte interactive</span>
+      <span data-i18n="map.meta.count">● 7 lieux</span><span data-i18n="map.meta.itinerary">→ itinéraire photo</span><span data-i18n="map.meta.interactive">⌁ carte illustrée</span>
     </div>
 
     <div class="map-wrapper prague-map-wrapper">
-      <div id="map"></div>
-      <div class="map-hint">Cliquez sur un point • zoom + / − • glissez pour vous déplacer</div>
+      <div class="static-map">
+        <img src="prague-images/carte-prague.gif" alt="Carte illustrée du centre de Prague" class="static-map-img" width="1200" height="900" loading="eager">
+        <button class="map-hotspot" data-target="#vieille-ville" style="left:72%;top:38%" title="Vieille Ville" aria-label="01 Vieille Ville"><b>01</b></button>
+        <button class="map-hotspot" data-target="#horloge" style="left:62%;top:36%" title="Horloge astronomique" aria-label="02 Horloge astronomique"><b>02</b></button>
+        <button class="map-hotspot" data-target="#pont" style="left:42%;top:42%" title="Pont Charles" aria-label="03 Pont Charles"><b>03</b></button>
+        <button class="map-hotspot" data-target="#golem" style="left:58%;top:22%" title="Golem & Josefov" aria-label="04 Golem & Josefov"><b>04</b></button>
+        <button class="map-hotspot" data-target="#chateau" style="left:18%;top:18%" title="Château de Prague" aria-label="05 Château de Prague"><b>05</b></button>
+        <button class="map-hotspot" data-target="#cimetiere" style="left:55%;top:18%" title="Cimetière juif" aria-label="06 Cimetière juif"><b>06</b></button>
+        <button class="map-hotspot" data-target="#mouvement" style="left:68%;top:52%" title="Prague en mouvement" aria-label="07 Prague en mouvement"><b>07</b></button>
+      </div>
+      <div class="map-hint" data-i18n="map.hint">Cliquez sur un numéro pour aller au récit</div>
       <div class="route-panel" id="route-panel">
         <div class="route-panel-head">
-          <span class="route-kicker">PRAGUE · WEEK-END</span>
-          <strong>Les 7 étapes</strong>
+          <span class="route-kicker" data-i18n="map.panel.kicker">PRAGUE · WEEK-END</span>
+          <strong data-i18n="map.panel.title">Les 7 étapes</strong>
         </div>
         <div class="route-list">
-          <button data-route="0"><b>01</b><span>Vieille Ville</span></button>
-          <button data-route="1"><b>02</b><span>Horloge astronomique</span></button>
-          <button data-route="2"><b>03</b><span>Pont Charles</span></button>
-          <button data-route="3"><b>04</b><span>Golem / Josefov</span></button>
-          <button data-route="4"><b>05</b><span>Château de Prague</span></button>
-          <button data-route="5"><b>06</b><span>Cimetière juif</span></button>
-          <button data-route="6"><b>07</b><span>Prague en mouvement</span></button>
+          <button data-route="0" data-target="#vieille-ville"><b>01</b><span data-i18n="label.01">Vieille Ville</span></button>
+          <button data-route="1" data-target="#horloge"><b>02</b><span data-i18n="label.02">Horloge astronomique</span></button>
+          <button data-route="2" data-target="#pont"><b>03</b><span data-i18n="label.03">Pont Charles</span></button>
+          <button data-route="3" data-target="#golem"><b>04</b><span data-i18n="label.04">Golem &amp; Josefov</span></button>
+          <button data-route="4" data-target="#chateau"><b>05</b><span data-i18n="label.05">Château de Prague</span></button>
+          <button data-route="5" data-target="#cimetiere"><b>06</b><span data-i18n="label.06">Cimetière juif</span></button>
+          <button data-route="6" data-target="#mouvement"><b>07</b><span data-i18n="label.07">Prague en mouvement</span></button>
         </div>
       </div>
     </div>
@@ -127,62 +139,62 @@
 
 <section id="itinerary" class="itinerary-section">
   <div class="container">
-    <h2 class="section-title">Le week-end en un coup d’œil</h2>
+    <h2 class="section-title" data-i18n="itinerary.title">Le week-end en un coup d’œil</h2>
 
     <div class="itinerary-stats">
-      <div class="stat"><span class="stat-num">7</span><span class="stat-label">étapes</span></div>
-      <div class="stat"><span class="stat-num">25</span><span class="stat-label">photos</span></div>
-      <div class="stat"><span class="stat-num">1</span><span class="stat-label">ville</span></div>
+      <div class="stat"><span class="stat-num">7</span><span class="stat-label" data-i18n="itinerary.stat.etapes">étapes</span></div>
+      <div class="stat"><span class="stat-num">53</span><span class="stat-label" data-i18n="itinerary.stat.photos">photos</span></div>
+      <div class="stat"><span class="stat-num">1</span><span class="stat-label" data-i18n="itinerary.stat.ville">ville</span></div>
     </div>
 
     <div class="timeline">
       <div class="timeline-item" data-target="#vieille-ville">
         <div class="timeline-date">ÉTAPE 01</div>
         <div class="timeline-content">
-          <h4>Vieille Ville</h4>
-          <p>Pavés, façades pastel et Maison municipale.</p>
+          <h4 data-i18n="label.01">Vieille Ville</h4>
+          <p data-i18n="timeline.01.desc">Pavés, façades pastel et Maison municipale.</p>
         </div>
       </div>
       <div class="timeline-item" data-target="#horloge">
         <div class="timeline-date">ÉTAPE 02</div>
         <div class="timeline-content">
-          <h4>Horloge astronomique</h4>
-          <p>L’Orloj et la tour de l’ancien Hôtel de Ville.</p>
+          <h4 data-i18n="label.02">Horloge astronomique</h4>
+          <p data-i18n="timeline.02.desc">L’Orloj et la tour de l’ancien Hôtel de Ville.</p>
         </div>
       </div>
       <div class="timeline-item" data-target="#pont">
         <div class="timeline-date">ÉTAPE 03</div>
         <div class="timeline-content">
-          <h4>Pont Charles</h4>
-          <p>Charles IV, le Calvaire et les statues baroques.</p>
+          <h4 data-i18n="label.03">Pont Charles</h4>
+          <p data-i18n="timeline.03.desc">Charles IV, le Calvaire et les statues baroques.</p>
         </div>
       </div>
       <div class="timeline-item" data-target="#golem">
         <div class="timeline-date">ÉTAPE 04</div>
         <div class="timeline-content">
-          <h4>Golem &amp; Josefov</h4>
-          <p>La grande légende de Prague et le quartier juif.</p>
+          <h4 data-i18n="label.04">Golem &amp; Josefov</h4>
+          <p data-i18n="timeline.04.desc">La grande légende de Prague et le quartier juif.</p>
         </div>
       </div>
       <div class="timeline-item" data-target="#chateau">
         <div class="timeline-date">ÉTAPE 05</div>
         <div class="timeline-content">
-          <h4>Château de Prague</h4>
-          <p>Porte Matthias, cathédrale Saint-Guy et panorama.</p>
+          <h4 data-i18n="label.05">Château de Prague</h4>
+          <p data-i18n="timeline.05.desc">Porte Matthias, cathédrale Saint-Guy et panorama.</p>
         </div>
       </div>
       <div class="timeline-item" data-target="#cimetiere">
         <div class="timeline-date">ÉTAPE 06</div>
         <div class="timeline-content">
-          <h4>Josefov</h4>
-          <p>Le cimetière juif et la mémoire du quartier.</p>
+          <h4 data-i18n="label.06">Cimetière juif</h4>
+          <p data-i18n="timeline.06.desc">Le cimetière juif et la mémoire du quartier.</p>
         </div>
       </div>
       <div class="timeline-item" data-target="#mouvement">
         <div class="timeline-date">ÉTAPE 07</div>
         <div class="timeline-content">
-          <h4>Prague en mouvement</h4>
-          <p>Sous les pavés : le métro et son escalator.</p>
+          <h4 data-i18n="label.07">Prague en mouvement</h4>
+          <p data-i18n="timeline.07.desc">Sous les pavés : le métro et son escalator.</p>
         </div>
       </div>
     </div>
@@ -191,40 +203,35 @@
 
 <section id="stories" class="stories-section">
   <div class="container">
-    <h2 class="section-title">Récits du voyage</h2>
+    <h2 class="section-title" data-i18n="stories.title">Récits du voyage</h2>
 
     <!-- SECTION 1 : VIEILLE VILLE -->
     <article id="vieille-ville" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 01</span>
-        <h3>Les rues de la Vieille Ville</h3>
+        <h3 data-i18n="story.01.title">Les rues de la Vieille Ville</h3>
       </div>
       <div class="story-body">
-        <p>Dès les premiers pas, Prague vous avale. Pavés irréguliers, façades pastel, enseignes en fer forgé… On se croirait dans un décor de film.</p>
+        <p data-i18n="story.01.p1">Dès les premiers pas, Prague vous avale. Pavés irréguliers, façades pastel, enseignes en fer forgé… On se croirait dans un décor de film.</p>
 
         <img class="story-image" src="prague-images/vieille-ville-01-maison-municipale.jpg" alt="Maison municipale Obecní dům à Prague" loading="lazy">
-        <p class="image-caption">La Maison municipale (Obecní dům)<br>Ce joyau Art nouveau sur Náměstí Republiky marque l’entrée dans la Vieille Ville, juste à côté de la Tour poudrière.</p>
+        <p class="image-caption" data-i18n="story.01.img1">La Maison municipale (Obecní dům)<br>Ce joyau Art nouveau sur Náměstí Republiky marque l’entrée dans la Vieille Ville, juste à côté de la Tour poudrière.</p>
 
         <img class="story-image" src="prague-images/vieille-ville-02-tour-poudriere.jpg" alt="Tour poudrière à Prague" loading="lazy">
-        <p class="image-caption">La Tour poudrière (Prašná brána)<br>L’une des treize anciennes portes de la ville, ancien dépôt de poudre à canon, qui ouvre le passage vers la Vieille Ville.</p>
-
-        <img class="story-image" src="prague-images/vieille-ville-03-rue-celetna.jpg" alt="Rue typique de la Vieille Ville de Prague" loading="lazy">
-        <p class="image-caption">Rue Celetná<br>L’une des plus anciennes rues de Prague, sur l’axe royal qui relie la Tour poudrière à la Place de la Vieille Ville.</p>
-
-        <img class="story-image" src="prague-images/vieille-ville-04-facades.jpg" alt="Façades colorées de la Vieille Ville de Prague" loading="lazy">
-        <p class="image-caption">Façades de la Place de la Vieille Ville<br>Chaque maison a son style et sa couleur : un patchwork architectural accumulé sur plusieurs siècles.</p>
+        <p class="image-caption" data-i18n="story.01.img2">La Tour poudrière (Prašná brána)<br>L’une des treize anciennes portes de la ville, ancien dépôt de poudre à canon, qui ouvre le passage vers la Vieille Ville.</p>
 
         <img class="story-image" src="prague-images/vieille-ville-05-place-jan-hus.jpg" alt="Place de la Vieille Ville avec le monument à Jan Hus" loading="lazy">
-        <p class="image-caption">Place de la Vieille Ville (Staroměstské náměstí)<br>Au centre, le monument à Jan Hus, réformateur religieux tchèque brûlé en 1415, veille sur la place depuis 1915.</p>
+        <p class="image-caption" data-i18n="story.01.img5">Place de la Vieille Ville (Staroměstské náměstí)<br>Au centre, le monument à Jan Hus, réformateur religieux tchèque brûlé en 1415, veille sur la place depuis 1915.</p>
 
-        <img class="story-image" src="prague-images/vieille-ville-06-maison-sgraffites.jpg" alt="Maison ornée de sgraffites près de l'Hôtel de Ville de Prague" loading="lazy">
-        <p class="image-caption image-caption-uncertain">Maison à sgraffites, à deux pas de l’Hôtel de Ville<br>Ce type de façade grattée en motifs géométriques est une signature du centre historique ; l’identification précise de cette maison reste à confirmer.</p>
+        <p data-i18n="story.01.p2">C’est ici que le voyage commence vraiment. Le bruit des valises sur les pavés, les conversations en dix langues, l’odeur du trdelník…</p>
 
-        <p>C’est ici que le voyage commence vraiment. Le bruit des valises sur les pavés, les conversations en dix langues, l’odeur du trdelník…</p>
+        <div class="story-note"><strong data-i18n="story.01.note.label">Anecdote :</strong> <span data-i18n="story.01.note.text">le monument à Jan Hus fut inauguré le 6 juillet 1915, jour exact du 500ᵉ anniversaire de son exécution sur le bûcher — un symbole fort en pleine Première Guerre mondiale, quand le nationalisme tchèque cherchait ses figures.</span></div>
+        <div class="story-tip" data-i18n="story.01.tip">Conseil : venez tôt le matin pour photographier la Maison municipale et la Tour poudrière sans la foule — la lumière rasante sublime les détails Art nouveau.</div>
+        <p class="gallery-invite" data-i18n="story.01.gallery.invite">La Vieille Ville ne s’arrête pas à ces trois arrêts : ruelles cachées, façades peintes et détails oubliés attendent dans l’album complet.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="vieille-ville">
             <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/vieille-ville-01-maison-municipale.jpg" alt=""><img src="prague-images/thumbs/vieille-ville-04-facades.jpg" alt=""><img src="prague-images/thumbs/vieille-ville-05-place-jan-hus.jpg" alt=""></span>
-            <span class="gallery-btn-text"><span class="gallery-btn-title">Voir les photos de la Vieille Ville</span><small>6 photos</small></span>
+            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.01.gallery.title">Voir les photos de la Vieille Ville</span><small data-i18n="story.01.gallery.count">6 photos</small></span>
             <span class="gallery-btn-arrow">→</span>
           </button>
         </div>
@@ -235,29 +242,27 @@
     <article id="horloge" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 02</span>
-        <h3>L’Horloge astronomique</h3>
+        <h3 data-i18n="story.02.title">L’Horloge astronomique</h3>
       </div>
       <div class="story-body">
-        <p>La Place de la Vieille Ville est le théâtre permanent de Prague. Au pied de la tour de l’ancien Hôtel de Ville, l’Orloj continue de fasciner les foules chaque heure.</p>
+        <p data-i18n="story.02.p1">La Place de la Vieille Ville est le théâtre permanent de Prague. Au pied de la tour de l’ancien Hôtel de Ville, l’Orloj continue de fasciner les foules chaque heure.</p>
 
         <img class="story-image" src="prague-images/horloge-01-tour-hotel-ville.jpg" alt="Tour de l'Hôtel de Ville de Prague vue depuis la place" loading="lazy">
-        <p class="image-caption">La tour de l’ancien Hôtel de Ville<br>Vue depuis la Place de la Vieille Ville, avec l’horloge astronomique encastrée dans sa façade sud.</p>
+        <p class="image-caption" data-i18n="story.02.img1">La tour de l’ancien Hôtel de Ville<br>Vue depuis la Place de la Vieille Ville, avec l’horloge astronomique encastrée dans sa façade sud.</p>
 
         <img class="story-image" src="prague-images/horloge-02-devant-horloge.jpg" alt="Visiteurs devant l'horloge astronomique de Prague" loading="lazy">
-        <p class="image-caption">Au pied de l’Orloj<br>Chaque heure pile, la foule s’arrête pour voir défiler les apôtres aux fenêtres de l’horloge.</p>
-
-        <img class="story-image" src="prague-images/horloge-03-tour-rapprochee.jpg" alt="Tour de l'horloge astronomique de Prague en gros plan" loading="lazy">
-        <p class="image-caption">La tour, en contre-plongée<br>171 marches mènent à la galerie panoramique, tout en haut.</p>
+        <p class="image-caption" data-i18n="story.02.img2">Au pied de l’Orloj<br>Chaque heure pile, la foule s’arrête pour voir défiler les apôtres aux fenêtres de l’horloge.</p>
 
         <img class="story-image" src="prague-images/horloge-04-cadran-orloj.jpg" alt="Cadran de l'horloge astronomique de Prague" loading="lazy">
-        <p class="image-caption">Le cadran astronomique<br>Installé en 1410, c’est la plus ancienne horloge astronomique encore en fonctionnement au monde.</p>
+        <p class="image-caption" data-i18n="story.02.img4">Le cadran astronomique<br>Installé en 1410, c’est la plus ancienne horloge astronomique encore en fonctionnement au monde.</p>
 
-        <div class="story-note"><strong>Anecdote :</strong> La légende raconte que le maître horloger Hanuš fut aveuglé pour qu’il ne puisse jamais reproduire une horloge aussi parfaite ailleurs.</div>
-        <div class="story-tip">Arrivez 10 minutes avant l’heure pile pour voir les apôtres défiler, et prenez du recul : de près, on ne voit que la foule.</div>
+        <div class="story-note"><strong data-i18n="story.02.note.label">Anecdote :</strong> <span data-i18n="story.02.note.text">La légende raconte que le maître horloger Hanuš fut aveuglé pour qu’il ne puisse jamais reproduire une horloge aussi parfaite ailleurs.</span></div>
+        <div class="story-tip" data-i18n="story.02.tip">Arrivez 10 minutes avant l’heure pile pour voir les apôtres défiler, et prenez du recul : de près, on ne voit que la foule.</div>
+        <p class="gallery-invite" data-i18n="story.02.gallery.invite">Envie de voir le mécanisme sous tous les angles, jusqu’en haut de la tour ? L’album complet de l’Horloge astronomique vous attend.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="horloge">
             <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/horloge-04-cadran-orloj.jpg" alt=""><img src="prague-images/thumbs/horloge-01-tour-hotel-ville.jpg" alt=""><img src="prague-images/thumbs/horloge-02-devant-horloge.jpg" alt=""></span>
-            <span class="gallery-btn-text"><span class="gallery-btn-title">Voir les photos de l’Horloge</span><small>4 photos</small></span>
+            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.02.gallery.title">Voir les photos de l’Horloge</span><small data-i18n="story.02.gallery.count">4 photos</small></span>
             <span class="gallery-btn-arrow">→</span>
           </button>
         </div>
@@ -268,161 +273,27 @@
     <article id="pont" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 03</span>
-        <h3>Le Pont Charles et ses alentours</h3>
+        <h3 data-i18n="story.03.title">Le Pont Charles et ses alentours</h3>
       </div>
       <div class="story-body">
-        <p>Traverser le Pont Charles, c’est marcher sur 650 ans d’histoire. Construit sous Charles IV à partir de 1357, il relie la Vieille Ville à Malá Strana au-dessus de la Vltava.</p>
+        <p data-i18n="story.03.p1">Traverser le Pont Charles, c’est marcher sur 650 ans d’histoire. Construit sous Charles IV à partir de 1357, il relie la Vieille Ville à Malá Strana au-dessus de la Vltava.</p>
 
         <img class="story-image" src="prague-images/pont-01-tour-vieille-ville.jpg" alt="Tour du Pont Charles côté Vieille Ville" loading="lazy">
-        <p class="image-caption">La tour du Pont Charles côté Vieille Ville<br>Considérée comme l’une des plus belles tours-portes gothiques civiles d’Europe, elle marque l’entrée du pont.</p>
-
-        <img class="story-image" src="prague-images/pont-02-statue-charles-iv.jpg" alt="Statue de Charles IV à Křižovnické náměstí, devant le Pont Charles" loading="lazy">
-        <p class="image-caption">Charles IV devant le Pont Charles<br>La statue néogothique de Charles IV, sur Křižovnické náměstí, à quelques mètres seulement de l’entrée du pont qui porte son nom.</p>
+        <p class="image-caption" data-i18n="story.03.img1">La tour du Pont Charles côté Vieille Ville<br>Considérée comme l’une des plus belles tours-portes gothiques civiles d’Europe, elle marque l’entrée du pont.</p>
 
         <img class="story-image" src="prague-images/pont-03-calvaire-crucifix.jpg" alt="Crucifix du Calvaire du Pont Charles avec inscription hébraïque" loading="lazy">
-        <p class="image-caption">Le Calvaire du Pont Charles<br>Le célèbre crucifix du Pont Charles, entouré de son inscription hébraïque ajoutée en 1696, encadré par les statues de la Vierge et de saint Jean.</p>
+        <p class="image-caption" data-i18n="story.03.img3">Le Calvaire du Pont Charles<br>Le célèbre crucifix du Pont Charles, entouré de son inscription hébraïque ajoutée en 1696, encadré par les statues de la Vierge et de saint Jean.</p>
 
-        <img class="story-image" src="prague-images/pont-04-vue-vltava.jpg" alt="Vue sur la Vltava depuis le Pont Charles" loading="lazy">
-        <p class="image-caption">Sur le pont, au-dessus de la Vltava<br>Trente statues et groupes sculptés jalonnent le parcours, entre ciel et rivière.</p>
+        <img class="story-image" src="prague-images/pont-02-statue-charles-iv.jpg" alt="Statue de Charles IV à Křižovnické náměstí, devant le Pont Charles" loading="lazy">
+        <p class="image-caption" data-i18n="story.03.img2">Charles IV devant le Pont Charles<br>La statue néogothique de Charles IV, sur Křižovnické náměstí, à quelques mètres seulement de l’entrée du pont qui porte son nom.</p>
 
-        <img class="story-image" src="prague-images/pont-05-musiciens.jpg" alt="Musiciens de rue sur le Pont Charles" loading="lazy">
-        <p class="image-caption">Musiciens sur le Pont Charles<br>Un petit groupe de jazz installé face à la Vltava — la bande-son improvisée de toutes les traversées.</p>
-
-        
-       <!-- Polaroid Postcard – by twagirumukiza -->
-<!-- Responsive : occupe le plus de place possible sans jamais dépasser la résolution naturelle de l'image (évite le flou d'agrandissement). -->
-<!-- Cliquez sur la photo pour l'ouvrir en grand (popup) ; Échap, clic à
-     l'extérieur ou le bouton de fermeture referment le popup et vous
-     ramènent exactement où vous étiez sur la page. -->
-<style>
-  .pp-lightbox[data-pp-lightbox="single"] {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 2rem;
-  }
-  .pp-lightbox[data-pp-lightbox="single"].is-open { display: flex; }
-  .pp-lightbox[data-pp-lightbox="single"] img {
-    max-width: 92vw;
-    max-height: 88vh;
-    border-radius: 4px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  }
-  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close {
-    position: absolute;
-    top: 1rem;
-    right: 1.25rem;
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border: none;
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 50%;
-    font-size: 1.4rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close:hover { background: rgba(255, 255, 255, 0.3); }
-  body.pp-lightbox-open-single { overflow: hidden; }
-</style>
-
-<figure class="polaroid-postcard" style="
-  width: 100%;
-  max-width: min(92vw, 968px);
-  aspect-ratio: 2.0596;
-  margin: 2rem auto;
-  text-align: center;
-  font-family: system-ui, sans-serif;
-">
-  <img
-    src="prague-images/polaroid-postcard-1790290582764.png"
-    alt="Collage polaroid"
-    width="968"
-    height="470"
-    data-pp-open="single"
-    style="
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-      border-radius: 4px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-      cursor: zoom-in;
-    "
-  />
-  <figcaption style="
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-    color: #666;
-  ">
-    <!-- Optionnel : légende -->
-  </figcaption>
-</figure>
-
-<div class="pp-lightbox" data-pp-lightbox="single" aria-hidden="true">
-  <button type="button" class="pp-lightbox-close" aria-label="Fermer">&times;</button>
-  <img src="" alt="" />
-</div>
-
-<script>
-  (function () {
-    var lightbox = document.querySelector('[data-pp-lightbox="single"]');
-    // On rattache le popup directement à <body> : ça l'immunise contre un
-    // parent avec "transform" ou "overflow:hidden" ailleurs sur la page,
-    // qui casserait sinon son positionnement plein écran ("fixed").
-    if (lightbox && lightbox.parentNode !== document.body) {
-      document.body.appendChild(lightbox);
-    }
-    var lightboxImg = lightbox ? lightbox.querySelector("img") : null;
-    var lightboxClose = lightbox ? lightbox.querySelector(".pp-lightbox-close") : null;
-    var savedScrollY = 0;
-
-    function openLightbox(src, alt) {
-      if (!lightbox) return;
-      savedScrollY = window.scrollY;
-      lightboxImg.src = src;
-      lightboxImg.alt = alt || "";
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.classList.add("pp-lightbox-open-single");
-    }
-    function closeLightbox() {
-      if (!lightbox) return;
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("pp-lightbox-open-single");
-      window.scrollTo(0, savedScrollY);
-    }
-    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
-    if (lightbox) {
-      lightbox.addEventListener("click", function (e) {
-        if (e.target === lightbox) closeLightbox();
-      });
-    }
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeLightbox();
-    });
-
-    var trigger = document.querySelector('[data-pp-open="single"]');
-    if (trigger) {
-      trigger.addEventListener("click", function () {
-        openLightbox(trigger.src, trigger.alt);
-      });
-    }
-  })();
-</script>
-
-           
-      <div class="story-note"><strong>Histoire des statues :</strong> Les 30 statues et groupes sculptés du pont, pour la plupart baroques, forment une véritable galerie en plein air.</div>
-        <div class="story-tip">Venez au lever du soleil : le pont est presque vide, et la lumière sur les tours est incomparable.</div>
+        <div class="story-note"><strong data-i18n="story.03.note.label">Histoire des statues :</strong> <span data-i18n="story.03.note.text">Les 30 statues et groupes sculptés du pont, pour la plupart baroques, forment une véritable galerie en plein air.</span></div>
+        <div class="story-tip" data-i18n="story.03.tip">Venez au lever du soleil : le pont est presque vide, et la lumière sur les tours est incomparable.</div>
+        <p class="gallery-invite" data-i18n="story.03.gallery.invite">Trente statues, autant d’histoires : le reste de la galerie du Pont Charles vous emmène statue par statue, jusqu’aux rives de la Vltava.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="pont">
-            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/pont-03-calvaire-crucifix.jpg" alt=""><img src="prague-images/thumbs/pont-01-tour-vieille-ville.jpg" alt=""><img src="prague-images/thumbs/pont-05-musiciens.jpg" alt=""></span>
-            <span class="gallery-btn-text"><span class="gallery-btn-title">Voir les photos du Pont Charles</span><small>5 photos</small></span>
+            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/pont-03-calvaire-crucifix.jpg" alt=""><img src="prague-images/thumbs/pont-09-vue-aerienne-pont.jpg" alt=""><img src="prague-images/thumbs/pont-11-tour-mala-strana-nuit.jpg" alt=""></span>
+            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.03.gallery.title">Voir les photos du Pont Charles</span><small data-i18n="story.03.gallery.count">16 photos</small></span>
             <span class="gallery-btn-arrow">→</span>
           </button>
         </div>
@@ -433,28 +304,29 @@
     <article id="golem" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 04</span>
-        <h3>Le Golem &amp; le quartier de Josefov</h3>
+        <h3 data-i18n="story.04.title">Le Golem &amp; le quartier de Josefov</h3>
       </div>
       <div class="story-body">
-        <p>Créé au XVIe siècle par le Rabbi Loew pour protéger la communauté juive, le Golem — cette créature d’argile — reste la légende la plus célèbre de Prague.</p>
+        <p data-i18n="story.04.p1">Créé au XVIe siècle par le Rabbi Loew pour protéger la communauté juive, le Golem — cette créature d’argile — reste la légende la plus célèbre de Prague.</p>
 
         <img class="story-image" src="prague-images/golem-01-synagogue-vieille-nouvelle.jpg" alt="Synagogue Vieille-Nouvelle de Prague" loading="lazy">
-        <p class="image-caption">La Synagogue Vieille-Nouvelle (Staronová synagoga)<br>La plus ancienne synagogue active d’Europe encore en fonctionnement. La légende veut que le Golem repose encore dans son grenier.</p>
+        <p class="image-caption" data-i18n="story.04.img1">La Synagogue Vieille-Nouvelle (Staronová synagoga)<br>La plus ancienne synagogue active d’Europe encore en fonctionnement. La légende veut que le Golem repose encore dans son grenier.</p>
 
         <img class="story-image" src="prague-images/golem-02-statue-golem.jpg" alt="Statue du Golem dans le quartier juif de Prague" loading="lazy">
-        <p class="image-caption">La statue du Golem<br>Silhouette encapuchonnée et sans visage, dressée dans les rues de Josefov en hommage à la légende.</p>
-
-        <img class="story-image" src="prague-images/golem-03-rue-josefov.jpg" alt="Rue du quartier juif de Josefov à Prague" loading="lazy">
-        <p class="image-caption">Dans les rues de Josefov<br>Le quartier juif historique, entre synagogues, maisons bourgeoises et souvenirs de la légende.</p>
+        <p class="image-caption" data-i18n="story.04.img2">La statue du Golem<br>Silhouette encapuchonnée et sans visage, dressée dans les rues de Josefov en hommage à la légende.</p>
 
         <img class="story-image golem-image" src="prague-images/golem-04-figurine.jpg" alt="Figurine en terre cuite du Golem, souvenir de Prague" loading="lazy">
-        <p class="image-caption">Souvenir du Golem<br>Une petite figurine en terre cuite, glaise trapue et visage à peine esquissé — la version de poche de la légende, telle qu’on la trouve dans les échoppes de Josefov.</p>
+        <p class="image-caption" data-i18n="story.04.img4">Souvenir du Golem<br>Une petite figurine en terre cuite, glaise trapue et visage à peine esquissé — la version de poche de la légende, telle qu’on la trouve dans les échoppes de Josefov.</p>
 
-        <p>Le Rabbi plaçait un shem — un parchemin sacré — dans la bouche du Golem pour lui donner vie, puis le retirait pour l’endormir. Certains disent qu’il repose encore là-haut, sous le toit de la Vieille-Nouvelle Synagogue.</p>
+        <p data-i18n="story.04.p2">Le Rabbi plaçait un shem — un parchemin sacré — dans la bouche du Golem pour lui donner vie, puis le retirait pour l’endormir. Certains disent qu’il repose encore là-haut, sous le toit de la Vieille-Nouvelle Synagogue.</p>
+
+        <div class="story-note"><strong data-i18n="story.04.note.label">Anecdote :</strong> <span data-i18n="story.04.note.text">la légende a connu un regain de popularité après la parution du roman « Le Golem » de Gustav Meyrink en 1915, qui l’a durablement ancrée dans l’imaginaire pragois.</span></div>
+        <div class="story-tip" data-i18n="story.04.tip">Conseil : la Synagogue Vieille-Nouvelle ne se visite qu’avec un billet combiné du quartier juif — réservez tôt le matin pour éviter les groupes.</div>
+        <p class="gallery-invite" data-i18n="story.04.gallery.invite">La légende continue dans les ruelles de Josefov : direction l’album complet du Golem et du quartier juif.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="golem">
             <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/golem-02-statue-golem.jpg" alt=""><img src="prague-images/thumbs/golem-04-figurine.jpg" alt=""><img src="prague-images/thumbs/golem-01-synagogue-vieille-nouvelle.jpg" alt=""></span>
-            <span class="gallery-btn-text"><span class="gallery-btn-title">Voir les photos du Golem &amp; Josefov</span><small>4 photos</small></span>
+            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.04.gallery.title">Voir les photos du Golem &amp; Josefov</span><small data-i18n="story.04.gallery.count">4 photos</small></span>
             <span class="gallery-btn-arrow">→</span>
           </button>
         </div>
@@ -465,183 +337,58 @@
     <article id="chateau" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 05</span>
-        <h3>Le Château &amp; la cathédrale Saint-Guy</h3>
+        <h3 data-i18n="story.05.title">Le Château &amp; la cathédrale Saint-Guy</h3>
       </div>
       <div class="story-body">
-        <p>Monter vers le Château est un rite de passage. La Voie Royale traverse Malá Strana avant d’atteindre le plus grand complexe de château ancien au monde.</p>
+        <p data-i18n="story.05.p1">Monter vers le Château est un rite de passage. La Voie Royale traverse Malá Strana avant d’atteindre le plus grand complexe de château ancien au monde.</p>
 
         <img class="story-image" src="prague-images/chateau-01-porte-matthias.jpg" alt="Porte Matthias à l'entrée du Château de Prague" loading="lazy">
-        <p class="image-caption">La Porte Matthias (Matyášova brána)<br>Premier grand portail baroque de l’histoire d’Europe centrale, il marque l’entrée officielle du complexe du Château.</p>
+        <p class="image-caption" data-i18n="story.05.img1">La Porte Matthias (Matyášova brána)<br>Premier grand portail baroque de l’histoire d’Europe centrale, il marque l’entrée officielle du complexe du Château.</p>
 
         <img class="story-image" src="prague-images/chateau-02-cathedrale-facade.jpg" alt="Façade de la cathédrale Saint-Guy à Prague" loading="lazy">
-        <p class="image-caption">Cathédrale Saint-Guy — la façade<br>Commencée en 1344, achevée seulement en 1929 : près de six siècles de chantier gothique.</p>
-
-        <img class="story-image" src="prague-images/chateau-03-cathedrale-interieur.jpg" alt="Intérieur de la cathédrale Saint-Guy à Prague" loading="lazy">
-        <p class="image-caption">La nef de la cathédrale Saint-Guy<br>Une immense nef gothique, tombeau des rois et reines de Bohême.</p>
-
-        <img class="story-image" src="prague-images/chateau-04-vitrail.jpg" alt="Vitrail à l'intérieur de la cathédrale Saint-Guy" loading="lazy">
-        <p class="image-caption">Un vitrail de la cathédrale<br>La lumière traverse les vitraux colorés et projette ses couleurs sur les pierres claires.</p>
+        <p class="image-caption" data-i18n="story.05.img2">Cathédrale Saint-Guy — la façade<br>Commencée en 1344, achevée seulement en 1929 : près de six siècles de chantier gothique.</p>
 
         <img class="story-image" src="prague-images/chateau-05-vue-panoramique.jpg" alt="Vue panoramique sur Prague depuis le Château" loading="lazy">
-        <p class="image-caption">Vue depuis les hauteurs du Château<br>Les toits rouges de Prague à perte de vue, avec la Vltava qui serpente en contrebas.</p>
+        <p class="image-caption" data-i18n="story.05.img5">Vue depuis les hauteurs du Château<br>Les toits rouges de Prague à perte de vue, avec la Vltava qui serpente en contrebas.</p>
 
-
-
-<!-- Polaroid Postcard – by twagirumukiza -->
-<!-- Responsive : occupe le plus de place possible sans jamais dépasser la résolution naturelle de l'image (évite le flou d'agrandissement). -->
-<!-- Cliquez sur la photo pour l'ouvrir en grand (popup) ; Échap, clic à
-     l'extérieur ou le bouton de fermeture referment le popup et vous
-     ramènent exactement où vous étiez sur la page. -->
-<style>
-  .pp-lightbox[data-pp-lightbox="single"] {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 2rem;
-  }
-  .pp-lightbox[data-pp-lightbox="single"].is-open { display: flex; }
-  .pp-lightbox[data-pp-lightbox="single"] img {
-    max-width: 92vw;
-    max-height: 88vh;
-    border-radius: 4px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  }
-  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close {
-    position: absolute;
-    top: 1rem;
-    right: 1.25rem;
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border: none;
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 50%;
-    font-size: 1.4rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close:hover { background: rgba(255, 255, 255, 0.3); }
-  body.pp-lightbox-open-single { overflow: hidden; }
-</style>
-
-<figure class="polaroid-postcard" style="
-  width: 100%;
-  max-width: min(92vw, 968px);
-  aspect-ratio: 2.0596;
-  margin: 2rem auto;
-  text-align: center;
-  font-family: system-ui, sans-serif;
-">
-  <img
-    src="prague-images/polaroid-postcard-1790292783444.png"
-    alt="Collage polaroid"
-    width="968"
-    height="470"
-    data-pp-open="single"
-    style="
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-      border-radius: 4px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-      cursor: zoom-in;
-    "
-  />
-  <figcaption style="
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-    color: #666;
-  ">
-    <!-- Optionnel : légende -->
-  </figcaption>
-</figure>
-
-<div class="pp-lightbox" data-pp-lightbox="single" aria-hidden="true">
-  <button type="button" class="pp-lightbox-close" aria-label="Fermer">&times;</button>
-  <img src="" alt="" />
-</div>
-
-<script>
-  (function () {
-    var lightbox = document.querySelector('[data-pp-lightbox="single"]');
-    // On rattache le popup directement à <body> : ça l'immunise contre un
-    // parent avec "transform" ou "overflow:hidden" ailleurs sur la page,
-    // qui casserait sinon son positionnement plein écran ("fixed").
-    if (lightbox && lightbox.parentNode !== document.body) {
-      document.body.appendChild(lightbox);
-    }
-    var lightboxImg = lightbox ? lightbox.querySelector("img") : null;
-    var lightboxClose = lightbox ? lightbox.querySelector(".pp-lightbox-close") : null;
-    var savedScrollY = 0;
-
-    function openLightbox(src, alt) {
-      if (!lightbox) return;
-      savedScrollY = window.scrollY;
-      lightboxImg.src = src;
-      lightboxImg.alt = alt || "";
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.classList.add("pp-lightbox-open-single");
-    }
-    function closeLightbox() {
-      if (!lightbox) return;
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("pp-lightbox-open-single");
-      window.scrollTo(0, savedScrollY);
-    }
-    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
-    if (lightbox) {
-      lightbox.addEventListener("click", function (e) {
-        if (e.target === lightbox) closeLightbox();
-      });
-    }
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeLightbox();
-    });
-
-    var trigger = document.querySelector('[data-pp-open="single"]');
-    if (trigger) {
-      trigger.addEventListener("click", function () {
-        openLightbox(trigger.src, trigger.alt);
-      });
-    }
-  })();
-</script>
-
-
-
-           
-
-
-           
-           
-           
-           <div class="story-note"><strong>Jardins et points de vue :</strong> les hauteurs du Château et Hradčany offrent plusieurs perspectives sur les toits de Prague et la Vltava.</div>
+        <div class="story-note"><strong data-i18n="story.05.note.label">Jardins et points de vue :</strong> <span data-i18n="story.05.note.text">les hauteurs du Château et Hradčany offrent plusieurs perspectives sur les toits de Prague et la Vltava.</span></div>
+        <div class="story-tip" data-i18n="story.05.tip">Conseil : la cathédrale est accessible gratuitement depuis le narthex, mais il faut un billet du complexe du Château pour accéder à la nef et grimper à la tour sud.</div>
+        <p class="gallery-invite" data-i18n="story.05.gallery.invite">Cours intérieures, flèches gothiques, intérieur et panoramas : la suite de la visite du Château tient dans l’album complet.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="chateau">
-            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/chateau-02-cathedrale-facade.jpg" alt=""><img src="prague-images/thumbs/chateau-03-cathedrale-interieur.jpg" alt=""><img src="prague-images/thumbs/chateau-05-vue-panoramique.jpg" alt=""></span>
-            <span class="gallery-btn-text"><span class="gallery-btn-title">Voir les photos du Château</span><small>5 photos</small></span>
+            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/chateau-02-cathedrale-facade.jpg" alt=""><img src="prague-images/thumbs/chateau-13-silhouette-vltava.jpg" alt=""><img src="prague-images/thumbs/chateau-10-toits-mala-strana.jpg" alt=""></span>
+            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.05.gallery.title">Voir les photos du Château</span><small data-i18n="story.05.gallery.count">13 photos</small></span>
             <span class="gallery-btn-arrow">→</span>
           </button>
         </div>
       </div>
     </article>
 
-    <!-- SECTION 6 : CIMETIÈRE JUIF — aucune photo locale disponible -->
+    <!-- SECTION 6 : CIMETIÈRE JUIF -->
     <article id="cimetiere" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 06</span>
-        <h3>Le cimetière juif — Josefov</h3>
+        <h3 data-i18n="story.06.title">Le cimetière juif — Josefov</h3>
       </div>
       <div class="story-body">
-        <p>J’y suis allé. Les photos ont disparu, mais le souvenir reste. Plus de 12 000 pierres tombales, certaines du XVe siècle, empilées les unes sur les autres faute de place. Tombe du Rabbi Loew, figure centrale de la légende du Golem.</p>
-        <div class="story-tip">Couverture pour les épaules demandée. Respectez le silence du lieu.</div>
+        <p data-i18n="story.06.p1">J’y suis allé. La plupart des photos de ce lieu ont disparu ; il n’en reste heureusement que deux, mais elles suffisent à retrouver l’atmosphère. Plus de 12 000 pierres tombales, certaines du XVe siècle, empilées les unes sur les autres faute de place. Tombe du Rabbi Loew, figure centrale de la légende du Golem.</p>
+
+        <img class="story-image" src="prague-images/cimetiere-01-pierres-ete.jpg" alt="Pierres tombales du vieux cimetière juif de Prague, en été" loading="lazy">
+        <p class="image-caption" data-i18n="story.06.img1">Les pierres serrées les unes contre les autres<br>Faute de place, les tombes ont été empilées sur plusieurs niveaux au fil des siècles — jusqu’à douze couches par endroits.</p>
+
+        <img class="story-image" src="prague-images/cimetiere-02-colline-automne.jpg" alt="Cimetière juif en automne, pierres tombales sur une colline" loading="lazy">
+        <p class="image-caption" data-i18n="story.06.img2">Une autre partie du cimetière, en automne<br>Les feuilles mortes et la pente du terrain donnent à ce coin du cimetière une atmosphère plus sauvage encore.</p>
+
+        <div class="story-note"><strong data-i18n="story.06.note.label">Anecdote :</strong> <span data-i18n="story.06.note.text">certaines tombes portent des symboles gravés indiquant le nom ou le métier du défunt — mains jointes pour un Cohen, cruche pour un Lévite, ciseaux pour un tailleur.</span></div>
+        <div class="story-tip" data-i18n="story.06.tip">Couverture pour les épaules demandée. Respectez le silence du lieu.</div>
+        <p class="gallery-invite" data-i18n="story.06.gallery.invite">Ces deux photos n’en disent qu’une partie : le reste se découvre dans l’album du cimetière.</p>
+        <div class="gallery-cta">
+          <button class="gallery-btn" data-gallery="cimetiere">
+            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/cimetiere-01-pierres-ete.jpg" alt=""><img src="prague-images/thumbs/cimetiere-02-colline-automne.jpg" alt=""></span>
+            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.06.gallery.title">Voir les photos du cimetière</span><small data-i18n="story.06.gallery.count">2 photos</small></span>
+            <span class="gallery-btn-arrow">→</span>
+          </button>
+        </div>
       </div>
     </article>
 
@@ -649,148 +396,29 @@
     <article id="mouvement" class="story-card">
       <div class="story-header">
         <span class="story-date">ÉTAPE 07</span>
-        <h3>Prague en mouvement</h3>
+        <h3 data-i18n="label.07">Prague en mouvement</h3>
       </div>
       <div class="story-body">
-        <p>Prague, ce n’est pas seulement des monuments : c’est aussi l’expérience du voyage elle-même. Sous les pavés de la Vieille Ville, le métro pragois offre une autre façon de découvrir la ville.</p>
+        <p data-i18n="story.07.p1">Prague, ce n’est pas seulement des monuments : c’est aussi l’expérience du voyage elle-même. Sous les pavés de la Vieille Ville, le métro pragois offre une autre façon de découvrir la ville.</p>
 
         <img class="story-image" src="prague-images/mouvement-01-metro-staromestska.jpg" alt="Escalator du métro à la station Staroměstská à Prague" loading="lazy">
-        <p class="image-caption">Sous les rues de Prague<br>Descente dans le métro pragois, à la station Staroměstská : un long escalator incurvé, très profond, à l’architecture caractéristique.</p>
+        <p class="image-caption" data-i18n="story.07.img1">Sous les rues de Prague<br>Descente dans le métro pragois, à la station Staroměstská : un long escalator incurvé, très profond, à l’architecture caractéristique.</p>
 
-     <!-- Polaroid Postcard – by twagirumukiza -->
-<!-- Responsive : occupe le plus de place possible sans jamais dépasser la résolution naturelle de l'image (évite le flou d'agrandissement). -->
-<!-- Cliquez sur la photo pour l'ouvrir en grand (popup) ; Échap, clic à
-     l'extérieur ou le bouton de fermeture referment le popup et vous
-     ramènent exactement où vous étiez sur la page. -->
-<style>
-  .pp-lightbox[data-pp-lightbox="single"] {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 2rem;
-  }
-  .pp-lightbox[data-pp-lightbox="single"].is-open { display: flex; }
-  .pp-lightbox[data-pp-lightbox="single"] img {
-    max-width: 92vw;
-    max-height: 88vh;
-    border-radius: 4px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  }
-  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close {
-    position: absolute;
-    top: 1rem;
-    right: 1.25rem;
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border: none;
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 50%;
-    font-size: 1.4rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-  .pp-lightbox[data-pp-lightbox="single"] .pp-lightbox-close:hover { background: rgba(255, 255, 255, 0.3); }
-  body.pp-lightbox-open-single { overflow: hidden; }
-</style>
+        <img class="story-image" src="prague-images/mouvement-02-rame-depo-hostivar.jpg" alt="Rame de métro 81-71M à destination de Depo Hostivař" loading="lazy">
+        <p class="image-caption" data-i18n="story.07.img2">Une rame vers Depo Hostivař<br>Ce terminus de la ligne A, ouvert en 2006, a été installé dans un ancien dépôt : les derniers mètres de la ligne y sont aériens. La rame elle-même, un modèle 81-71M, est une version modernisée d’un matériel soviétique retiré du service en 2009.</p>
 
-<figure class="polaroid-postcard" style="
-  width: 100%;
-  max-width: min(92vw, 968px);
-  aspect-ratio: 2.0596;
-  margin: 2rem auto;
-  text-align: center;
-  font-family: system-ui, sans-serif;
-">
-  <img
-    src="prague-images/polaroid-postcard-1790294929461.png"
-    alt="Collage polaroid"
-    width="968"
-    height="470"
-    data-pp-open="single"
-    style="
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-      border-radius: 4px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-      cursor: zoom-in;
-    "
-  />
-  <figcaption style="
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-    color: #666;
-  ">
-    <!-- Optionnel : légende -->
-  </figcaption>
-</figure>
+        <img class="story-image" src="prague-images/mouvement-08-escalator-argentique.jpg" alt="Escalator du métro de Prague, photo argentique" loading="lazy">
+        <p class="image-caption" data-i18n="story.07.img8">Un escalator sans fin<br>Station non identifiée avec certitude, mais bien pragoise : les affiches en tchèque le confirment. Les stations profondes du réseau sont réputées pour leurs escalators interminables, certains dépassant 80 mètres.</p>
 
-<div class="pp-lightbox" data-pp-lightbox="single" aria-hidden="true">
-  <button type="button" class="pp-lightbox-close" aria-label="Fermer">&times;</button>
-  <img src="" alt="" />
-</div>
+        <p data-i18n="story.07.p2">Ce détour par le métro rappelle que le charme de Prague ne se limite pas à ses monuments : il se niche aussi dans ces instants plus ordinaires du voyage.</p>
 
-<script>
-  (function () {
-    var lightbox = document.querySelector('[data-pp-lightbox="single"]');
-    // On rattache le popup directement à <body> : ça l'immunise contre un
-    // parent avec "transform" ou "overflow:hidden" ailleurs sur la page,
-    // qui casserait sinon son positionnement plein écran ("fixed").
-    if (lightbox && lightbox.parentNode !== document.body) {
-      document.body.appendChild(lightbox);
-    }
-    var lightboxImg = lightbox ? lightbox.querySelector("img") : null;
-    var lightboxClose = lightbox ? lightbox.querySelector(".pp-lightbox-close") : null;
-    var savedScrollY = 0;
-
-    function openLightbox(src, alt) {
-      if (!lightbox) return;
-      savedScrollY = window.scrollY;
-      lightboxImg.src = src;
-      lightboxImg.alt = alt || "";
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.classList.add("pp-lightbox-open-single");
-    }
-    function closeLightbox() {
-      if (!lightbox) return;
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("pp-lightbox-open-single");
-      window.scrollTo(0, savedScrollY);
-    }
-    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
-    if (lightbox) {
-      lightbox.addEventListener("click", function (e) {
-        if (e.target === lightbox) closeLightbox();
-      });
-    }
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeLightbox();
-    });
-
-    var trigger = document.querySelector('[data-pp-open="single"]');
-    if (trigger) {
-      trigger.addEventListener("click", function () {
-        openLightbox(trigger.src, trigger.alt);
-      });
-    }
-  })();
-</script>
-
-
-           
-           <p>Ce détour par le métro rappelle que le charme de Prague ne se limite pas à ses monuments : il se niche aussi dans ces instants plus ordinaires du voyage.</p>
+        <div class="story-note"><strong data-i18n="story.07.note.label">Anecdote :</strong> <span data-i18n="story.07.note.text">avec ses 53 mètres de profondeur, la station Náměstí Míru détient le record du métro pragois — construite assez profond pour servir, si besoin, d’abri antiatomique.</span></div>
+        <div class="story-tip" data-i18n="story.07.tip">Conseil : un simple ticket de 30 ou 90 minutes suffit à combiner métro, tram et bus dans toute la ville — inutile d’acheter un billet par trajet.</div>
+        <p class="gallery-invite" data-i18n="story.07.gallery.invite">Rames, stations et escalators sans fin : le reste de l’histoire se trouve dans l’album Prague en mouvement.</p>
         <div class="gallery-cta">
           <button class="gallery-btn" data-gallery="mouvement">
-            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/mouvement-01-metro-staromestska.jpg" alt=""></span>
-            <span class="gallery-btn-text"><span class="gallery-btn-title">Voir la photo</span><small>1 photo</small></span>
+            <span class="gallery-btn-thumbs"><img src="prague-images/thumbs/mouvement-01-metro-staromestska.jpg" alt=""><img src="prague-images/thumbs/mouvement-08-escalator-argentique.jpg" alt=""><img src="prague-images/thumbs/mouvement-07-mur-alu-hemispheres.jpg" alt=""></span>
+            <span class="gallery-btn-text"><span class="gallery-btn-title" data-i18n="story.07.gallery.title">Voir les photos</span><small data-i18n="story.07.gallery.count">8 photos</small></span>
             <span class="gallery-btn-arrow">→</span>
           </button>
         </div>
@@ -803,37 +431,37 @@
 <section id="faq" class="faq-prague">
   <div class="container">
     <button id="faq-toggle" class="faq-toggle" aria-expanded="false" aria-controls="faq-grid">
-      <h2 class="section-title faq-toggle-title">FAQ — Voyager à Prague</h2>
+      <h2 class="section-title faq-toggle-title" data-i18n="faq.title">FAQ — Voyager à Prague</h2>
       <span class="faq-toggle-icon">＋</span>
     </button>
     <div class="faq-grid" id="faq-grid" hidden>
-      <details><summary>Quelle monnaie utiliser ?</summary><p>La couronne tchèque (CZK). Les euros sont rarement acceptés ou proposés à un mauvais taux. Une carte Visa/Mastercard sans frais et un peu de cash sont pratiques.</p></details>
-      <details><summary>Prague est-elle sûre ?</summary><p>La ville est globalement très sûre. Comme dans toute zone touristique, attention aux pickpockets et aux taxis non officiels.</p></details>
-      <details><summary>Y a-t-il du racisme ou de la xénophobie ?</summary><p>Le récit d’origine mentionne des expériences rapportées par certains voyageurs noirs, arabes ou asiatiques : regards insistants, refus d’entrée dans certains bars ou contrôles plus fréquents. Ce n’est pas systématique.</p></details>
-      <details><summary>Les bars : lesquels éviter / lesquels aimer ?</summary><p>Le récit conseille d’éviter les bars ultra-touristiques autour de la Place de la Vieille Ville et de regarder plutôt du côté des beer gardens de Letná ou Riegrovy sady, ainsi que Vinohrady et Žižkov.</p></details>
-      <details><summary>Quel aéroport et comment rejoindre le centre ?</summary><p>Aéroport Václav Havel (PRG). Le récit indique le bus 119 puis le métro Nádraží Veleslavín, pour environ 40–60 minutes.</p></details>
-      <details><summary>Quel budget ?</summary><p>Le récit indique un budget moyen de 60–100 € par jour, avec bière locale autour de 1,5–3 €, repas 8–15 € et attractions 10–20 €.</p></details>
-      <details><summary>Transports et commodités ?</summary><p>Excellent réseau métro/tram/bus. Eau du robinet potable, Wi-Fi largement disponible et toilettes publiques souvent payantes.</p></details>
-      <details><summary>Meilleure période pour visiter ?</summary><p>Le récit recommande avril–juin et septembre–octobre. L’hiver est associé aux marchés de Noël, tandis que juillet–août correspond à la haute saison.</p></details>
+      <details><summary data-i18n="faq.q1">Quelle monnaie utiliser ?</summary><p data-i18n="faq.a1">La couronne tchèque (CZK). Les euros sont rarement acceptés ou proposés à un mauvais taux. Une carte Visa/Mastercard sans frais et un peu de cash sont pratiques.</p></details>
+      <details><summary data-i18n="faq.q2">Prague est-elle sûre ?</summary><p data-i18n="faq.a2">La ville est globalement très sûre. Comme dans toute zone touristique, attention aux pickpockets et aux taxis non officiels.</p></details>
+      <details><summary data-i18n="faq.q3">Y a-t-il du racisme ou de la xénophobie ?</summary><p data-i18n="faq.a3">Le récit d’origine mentionne des expériences rapportées par certains voyageurs noirs, arabes ou asiatiques : regards insistants, refus d’entrée dans certains bars ou contrôles plus fréquents. Ce n’est pas systématique.</p></details>
+      <details><summary data-i18n="faq.q4">Les bars : lesquels éviter / lesquels aimer ?</summary><p data-i18n="faq.a4">Le récit conseille d’éviter les bars ultra-touristiques autour de la Place de la Vieille Ville et de regarder plutôt du côté des beer gardens de Letná ou Riegrovy sady, ainsi que Vinohrady et Žižkov.</p></details>
+      <details><summary data-i18n="faq.q5">Quel aéroport et comment rejoindre le centre ?</summary><p data-i18n="faq.a5">Aéroport Václav Havel (PRG). Le récit indique le bus 119 puis le métro Nádraží Veleslavín, pour environ 40–60 minutes.</p></details>
+      <details><summary data-i18n="faq.q6">Quel budget ?</summary><p data-i18n="faq.a6">Le récit indique un budget moyen de 60–100 € par jour, avec bière locale autour de 1,5–3 €, repas 8–15 € et attractions 10–20 €.</p></details>
+      <details><summary data-i18n="faq.q7">Transports et commodités ?</summary><p data-i18n="faq.a7">Excellent réseau métro/tram/bus. Eau du robinet potable, Wi-Fi largement disponible et toilettes publiques souvent payantes.</p></details>
+      <details><summary data-i18n="faq.q8">Meilleure période pour visiter ?</summary><p data-i18n="faq.a8">Le récit recommande avril–juin et septembre–octobre. L’hiver est associé aux marchés de Noël, tandis que juillet–août correspond à la haute saison.</p></details>
     </div>
   </div>
 </section>
 
 <section id="about" class="about-section">
   <div class="container">
-    <h2 class="section-title">Pour un week-end parfait</h2>
-    <p class="about-text"><strong>Samedi :</strong> Vieille Ville → Horloge → Pont Charles → Malá Strana → Château au coucher du soleil.</p>
-    <p class="about-text"><strong>Dimanche :</strong> Lever de soleil sur le pont → Quartier juif → métro et dernière balade → départ.</p>
-    <p class="signature">Prague ne se visite pas. Elle se ressent.</p>
-    <p class="about-text">Un carnet de voyage par twagirumukiza.</p>
+    <h2 class="section-title" data-i18n="about.title">Pour un week-end parfait</h2>
+    <p class="about-text" data-i18n="about.sat"><strong>Samedi :</strong> Vieille Ville → Horloge → Pont Charles → Malá Strana → Château au coucher du soleil.</p>
+    <p class="about-text" data-i18n="about.sun"><strong>Dimanche :</strong> Lever de soleil sur le pont → Quartier juif → métro et dernière balade → départ.</p>
+    <p class="signature" data-i18n="about.signature">Prague ne se visite pas. Elle se ressent.</p>
+    <p class="about-text" data-i18n="about.credit">Un carnet de voyage par twagirumukiza.</p>
   </div>
 </section>
 
 <!-- FOOTER : crédits et liens finaux -->
 <footer class="footer">
   <div class="container">
-    <p><strong>by twagirumukiza</strong> · FR · EN</p>
-    <p class="footer-note">© 2026 twagirumukiza — Photos personnelles. Toute reproduction interdite sans autorisation.</p>
+    <p><strong>by twagirumukiza</strong> · FR · EN · ES</p>
+    <p class="footer-note" data-i18n="footer.note">© 2026 twagirumukiza — Photos personnelles. Toute reproduction interdite sans autorisation.</p>
     <p class="footer-note"><a href="https://www.linkedin.com/in/twagirumukiza" target="_blank" rel="noopener">LinkedIn</a></p>
   </div>
 </footer>
@@ -842,12 +470,13 @@
 <div id="gallery-viewer" class="gv" aria-hidden="true">
   <div class="gv-top">
     <div class="gv-count"><span id="gv-index">1</span><span class="gv-sep">/</span><span id="gv-total">1</span></div>
-    <div class="gv-hint">← → pour naviguer · molette pour zoomer</div>
+    <div class="gv-hint" data-i18n="gv.hint">← → naviguer · molette ou pincer pour zoomer · double-clic · Échap pour fermer</div>
     <div class="gv-tools">
-      <button id="gv-minus" aria-label="Zoom arrière">−</button>
-      <button id="gv-plus" aria-label="Zoom avant">+</button>
-      <button id="gv-fit" aria-label="Ajuster">⤢</button>
-      <button id="gv-close" class="gv-close" aria-label="Fermer">×</button>
+      <span id="gv-zoom-level" class="gv-zoom-level">×1.0</span>
+      <button id="gv-minus" data-i18n-aria="gv.zoomOut" aria-label="Zoom arrière">−</button>
+      <button id="gv-plus" data-i18n-aria="gv.zoomIn" aria-label="Zoom avant">+</button>
+      <button id="gv-fit" data-i18n-aria="gv.fit" aria-label="Ajuster">⤢</button>
+      <button id="gv-close" class="gv-close" data-i18n-aria="gv.close" aria-label="Fermer">×</button>
     </div>
   </div>
   <div id="gv-stage" class="gv-stage">
@@ -856,7 +485,6 @@
   <div id="gv-thumbs" class="gv-thumbs"></div>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
