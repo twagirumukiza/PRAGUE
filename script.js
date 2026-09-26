@@ -692,6 +692,9 @@
   function fitImage() {
     zoom = 1;
     panX = 0; panY = 0;
+    img.style.position = 'relative';
+    img.style.left = 'auto';
+    img.style.top = 'auto';
     img.style.maxWidth = '100%';
     img.style.maxHeight = '100%';
     img.style.width = 'auto';
@@ -768,18 +771,22 @@
   document.getElementById('gv-minus')?.addEventListener('click', () => setZoom(zoom - .5));
   document.getElementById('gv-fit')?.addEventListener('click', fitImage);
 
-  function galleryPrev() {
+  function galleryPrev(e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
     if (!current.length) return;
     index = (index - 1 + current.length) % current.length;
     render();
   }
-  function galleryNext() {
+  function galleryNext(e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
     if (!current.length) return;
     index = (index + 1) % current.length;
     render();
   }
-  document.getElementById('gv-prev')?.addEventListener('click', galleryPrev);
-  document.getElementById('gv-next')?.addEventListener('click', galleryNext);
+  const prevBtn = document.getElementById('gv-prev');
+  const nextBtn = document.getElementById('gv-next');
+  prevBtn?.addEventListener('click', galleryPrev);
+  nextBtn?.addEventListener('click', galleryNext);
 
   // Double-clic : bascule zoom ×1 / ×2.2, centré sur le point cliqué
   stage?.addEventListener('dblclick', (e) => {

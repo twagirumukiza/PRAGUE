@@ -93,16 +93,38 @@ body.theme-light .prague-hero {
   pointer-events: none;
 }
 
-/* Panneau des 7 étapes SOUS la carte */
+/* Panneau des 7 étapes SOUS la carte — jamais fixed/sticky */
+.route-panel,
 .route-panel-below {
   position: relative !important;
   top: auto !important;
   right: auto !important;
   bottom: auto !important;
   left: auto !important;
+  inset: auto !important;
   width: 100% !important;
+  max-width: 100% !important;
   margin-top: 1rem;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1 !important;
+  float: none !important;
+  clear: both !important;
+}
+
+/* Le panneau reste dans le flux du document, sous #map */
+#map .route-panel,
+#map .route-panel-below {
+  position: relative !important;
+  order: 2;
+}
+
+#map .prague-map-wrapper {
+  order: 1;
+}
+
+#map .container {
   display: flex;
   flex-direction: column;
 }
@@ -461,46 +483,58 @@ body {
    11. VISIONNEUSE PLEIN ÉCRAN — centrage + indicateur de zoom
    ================================================================ */
 .gv-stage {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
   touch-action: none;
-  flex: 1;
-  min-height: 0;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  width: 100%;
 }
+
+/* Override Mexico: image was position:absolute;left:0;top:0 → not centered */
 .gv-img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  transform-origin: center center !important;
   transition: transform .15s ease-out;
   will-change: transform;
   cursor: zoom-in;
   user-select: none;
+  -webkit-user-drag: none;
+  box-shadow: none;
+  z-index: 1;
 }
-/* Flèches de navigation (styles de base dans Mexico ; renfort local) */
+
+/* Flèches au-dessus de l'image */
 .gv .gv-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 20 !important;
   width: 52px;
   height: 76px;
   border: none;
-  background: rgba(15, 15, 15, 0.55);
+  background: rgba(15, 15, 15, 0.65);
   color: #f7c948;
   font-size: 2.4rem;
   line-height: 1;
   cursor: pointer;
+  pointer-events: auto !important;
   transition: background 0.2s, color 0.2s;
 }
-.gv .gv-prev { left: 0; border-radius: 0 12px 12px 0; }
-.gv .gv-next { right: 0; border-radius: 12px 0 0 12px; }
+.gv .gv-prev { left: 0 !important; right: auto !important; border-radius: 0 12px 12px 0; }
+.gv .gv-next { right: 0 !important; left: auto !important; border-radius: 12px 0 0 12px; }
 .gv .gv-nav:hover,
 .gv .gv-nav:focus-visible {
   background: #f7c948;
@@ -508,7 +542,7 @@ body {
   outline: none;
 }
 @media (max-width: 600px) {
-  .gv .gv-nav { width: 40px; height: 60px; font-size: 2rem; }
+  .gv .gv-nav { width: 44px; height: 64px; font-size: 2rem; }
 }
 .gv-zoom-level {
   font-size: .78rem;
