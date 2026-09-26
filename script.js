@@ -768,6 +768,19 @@
   document.getElementById('gv-minus')?.addEventListener('click', () => setZoom(zoom - .5));
   document.getElementById('gv-fit')?.addEventListener('click', fitImage);
 
+  function galleryPrev() {
+    if (!current.length) return;
+    index = (index - 1 + current.length) % current.length;
+    render();
+  }
+  function galleryNext() {
+    if (!current.length) return;
+    index = (index + 1) % current.length;
+    render();
+  }
+  document.getElementById('gv-prev')?.addEventListener('click', galleryPrev);
+  document.getElementById('gv-next')?.addEventListener('click', galleryNext);
+
   // Double-clic : bascule zoom ×1 / ×2.2, centré sur le point cliqué
   stage?.addEventListener('dblclick', (e) => {
     if (zoom > 1) {

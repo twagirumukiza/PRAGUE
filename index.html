@@ -26,7 +26,6 @@
   <!-- Même feuille de style que Mexico -->
   <link rel="stylesheet" href="https://twagirumukiza.github.io/Mexico/styles.css">
 
-
   <!-- Surcharges spécifiques à Prague -->
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -118,20 +117,20 @@
         <button class="map-hotspot" data-target="#mouvement" style="left:68%;top:52%" title="Prague en mouvement" aria-label="07 Prague en mouvement"><b>07</b></button>
       </div>
       <div class="map-hint" data-i18n="map.hint">Cliquez sur un numéro pour aller au récit</div>
-      <div class="route-panel" id="route-panel">
-        <div class="route-panel-head">
-          <span class="route-kicker" data-i18n="map.panel.kicker">PRAGUE · WEEK-END</span>
-          <strong data-i18n="map.panel.title">Les 7 étapes</strong>
-        </div>
-        <div class="route-list">
-          <button data-route="0" data-target="#vieille-ville"><b>01</b><span data-i18n="label.01">Vieille Ville</span></button>
-          <button data-route="1" data-target="#horloge"><b>02</b><span data-i18n="label.02">Horloge astronomique</span></button>
-          <button data-route="2" data-target="#pont"><b>03</b><span data-i18n="label.03">Pont Charles</span></button>
-          <button data-route="3" data-target="#golem"><b>04</b><span data-i18n="label.04">Golem &amp; Josefov</span></button>
-          <button data-route="4" data-target="#chateau"><b>05</b><span data-i18n="label.05">Château de Prague</span></button>
-          <button data-route="5" data-target="#cimetiere"><b>06</b><span data-i18n="label.06">Cimetière juif</span></button>
-          <button data-route="6" data-target="#mouvement"><b>07</b><span data-i18n="label.07">Prague en mouvement</span></button>
-        </div>
+    </div>
+    <div class="route-panel route-panel-below" id="route-panel">
+      <div class="route-panel-head">
+        <span class="route-kicker" data-i18n="map.panel.kicker">PRAGUE · WEEK-END</span>
+        <strong data-i18n="map.panel.title">Les 7 étapes</strong>
+      </div>
+      <div class="route-list">
+        <button data-route="0" data-target="#vieille-ville"><b>01</b><span data-i18n="label.01">Vieille Ville</span></button>
+        <button data-route="1" data-target="#horloge"><b>02</b><span data-i18n="label.02">Horloge astronomique</span></button>
+        <button data-route="2" data-target="#pont"><b>03</b><span data-i18n="label.03">Pont Charles</span></button>
+        <button data-route="3" data-target="#golem"><b>04</b><span data-i18n="label.04">Golem &amp; Josefov</span></button>
+        <button data-route="4" data-target="#chateau"><b>05</b><span data-i18n="label.05">Château de Prague</span></button>
+        <button data-route="5" data-target="#cimetiere"><b>06</b><span data-i18n="label.06">Cimetière juif</span></button>
+        <button data-route="6" data-target="#mouvement"><b>07</b><span data-i18n="label.07">Prague en mouvement</span></button>
       </div>
     </div>
   </div>
@@ -480,7 +479,9 @@
     </div>
   </div>
   <div id="gv-stage" class="gv-stage">
+    <button type="button" id="gv-prev" class="gv-nav gv-prev" aria-label="Photo précédente">‹</button>
     <img id="gv-img" class="gv-img" alt="">
+    <button type="button" id="gv-next" class="gv-nav gv-next" aria-label="Photo suivante">›</button>
   </div>
   <div id="gv-thumbs" class="gv-thumbs"></div>
 </div>
