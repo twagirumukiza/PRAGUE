@@ -713,7 +713,6 @@
   const totalEl = document.getElementById('gv-total');
   const thumbsEl = document.getElementById('gv-thumbs');
   const zoomLevelEl = document.getElementById('gv-zoom-level');
-  const gvHintEl = document.querySelector('.gv-hint');
   let current = [];
   let index = 0;
   let zoom = 1;
@@ -724,11 +723,15 @@
   }
 
   function updateGvHint() {
-    // Ré-applique la traduction du texte d'aide si la visionneuse est déjà ouverte
-    if (!gvHintEl) return;
+    // Ré-applique la traduction du texte d'aide si la visionneuse est déjà ouverte.
+    // Requête le DOM directement (plutôt que de dépendre d'une const déclarée plus
+    // bas dans le fichier) pour rester utilisable même si cette fonction est
+    // appelée tôt, avant l'exécution du bloc Galeries.
+    const el = document.querySelector('.gv-hint');
+    if (!el) return;
     const lang = localStorage.getItem('prague-lang') || 'fr';
     const dict = translations[lang] || translations.fr;
-    if (dict['gv.hint']) gvHintEl.innerHTML = dict['gv.hint'];
+    if (dict['gv.hint']) el.innerHTML = dict['gv.hint'];
   }
 
   function applyTransform() {
